@@ -1,0 +1,6 @@
+/vendor/
+/.idea
+/dev-ops/docker/containers/php7/createuser.sh
+/.php_cs.cache
+tools/
+/psh

@@ -1,0 +1,11 @@
+paths:
+  - dev-ops/common/actions
+
+dynamic:
+  USERKEY: echo "$(id -u):$(id -g)"
+  APP_ID: docker-compose ps -q app_server
+
+environments:
+  docker:
+    paths:
+      - "dev-ops/docker/actions"

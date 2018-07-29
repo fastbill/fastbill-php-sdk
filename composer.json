@@ -1,0 +1,25 @@
+{
+  "name": "fastbill/fastbill-php-sdk",
+  "description": "FastBill SKD for PHP",
+  "type": "library",
+  "require": {
+    "guzzlehttp/guzzle": "^6.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.2"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Thomas Eiling",
+      "email": "teiling88@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "FastBillSdk\\": "src/",
+      "FastBillSdkTests\\": "tests/"
+    }
+  }
+}

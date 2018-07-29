@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  app_server:
+    build: dev-ops/docker/containers/php7
+    volumes:
+      - ~/.composer/cache:/var/www/composer-cache-dir
+      - .:/project
+      - .:/var/www/fastbill-sdk
+    environment:
+      TERM: xterm
+      COMPOSER_CACHE_DIR: /var/www/composer-cache-dir
+    ports:
+      - "8083:80"
