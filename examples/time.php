@@ -12,7 +12,7 @@ $fastBillClient = new FastBillSdk\Api\ApiClient($username, $apiKey);
 
 $workTimesService = new FastBillSdk\Worktimes\WorktimesService($fastBillClient);
 $workTimesSearchStruct = new \FastBillSdk\Worktimes\WorktimesSearchStruct();
-$workTimesSearchStruct->setCustomerIdFilter(4545366);
+$workTimesSearchStruct->setCustomerIdFilter(123);
 $result = $workTimesService->getTime($workTimesSearchStruct);
 
 ini_set('xdebug.var_display_max_depth', '5');
