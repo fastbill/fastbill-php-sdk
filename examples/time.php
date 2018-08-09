@@ -10,7 +10,7 @@ $apiKey = '';
 
 $fastBillClient = new FastBillSdk\Api\ApiClient($username, $apiKey);
 
-$workTimesService = new FastBillSdk\Worktimes\WorktimesService($fastBillClient);
+$workTimesService = new FastBillSdk\Worktimes\WorktimesService($fastBillClient, new \FastBillSdk\Common\XmlService());
 $workTimesSearchStruct = new \FastBillSdk\Worktimes\WorktimesSearchStruct();
 $workTimesSearchStruct->setCustomerIdFilter(123);
 $result = $workTimesService->getTime($workTimesSearchStruct);

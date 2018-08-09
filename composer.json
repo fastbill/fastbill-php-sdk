@@ -3,7 +3,8 @@
   "description": "FastBill SKD for PHP",
   "type": "library",
   "require": {
-    "guzzlehttp/guzzle": "^6.3"
+    "guzzlehttp/guzzle": "^6.3",
+     "ext-simplexml": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "^7.2"

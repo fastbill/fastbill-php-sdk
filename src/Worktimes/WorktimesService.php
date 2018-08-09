@@ -3,44 +3,35 @@
 namespace FastBillSdk\Worktimes;
 
 use FastBillSdk\Api\ApiClient;
+use FastBillSdk\Common\XmlService;
 
 class WorktimesService
 {
+    const SERVICE = 'time.get';
     /**
      * @var ApiClient
      */
     private $apiClient;
 
     /**
-     * @param ApiClient $apiClient
+     * @var XmlService
      */
-    public function __construct(ApiClient $apiClient)
+    private $xmlService;
+
+    public function __construct(ApiClient $apiClient, XmlService $xmlService)
     {
         $this->apiClient = $apiClient;
+        $this->xmlService = $xmlService;
     }
 
     public function getTime(WorktimesSearchStruct $searchStruct): array
     {
-        $filterString = '';
-        if (\count($searchStruct->getFilters()) > 0) {
-            $filterString = '<FILTER>';
-            foreach ($searchStruct->getFilters() as $key => $value) {
-                $filterString .= '<' . $key . '>' . $value . '</' . $key . '>';
-            }
-            $filterString .= '</FILTER>';
-        }
-        /**
-         * TODO change xml generation
-         */
-        $response = $this->apiClient->post(
-            '<?xml version="1.0" encoding="utf-8"?>
-                    <FBAPI>
-                         <SERVICE>time.get</SERVICE>
-                         ' . $filterString . '
-                         <LIMIT>' . $searchStruct->getLimit() . '</LIMIT>
-                         <OFFSET>' . $searchStruct->getOffset() . '</OFFSET>
-                    </FBAPI>'
-        );
+        $this->xmlService->setService(self::SERVICE);
+        $this->xmlService->setFilters($searchStruct->getFilters());
+        $this->xmlService->setLimit($searchStruct->getLimit());
+        $this->xmlService->setOffset($searchStruct->getOffset());
+
+        $response = $this->apiClient->post($this->xmlService->getXml());
 
         $xml = new \SimpleXMLElement((string) $response->getBody());
         $results = [];
