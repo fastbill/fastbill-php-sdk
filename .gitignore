@@ -4,3 +4,4 @@
 /.php_cs.cache
 tools/
 /psh
+/build/artifacts/*

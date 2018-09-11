@@ -2,7 +2,7 @@
 
 namespace FastBillSdk\Worktimes;
 
-class WorktimesGetResult
+class WorktimesEntity
 {
     public $timeId;
 
@@ -32,18 +32,27 @@ class WorktimesGetResult
         'DATE' => 'date',
         'START_TIME' => 'startTime',
         'END_TIME' => 'endTime',
+        'MINUTES' => 'minutes',
         'BILLABLE_MINUTES' => 'billableMinutes',
         'COMMENT' => 'comment',
     ];
 
+    public function __construct(\SimpleXMLElement $data = null)
+    {
+        if ($data) {
+            $this->setData($data);
+        }
+    }
+
     /**
      * @param \SimpleXMLElement $data
-     * @return WorktimesGetResult
+     * @return WorktimesEntity
      */
     public function setData(\SimpleXMLElement $data): self
     {
         foreach ($data as $key => $value) {
             if (!isset(self::FIELD_MAPPING[$key])) {
+                trigger_error('the provided xml key ' . $key . ' is not mapped at the moment in ' . self::class);
                 continue;
             }
 
