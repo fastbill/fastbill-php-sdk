@@ -29,6 +29,11 @@ class XmlService
      */
     private $offset;
 
+    /**
+     * @var array
+     */
+    private $data;
+
     public function __construct()
     {
         $this->simpleXml = new \SimpleXMLElement('<?xml version="1.0" encoding="utf-8"?><FBAPI></FBAPI>', 0, false);
@@ -49,19 +54,18 @@ class XmlService
         $this->offset = $offset;
     }
 
+    public function setData(array $data)
+    {
+        $this->data = $data;
+    }
+
     public function getXml(): string
     {
         $this->simpleXml->addChild('SERVICE', $this->service);
 
-        if ($this->filters) {
-            $filter = $this->simpleXml->addChild('FILTER');
-            foreach ($this->filters as $filterName => $filterValue) {
-                $filter->addChild($filterName, (string) $filterValue);
-            }
-        }
-
-        $this->simpleXml->addChild('LIMIT', (string) $this->limit);
-        $this->simpleXml->addChild('OFFSET', (string) $this->offset);
+        $this->addFilters();
+        $this->addData();
+        $this->addLimitAndOffset();
 
         return $this->simpleXml->asXML();
     }
@@ -69,5 +73,36 @@ class XmlService
     public function setService(string $service)
     {
         $this->service = $service;
+    }
+
+    private function addFilters()
+    {
+        if ($this->filters) {
+            $filter = $this->simpleXml->addChild('FILTER');
+            foreach ($this->filters as $filterName => $filterValue) {
+                $filter->addChild($filterName, (string) $filterValue);
+            }
+        }
+    }
+
+    private function addData()
+    {
+        if ($this->data) {
+            $data = $this->simpleXml->addChild('DATA');
+            foreach ($this->data as $key => $value) {
+                $data->addChild($key, (string) $value);
+            }
+        }
+    }
+
+    private function addLimitAndOffset()
+    {
+        if ($this->limit) {
+            $this->simpleXml->addChild('LIMIT', (string) $this->limit);
+        }
+
+        if ($this->offset) {
+            $this->simpleXml->addChild('OFFSET', (string) $this->offset);
+        }
     }
 }

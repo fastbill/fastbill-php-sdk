@@ -14,7 +14,7 @@ class WorktimesEntity
 
     public $date;
 
-    public $startTime;
+    public $startTime = '0000-00-00 00:00:00';
 
     public $endTime;
 
@@ -35,6 +35,18 @@ class WorktimesEntity
         'MINUTES' => 'minutes',
         'BILLABLE_MINUTES' => 'billableMinutes',
         'COMMENT' => 'comment',
+    ];
+
+    const XML_FIELD_MAPPING = [
+        'customerId' => 'CUSTOMER_ID',
+        'projectId' => 'PROJECT_ID',
+        'invoiceId' => 'INVOICE_ID',
+        'date' => 'DATE',
+        'startTime' => 'START_TIME',
+        'endTime' => 'END_TIME',
+        'minutes' => 'MINUTES',
+        'billableMinutes' => 'BILLABLE_MINUTES',
+        'comment' => 'COMMENT',
     ];
 
     public function __construct(\SimpleXMLElement $data = null)
@@ -60,5 +72,20 @@ class WorktimesEntity
         }
 
         return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getXmlData(): array
+    {
+        $xmlData = [];
+        foreach (self::XML_FIELD_MAPPING as $key => $value) {
+            if ($this->$key) {
+                $xmlData[$value] = $this->$key;
+            }
+        }
+
+        return $xmlData;
     }
 }

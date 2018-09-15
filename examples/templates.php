@@ -10,15 +10,16 @@ $apiKey = '';
 
 $fastBillClient = new FastBillSdk\Api\ApiClient($username, $apiKey);
 
-$workTimesService = new FastBillSdk\Worktimes\WorktimesService($fastBillClient, new \FastBillSdk\Common\XmlService());
-$workTimesSearchStruct = new \FastBillSdk\Worktimes\WorktimesSearchStruct();
-$workTimesSearchStruct->setCustomerIdFilter(123);
-$result = $workTimesService->getTime($workTimesSearchStruct);
+$templatesService = new FastBillSdk\Templates\TemplatesService(
+    $fastBillClient,
+    new \FastBillSdk\Common\XmlService()
+);
+$result = $templatesService->getTemplate();
 
 ini_set('xdebug.var_display_max_depth', '5');
 ini_set('xdebug.var_display_max_children', '256');
 ini_set('xdebug.var_display_max_data', '1024');
-echo'<pre>';
+echo '<pre>';
 var_dump($result);
-echo'</pre>';
+echo '</pre>';
 die();
