@@ -4,7 +4,47 @@ namespace FastBillSdk\Items;
 
 class ItemsEntity
 {
-    const FIELD_MAPPING = [];
+    public $invoiceItemId;
+
+    public $invoiceId;
+
+    public $customerId;
+
+    public $articleNumber;
+
+    public $description;
+
+    public $quantity;
+
+    public $unitPrice;
+
+    public $vatPercent;
+
+    public $vatValue;
+
+    public $completeNet;
+
+    public $completeGross;
+
+    public $currencyCode;
+
+    public $sortOrder;
+
+    const FIELD_MAPPING = [
+        'INVOICE_ITEM_ID' => 'invoiceItemId',
+        'INVOICE_ID' => 'invoiceId',
+        'CUSTOMER_ID' => 'customerId',
+        'ARTICLE_NUMBER' => 'articleNumber',
+        'DESCRIPTION' => 'description',
+        'QUANTITY' => 'quantity',
+        'UNIT_PRICE' => 'unitPrice',
+        'VAT_PERCENT' => 'vatPercent',
+        'VAT_VALUE' => 'vatValue',
+        'COMPLETE_NET' => 'completeNet',
+        'COMPLETE_GROSS' => 'completeGross',
+        'CURRENCY_CODE' => 'currencyCode',
+        'SORT_ORDER' => 'sortOrder',
+    ];
 
     public function __construct(\SimpleXMLElement $data = null)
     {

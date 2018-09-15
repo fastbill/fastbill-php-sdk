@@ -4,7 +4,9 @@ namespace FastBillSdk\Expenses;
 
 class ExpensesEntity
 {
-    const FIELD_MAPPING = [];
+    const FIELD_MAPPING = [
+
+    ];
 
     public function __construct(\SimpleXMLElement $data = null)
     {
