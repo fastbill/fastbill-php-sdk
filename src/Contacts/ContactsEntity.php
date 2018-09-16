@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace FastBillSdk\Contact;
+namespace FastBillSdk\Contacts;
 
-class ContactEntity
+class ContactsEntity
 {
     public $contactId;
 
@@ -82,7 +82,7 @@ class ContactEntity
 
     /**
      * @param \SimpleXMLElement $data
-     * @return ContactEntity
+     * @return ContactsEntity
      */
     public function setData(\SimpleXMLElement $data): self
     {

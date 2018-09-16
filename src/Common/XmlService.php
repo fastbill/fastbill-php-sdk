@@ -101,7 +101,7 @@ class XmlService
             $this->simpleXml->addChild('LIMIT', (string) $this->limit);
         }
 
-        if ($this->offset) {
+        if ($this->offset >= 0) {
             $this->simpleXml->addChild('OFFSET', (string) $this->offset);
         }
     }

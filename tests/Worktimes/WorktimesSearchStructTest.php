@@ -2,11 +2,11 @@
 
 namespace FastBillSdkTest\Worktimes;
 
-use FastBillSdk\Worktimes\WorktimesSearchStruct;
+use FastBillSdk\Worktimes\CustomersSearchStruct;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @coversDefaultClass \FastBillSdk\Worktimes\WorktimesSearchStruct
+ * @coversDefaultClass \FastBillSdk\Worktimes\CustomersSearchStruct
  */
 class WorktimesSearchStructTest extends TestCase
 {
@@ -20,7 +20,7 @@ class WorktimesSearchStructTest extends TestCase
      */
     public function testCompleteSearchStruct()
     {
-        $searchStruct = new WorktimesSearchStruct();
+        $searchStruct = new CustomersSearchStruct();
 
         $searchStruct->setCustomerIdFilter(1);
         $searchStruct->setProjectIdFilter(2);
