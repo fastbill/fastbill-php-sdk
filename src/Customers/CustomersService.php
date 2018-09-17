@@ -63,7 +63,7 @@ class CustomersService
 
         $xml = new \SimpleXMLElement((string) $response->getBody());
 
-        $entity->customerId = $xml->RESPONSE->TIME_ID;
+        $entity->customerId = (int) $xml->RESPONSE->CUSTOMER_ID;
 
         return $entity;
     }
