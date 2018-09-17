@@ -73,6 +73,31 @@ class ContactsEntity
         'TAGS' => 'tags',
     ];
 
+    const XML_FIELD_MAPPING = [
+        'contactId' => 'CONTACT_ID',
+        'customerId' => 'CUSTOMER_ID',
+        'organization' => 'ORGANIZATION',
+        'position' => 'POSITION',
+        'salutation' => 'SALUTATION',
+        'firstName' => 'FIRST_NAME',
+        'lastName' => 'LAST_NAME',
+        'address' => 'ADDRESS',
+        'address2' => 'ADDRESS_2',
+        'zipcode' => 'ZIPCODE',
+        'city' => 'CITY',
+        'countryCode' => 'COUNTRY_CODE',
+        'secondaryAddress' => 'SECONDARY_ADDRESS',
+        'phone' => 'PHONE',
+        'phone2' => 'PHONE_2',
+        'fax' => 'FAX',
+        'mobile' => 'MOBILE',
+        'email' => 'EMAIL',
+        'vatId' => 'VAT_ID',
+        'currencyCode' => 'CURRENCY_CODE',
+        'created' => 'CREATED',
+        'tags' => 'TAGS',
+    ];
+
     public function __construct(\SimpleXMLElement $data = null)
     {
         if ($data) {
@@ -96,5 +121,21 @@ class ContactsEntity
         }
 
         return $this;
+    }
+
+
+    /**
+     * @return array
+     */
+    public function getXmlData(): array
+    {
+        $xmlData = [];
+        foreach (self::XML_FIELD_MAPPING as $key => $value) {
+            if ($this->$key) {
+                $xmlData[$value] = $this->$key;
+            }
+        }
+
+        return $xmlData;
     }
 }
