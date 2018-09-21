@@ -8,14 +8,14 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 $fastBillClient = new FastBillSdk\Api\ApiClient($username, $apiKey);
 
-$customersService = new FastBillSdk\Customers\CustomersService(
+$customersService = new FastBillSdk\Customer\CustomerService(
     $fastBillClient,
     new \FastBillSdk\Common\XmlService(),
-    new \FastBillSdk\Customers\CustomersValidator()
+    new \FastBillSdk\Customer\CustomerValidator()
 );
 
-$customersEntity = new \FastBillSdk\Customers\CustomersEntity();
-$customersEntity->customerType = \FastBillSdk\Customers\CustomersEntity::CUSTOMER_TYPE_CONSUMER;
+$customersEntity = new \FastBillSdk\Customer\CustomerEntity();
+$customersEntity->customerType = \FastBillSdk\Customer\CustomerEntity::CUSTOMER_TYPE_CONSUMER;
 $customersEntity->firstName = 'FirstName';
 $customersEntity->lastName = 'LastName';
 $result = $customersService->createCustomer($customersEntity);

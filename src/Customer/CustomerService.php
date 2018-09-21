@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace FastBillSdk\Customers;
+namespace FastBillSdk\Customer;
 
 use FastBillSdk\Api\ApiClient;
 use FastBillSdk\Common\MissingPropertyException;
 use FastBillSdk\Common\XmlService;
 
-class CustomersService
+class CustomerService
 {
     /**
      * @var ApiClient
@@ -19,11 +19,11 @@ class CustomersService
     private $xmlService;
 
     /**
-     * @var CustomersValidator
+     * @var CustomerValidator
      */
     private $validator;
 
-    public function __construct(ApiClient $apiClient, XmlService $xmlService, CustomersValidator $validator)
+    public function __construct(ApiClient $apiClient, XmlService $xmlService, CustomerValidator $validator)
     {
         $this->apiClient = $apiClient;
         $this->xmlService = $xmlService;
@@ -31,10 +31,10 @@ class CustomersService
     }
 
     /**
-     * @param CustomersSearchStruct $searchStruct
-     * @return CustomersEntity[]
+     * @param CustomerSearchStruct $searchStruct
+     * @return CustomerEntity[]
      */
-    public function getCustomer(CustomersSearchStruct $searchStruct): array
+    public function getCustomer(CustomerSearchStruct $searchStruct): array
     {
         $this->xmlService->setService('customer.get');
         $this->xmlService->setFilters($searchStruct->getFilters());
@@ -46,13 +46,13 @@ class CustomersService
         $xml = new \SimpleXMLElement((string) $response->getBody());
         $results = [];
         foreach ($xml->RESPONSE->CUSTOMERS->CUSTOMER as $customerEntity) {
-            $results[] = new CustomersEntity($customerEntity);
+            $results[] = new CustomerEntity($customerEntity);
         }
 
         return $results;
     }
 
-    public function createCustomer(CustomersEntity $entity): CustomersEntity
+    public function createCustomer(CustomerEntity $entity): CustomerEntity
     {
         $this->checkErrors($this->validator->validateRequiredCreationProperties($entity));
 
@@ -68,7 +68,7 @@ class CustomersService
         return $entity;
     }
 
-    public function updateCustomer(CustomersEntity $entity): CustomersEntity
+    public function updateCustomer(CustomerEntity $entity): CustomerEntity
     {
         $this->checkErrors($this->validator->validateRequiredUpdateProperties($entity));
 
@@ -80,7 +80,7 @@ class CustomersService
         return $entity;
     }
 
-    public function deleteCustomer(CustomersEntity $entity): CustomersEntity
+    public function deleteCustomer(CustomerEntity $entity): CustomerEntity
     {
         $this->checkErrors($this->validator->validateRequiredDeleteProperties($entity));
 

@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace FastBillSdk\Customers;
+namespace FastBillSdk\Customer;
 
-class CustomersEntity
+class CustomerEntity
 {
     const CUSTOMER_TYPE_CONSUMER = 'consumer';
 
@@ -179,7 +179,7 @@ class CustomersEntity
 
     /**
      * @param \SimpleXMLElement $data
-     * @return CustomersEntity
+     * @return CustomerEntity
      */
     public function setData(\SimpleXMLElement $data): self
     {

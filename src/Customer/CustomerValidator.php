@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace FastBillSdk\Customers;
+namespace FastBillSdk\Customer;
 
 use FastBillSdk\Common\MissingPropertyException;
 
-class CustomersValidator
+class CustomerValidator
 {
-    public function validateRequiredCreationProperties(CustomersEntity $entity): array
+    public function validateRequiredCreationProperties(CustomerEntity $entity): array
     {
         $errorMessages = [];
 
@@ -37,7 +37,7 @@ class CustomersValidator
         return $errorMessages;
     }
 
-    public function validateRequiredUpdateProperties(CustomersEntity $entity): array
+    public function validateRequiredUpdateProperties(CustomerEntity $entity): array
     {
         $errorMessages = $this->validateRequiredCreationProperties($entity);
 
@@ -50,7 +50,7 @@ class CustomersValidator
         return $errorMessages;
     }
 
-    public function validateRequiredDeleteProperties(CustomersEntity $entity): array
+    public function validateRequiredDeleteProperties(CustomerEntity $entity): array
     {
         $errorMessages = [];
 
@@ -63,14 +63,14 @@ class CustomersValidator
         return $errorMessages;
     }
 
-    private function checkCustomerId(CustomersEntity $entity)
+    private function checkCustomerId(CustomerEntity $entity)
     {
         if (!$entity->customerId) {
             throw new MissingPropertyException('The property customerId is not valid!');
         }
     }
 
-    private function checkCustomerType(CustomersEntity $entity)
+    private function checkCustomerType(CustomerEntity $entity)
     {
         if (!$entity->customerType || !\in_array($entity->customerType, ['business', 'consumer'], true)) {
             throw new MissingPropertyException(
@@ -79,34 +79,34 @@ class CustomersValidator
         }
     }
 
-    private function checkOrganization(CustomersEntity $entity)
+    private function checkOrganization(CustomerEntity $entity)
     {
         if (!$entity->organization && $this->isBusiness($entity)) {
             throw new MissingPropertyException('The property organization is not valid!');
         }
     }
 
-    private function checkFirstName(CustomersEntity $entity)
+    private function checkFirstName(CustomerEntity $entity)
     {
         if (!$entity->firstName && $this->isConsumer($entity)) {
             throw new MissingPropertyException('The property firstName is not valid!');
         }
     }
 
-    private function checkLastName(CustomersEntity $entity)
+    private function checkLastName(CustomerEntity $entity)
     {
         if (!$entity->lastName && $this->isConsumer($entity)) {
             throw new MissingPropertyException('The property lastName is not valid!');
         }
     }
 
-    private function isConsumer(CustomersEntity $entity): bool
+    private function isConsumer(CustomerEntity $entity): bool
     {
-        return $entity->customerType === CustomersEntity::CUSTOMER_TYPE_CONSUMER;
+        return $entity->customerType === CustomerEntity::CUSTOMER_TYPE_CONSUMER;
     }
 
-    private function isBusiness(CustomersEntity $entity): bool
+    private function isBusiness(CustomerEntity $entity): bool
     {
-        return $entity->customerType === CustomersEntity::CUSTOMER_TYPE_BUSINESS;
+        return $entity->customerType === CustomerEntity::CUSTOMER_TYPE_BUSINESS;
     }
 }
