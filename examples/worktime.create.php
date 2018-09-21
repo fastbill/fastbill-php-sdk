@@ -9,13 +9,13 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 $fastBillClient = new FastBillSdk\Api\ApiClient($username, $apiKey);
 
-$workTimesService = new FastBillSdk\Worktimes\WorktimesService(
+$workTimesService = new FastBillSdk\WorkTime\WorkTimeService(
     $fastBillClient,
     new \FastBillSdk\Common\XmlService(),
-    new \FastBillSdk\Worktimes\WorktimesValidator()
+    new \FastBillSdk\WorkTime\WorkTimeValidator()
 );
 
-$workTimeEntity = new \FastBillSdk\Worktimes\WorktimesEntity();
+$workTimeEntity = new \FastBillSdk\WorkTime\WorkTimeEntity();
 $workTimeEntity->customerId = 123;
 $workTimeEntity->projectId = 456;
 $workTimeEntity->comment = 'sdk test';

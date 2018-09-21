@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace FastBillSdk\Worktimes;
+namespace FastBillSdk\WorkTime;
 
 use FastBillSdk\Common\MissingPropertyException;
 
-class WorktimesValidator
+class WorkTimeValidator
 {
-    public function validateRequiredCreationProperties(WorktimesEntity $entity): array
+    public function validateRequiredCreationProperties(WorkTimeEntity $entity): array
     {
         $errorMessages = [];
 
@@ -31,7 +31,7 @@ class WorktimesValidator
         return $errorMessages;
     }
 
-    public function validateRequiredUpdateProperties(WorkTimesEntity $entity): array
+    public function validateRequiredUpdateProperties(WorkTimeEntity $entity): array
     {
         $errorMessages = $this->validateRequiredCreationProperties($entity);
 
@@ -44,7 +44,7 @@ class WorktimesValidator
         return $errorMessages;
     }
 
-    public function validateRequiredDeleteProperties(WorkTimesEntity $entity): array
+    public function validateRequiredDeleteProperties(WorkTimeEntity $entity): array
     {
         $errorMessages = [];
 
@@ -57,28 +57,28 @@ class WorktimesValidator
         return $errorMessages;
     }
 
-    private function checkCustomerId(WorktimesEntity $entity)
+    private function checkCustomerId(WorkTimeEntity $entity)
     {
         if (!$entity->customerId) {
             throw new MissingPropertyException('The property customerId is not valid!');
         }
     }
 
-    private function checkProjectId(WorktimesEntity $entity)
+    private function checkProjectId(WorkTimeEntity $entity)
     {
         if (!$entity->projectId) {
             throw new MissingPropertyException('The property projectId is not valid!');
         }
     }
 
-    private function checkStartTime(WorktimesEntity $entity)
+    private function checkStartTime(WorkTimeEntity $entity)
     {
-        if (!$entity->startTime) {
+        if (!$entity->startTime || $entity->startTime === '0000-00-00 00:00:00') {
             throw new MissingPropertyException('The property startTime is not valid!');
         }
     }
 
-    private function checkTimeId(WorktimesEntity $entity)
+    private function checkTimeId(WorkTimeEntity $entity)
     {
         if (!$entity->timeId) {
             throw new MissingPropertyException('The property timeId is not valid!');

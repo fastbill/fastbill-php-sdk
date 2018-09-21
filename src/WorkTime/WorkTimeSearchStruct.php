@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace FastBillSdk\Worktimes;
+namespace FastBillSdk\WorkTime;
 
 use FastBillSdk\Common\AbstractSearchStruct;
 
-class WorktimesSearchStruct extends AbstractSearchStruct
+class WorkTimeSearchStruct extends AbstractSearchStruct
 {
     public function setCustomerIdFilter(int $customerId)
     {

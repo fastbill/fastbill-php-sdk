@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace FastBillSdk\Worktimes;
+namespace FastBillSdk\WorkTime;
 
 use FastBillSdk\Api\ApiClient;
 use FastBillSdk\Common\MissingPropertyException;
 use FastBillSdk\Common\XmlService;
 
-class WorktimesService
+class WorkTimeService
 {
     /**
      * @var ApiClient
@@ -19,11 +19,11 @@ class WorktimesService
     private $xmlService;
 
     /**
-     * @var WorktimesValidator
+     * @var WorkTimeValidator
      */
     private $validator;
 
-    public function __construct(ApiClient $apiClient, XmlService $xmlService, WorktimesValidator $validator)
+    public function __construct(ApiClient $apiClient, XmlService $xmlService, WorkTimeValidator $validator)
     {
         $this->apiClient = $apiClient;
         $this->xmlService = $xmlService;
@@ -31,10 +31,10 @@ class WorktimesService
     }
 
     /**
-     * @param WorktimesSearchStruct $searchStruct
-     * @return WorktimesEntity[]
+     * @param WorkTimeSearchStruct $searchStruct
+     * @return WorkTimeEntity[]
      */
-    public function getTime(WorktimesSearchStruct $searchStruct): array
+    public function getTime(WorkTimeSearchStruct $searchStruct): array
     {
         $this->xmlService->setService('time.get');
         $this->xmlService->setFilters($searchStruct->getFilters());
@@ -46,13 +46,13 @@ class WorktimesService
         $xml = new \SimpleXMLElement((string) $response->getBody());
         $results = [];
         foreach ($xml->RESPONSE->TIMES->TIME as $timeEntry) {
-            $results[] = new WorktimesEntity($timeEntry);
+            $results[] = new WorkTimeEntity($timeEntry);
         }
 
         return $results;
     }
 
-    public function createTime(WorktimesEntity $entity): WorktimesEntity
+    public function createTime(WorkTimeEntity $entity): WorkTimeEntity
     {
         $this->checkErrors($this->validator->validateRequiredCreationProperties($entity));
 
@@ -68,7 +68,7 @@ class WorktimesService
         return $entity;
     }
 
-    public function updateTime(WorktimesEntity $entity): WorktimesEntity
+    public function updateTime(WorkTimeEntity $entity): WorkTimeEntity
     {
         $this->checkErrors($this->validator->validateRequiredUpdateProperties($entity));
 
@@ -80,7 +80,7 @@ class WorktimesService
         return $entity;
     }
 
-    public function deleteTime(WorktimesEntity $entity): WorktimesEntity
+    public function deleteTime(WorkTimeEntity $entity): WorkTimeEntity
     {
         $this->checkErrors($this->validator->validateRequiredDeleteProperties($entity));
 

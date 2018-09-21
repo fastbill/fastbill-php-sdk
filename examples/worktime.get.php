@@ -9,12 +9,12 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 $fastBillClient = new FastBillSdk\Api\ApiClient($username, $apiKey);
 
-$workTimesService = new FastBillSdk\Worktimes\WorktimesService(
+$workTimesService = new FastBillSdk\WorkTime\WorkTimeService(
     $fastBillClient,
     new \FastBillSdk\Common\XmlService(),
-    new \FastBillSdk\Worktimes\WorktimesValidator()
+    new \FastBillSdk\WorkTime\WorkTimeValidator()
 );
-$workTimesSearchStruct = new \FastBillSdk\Worktimes\WorktimesSearchStruct();
+$workTimesSearchStruct = new \FastBillSdk\WorkTime\WorkTimeSearchStruct();
 $workTimesSearchStruct->setCustomerIdFilter(123123);
 $result = $workTimesService->getTime($workTimesSearchStruct);
 

@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace FastBillSdk\Worktimes;
+namespace FastBillSdk\WorkTime;
 
-class WorktimesEntity
+class WorkTimeEntity
 {
     public $timeId;
 
@@ -58,7 +58,7 @@ class WorktimesEntity
 
     /**
      * @param \SimpleXMLElement $data
-     * @return WorktimesEntity
+     * @return WorkTimeEntity
      */
     public function setData(\SimpleXMLElement $data): self
     {

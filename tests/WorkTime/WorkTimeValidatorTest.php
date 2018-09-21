@@ -1,25 +1,25 @@
 <?php declare(strict_types=1);
 
-namespace FastBillSdkTest\Worktimes;
+namespace FastBillSdkTest\WorkTime;
 
-use FastBillSdk\Worktimes\WorktimesEntity;
-use FastBillSdk\Worktimes\WorktimesValidator;
+use FastBillSdk\WorkTime\WorkTimeEntity;
+use FastBillSdk\WorkTime\WorkTimeValidator;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @coversDefaultClass \FastBillSdk\Worktimes\WorktimesValidator
+ * @coversDefaultClass \FastBillSdk\WorkTime\WorkTimeValidator
  */
-class WorktimesValidatorTest extends TestCase
+class WorkTimeValidatorTest extends TestCase
 {
     /**
-     * @var WorktimesValidator
+     * @var WorkTimeValidator
      */
     private $validator;
 
-    private function getValidator(): WorktimesValidator
+    private function getValidator(): WorkTimeValidator
     {
         if (!$this->validator) {
-            $this->validator = new WorktimesValidator();
+            $this->validator = new WorkTimeValidator();
         }
 
         return $this->validator;
@@ -33,7 +33,7 @@ class WorktimesValidatorTest extends TestCase
      */
     public function testValidateRequiredCreationProperties()
     {
-        $entity = new WorktimesEntity();
+        $entity = new WorkTimeEntity();
 
         $errorMessages = $this->getValidator()->validateRequiredCreationProperties($entity);
 
@@ -52,7 +52,7 @@ class WorktimesValidatorTest extends TestCase
      */
     public function testValidateRequiredUpdateProperties()
     {
-        $entity = new WorktimesEntity();
+        $entity = new WorkTimeEntity();
 
         $errorMessages = $this->getValidator()->validateRequiredUpdateProperties($entity);
 
@@ -61,7 +61,7 @@ class WorktimesValidatorTest extends TestCase
         self::assertEquals('The property startTime is not valid!', $errorMessages[2]);
         self::assertEquals('The property timeId is not valid!', $errorMessages[3]);
 
-        $entity = new WorktimesEntity(
+        $entity = new WorkTimeEntity(
             new \SimpleXMLElement(
                 file_get_contents(__DIR__ . '/_fixtures/worktimes_entity.xml')
             )
@@ -77,7 +77,7 @@ class WorktimesValidatorTest extends TestCase
      */
     public function testValidateRequiredDeleteProperties()
     {
-        $entity = new WorktimesEntity();
+        $entity = new WorkTimeEntity();
 
         $errorMessages = $this->getValidator()->validateRequiredDeleteProperties($entity);
 
