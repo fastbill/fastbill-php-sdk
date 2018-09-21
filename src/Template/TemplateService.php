@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace FastBillSdk\Templates;
+namespace FastBillSdk\Template;
 
 use FastBillSdk\Api\ApiClient;
 use FastBillSdk\Common\XmlService;
 
-class TemplatesService
+class TemplateService
 {
     const SERVICE = 'template.get';
 
@@ -26,7 +26,7 @@ class TemplatesService
     }
 
     /**
-     * @return TemplatesEntity[]
+     * @return TemplateEntity[]
      */
     public function getTemplate(): array
     {
@@ -36,7 +36,7 @@ class TemplatesService
         $xml = new \SimpleXMLElement((string) $response->getBody());
         $results = [];
         foreach ($xml->RESPONSE->TEMPLATES->TEMPLATE as $templatesEntry) {
-            $results[] = new TemplatesEntity($templatesEntry);
+            $results[] = new TemplateEntity($templatesEntry);
         }
 
         return $results;

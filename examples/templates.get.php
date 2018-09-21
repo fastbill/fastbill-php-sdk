@@ -10,7 +10,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 $fastBillClient = new FastBillSdk\Api\ApiClient($username, $apiKey);
 
-$templatesService = new FastBillSdk\Templates\TemplatesService(
+$templatesService = new FastBillSdk\Template\TemplateService(
     $fastBillClient,
     new \FastBillSdk\Common\XmlService()
 );

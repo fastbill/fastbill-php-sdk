@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace FastBillSdk\Templates;
+namespace FastBillSdk\Template;
 
-class TemplatesEntity
+class TemplateEntity
 {
     public $templateId;
 
@@ -25,7 +25,7 @@ class TemplatesEntity
 
     /**
      * @param \SimpleXMLElement $data
-     * @return TemplatesEntity
+     * @return TemplateEntity
      */
     public function setData(\SimpleXMLElement $data): self
     {
