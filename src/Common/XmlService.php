@@ -90,7 +90,21 @@ class XmlService
         if ($this->data) {
             $data = $this->simpleXml->addChild('DATA');
             foreach ($this->data as $key => $value) {
-                $data->addChild($key, (string) $value);
+                if (is_array($value)) {
+                    $child = $data->addChild($key);
+                    foreach ($value as $children) {
+                        switch ($key) {
+                            case 'ITEMS':
+                                $item = $child->addChild('ITEM');
+                                foreach ($children as $childKey => $childValue) {
+                                    $item->addChild($childKey, (string) $childValue);
+                                }
+                                break;
+                        }
+                    }
+                } else {
+                    $data->addChild($key, (string) $value);
+                }
             }
         }
     }

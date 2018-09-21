@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace FastBillSdk\Estimates;
+namespace FastBillSdk\Estimate;
 
-class EstimatesEntity
+class EstimateEntity
 {
     public $estimateId;
 
@@ -56,6 +56,8 @@ class EstimatesEntity
 
     public $estimateNumber;
 
+    public $invoiceTitle;
+
     public $introtext;
 
     public $estimateDate;
@@ -66,8 +68,14 @@ class EstimatesEntity
 
     public $vatTotal;
 
+    /**
+     * @var EstimateVatItemEntity[]
+     */
     public $vatItems;
 
+    /**
+     * @var EstimateItemEntity[]
+     */
     public $items;
 
     public $total;
@@ -101,6 +109,7 @@ class EstimatesEntity
         'CURRENCY_CODE' => 'currencyCode',
         'TEMPLATE_ID' => 'templateId',
         'ESTIMATE_NUMBER' => 'estimateNumber',
+        'INVOICE_TITLE' => 'invoiceTitle',
         'INTROTEXT' => 'introtext',
         'ESTIMATE_DATE' => 'estimateDate',
         'DUE_DATE' => 'dueDate',
@@ -112,16 +121,69 @@ class EstimatesEntity
         'DOCUMENT_URL' => 'documentUrl',
     ];
 
+    const XML_FIELD_MAPPING = [
+        'estimateId' => 'ESTIMATE_ID',
+        'state' => 'STATE',
+        'customerId' => 'CUSTOMER_ID',
+        'customerNumber' => 'CUSTOMER_NUMBER',
+        'customerCostcenterId' => 'CUSTOMER_COSTCENTER_ID',
+        'projectId' => 'PROJECT_ID',
+        'organization' => 'ORGANIZATION',
+        'salutation' => 'SALUTATION',
+        'firstName' => 'FIRST_NAME',
+        'lastName' => 'LAST_NAME',
+        'address' => 'ADDRESS',
+        'address2' => 'ADDRESS_2',
+        'zipcode' => 'ZIPCODE',
+        'city' => 'CITY',
+        'paymentType' => 'PAYMENT_TYPE',
+        'bankName' => 'BANK_NAME',
+        'bankAccountNumber' => 'BANK_ACCOUNT_NUMBER',
+        'bankCode' => 'BANK_CODE',
+        'bankAccountOwner' => 'BANK_ACCOUNT_OWNER',
+        'bankIban' => 'BANK_IBAN',
+        'bankBic' => 'BANK_BIC',
+        'countryCode' => 'COUNTRY_CODE',
+        'vatId' => 'VAT_ID',
+        'currencyCode' => 'CURRENCY_CODE',
+        'templateId' => 'TEMPLATE_ID',
+        'estimateNumber' => 'ESTIMATE_NUMBER',
+        'invoiceTitle' => 'INVOICE_TITLE',
+        'introtext' => 'INTROTEXT',
+        'estimateDate' => 'ESTIMATE_DATE',
+        'dueDate' => 'DUE_DATE',
+        'subTotal' => 'SUB_TOTAL',
+        'vatTotal' => 'VAT_TOTAL',
+        'vatItems' => 'VAT_ITEMS',
+        'items' => 'ITEMS',
+        'total' => 'TOTAL',
+        'documentUrl' => 'DOCUMENT_URL',
+    ];
+
     public function __construct(\SimpleXMLElement $data = null)
     {
         if ($data) {
+            $items = [];
+            foreach ($data->ITEMS->ITEM as $estimateItemEntity) {
+                $items[] = new EstimateItemEntity($estimateItemEntity);
+            }
+
+            $vatItems = [];
+            foreach ($data->VAT_ITEMS->VAT_ITEM as $estimateVatItemEntity) {
+                $vatItems[] = new EstimateVatItemEntity($estimateVatItemEntity);
+            }
+
+            unset($data['ITEMS'], $data['VAT_ITEMS']);
+
             $this->setData($data);
+            $this->items = $items;
+            $this->vatItems = $vatItems;
         }
     }
 
     /**
      * @param \SimpleXMLElement $data
-     * @return EstimatesEntity
+     * @return EstimateEntity
      */
     public function setData(\SimpleXMLElement $data): self
     {
@@ -135,5 +197,28 @@ class EstimatesEntity
         }
 
         return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getXmlData(): array
+    {
+        $xmlData = [];
+        foreach (self::XML_FIELD_MAPPING as $key => $value) {
+            if ($this->$key && $key === 'items') {
+                foreach ($this->items as $item) {
+                    $xmlData[$value][] = $item->getXmlData();
+                }
+            } elseif ($this->$key && $key === 'vatItems') {
+                foreach ($this->vatItems as $vatItem) {
+                    $xmlData[$value][] = $vatItem->getXmlData();
+                }
+            } elseif ($this->$key) {
+                $xmlData[$value] = $this->$key;
+            }
+        }
+
+        return $xmlData;
     }
 }
