@@ -8,12 +8,12 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 $fastBillClient = new FastBillSdk\Api\ApiClient($username, $apiKey);
 
-$customersService = new FastBillSdk\Contacts\ContactsService(
+$customersService = new FastBillSdk\Contact\ContactService(
     $fastBillClient,
     new \FastBillSdk\Common\XmlService(),
-    new \FastBillSdk\Contacts\ContactsValidator()
+    new \FastBillSdk\Contact\ContactValidator()
 );
-$customersSearchStruct = new \FastBillSdk\Contacts\ContactsSearchStruct();
+$customersSearchStruct = new \FastBillSdk\Contact\ContactSearchStruct();
 $customersSearchStruct->setCustomerIdFilter(123123123);
 $result = $customersService->getContact($customersSearchStruct);
 

@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace FastBillSdk\Contacts;
+namespace FastBillSdk\Contact;
 
 use FastBillSdk\Common\MissingPropertyException;
 
-class ContactsValidator
+class ContactValidator
 {
-    public function validateRequiredCreationProperties(ContactsEntity $entity): array
+    public function validateRequiredCreationProperties(ContactEntity $entity): array
     {
         $errorMessages = [];
 
@@ -19,7 +19,7 @@ class ContactsValidator
         return $errorMessages;
     }
 
-    public function validateRequiredUpdateProperties(ContactsEntity $entity): array
+    public function validateRequiredUpdateProperties(ContactEntity $entity): array
     {
         $errorMessages = $this->validateRequiredCreationProperties($entity);
 
@@ -38,7 +38,7 @@ class ContactsValidator
         return $errorMessages;
     }
 
-    public function validateRequiredDeleteProperties(ContactsEntity $entity): array
+    public function validateRequiredDeleteProperties(ContactEntity $entity): array
     {
         $errorMessages = [];
 
@@ -57,14 +57,14 @@ class ContactsValidator
         return $errorMessages;
     }
 
-    private function checkCustomerId(ContactsEntity $entity)
+    private function checkCustomerId(ContactEntity $entity)
     {
         if (!$entity->customerId) {
             throw new MissingPropertyException('The property customerId is not valid!');
         }
     }
 
-    private function checkContactId(ContactsEntity $entity)
+    private function checkContactId(ContactEntity $entity)
     {
         if (!$entity->contactId) {
             throw new MissingPropertyException('The property customerId is not valid!');

@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace FastBillSdk\Contacts;
+namespace FastBillSdk\Contact;
 
 use FastBillSdk\Api\ApiClient;
 use FastBillSdk\Common\MissingPropertyException;
 use FastBillSdk\Common\XmlService;
 
-class ContactsService
+class ContactService
 {
     /**
      * @var ApiClient
@@ -19,11 +19,11 @@ class ContactsService
     private $xmlService;
 
     /**
-     * @var ContactsValidator
+     * @var ContactValidator
      */
     private $validator;
 
-    public function __construct(ApiClient $apiClient, XmlService $xmlService, ContactsValidator $validator)
+    public function __construct(ApiClient $apiClient, XmlService $xmlService, ContactValidator $validator)
     {
         $this->apiClient = $apiClient;
         $this->xmlService = $xmlService;
@@ -31,10 +31,10 @@ class ContactsService
     }
 
     /**
-     * @param ContactsSearchStruct $searchStruct
-     * @return ContactsEntity[]
+     * @param ContactSearchStruct $searchStruct
+     * @return ContactEntity[]
      */
-    public function getContact(ContactsSearchStruct $searchStruct): array
+    public function getContact(ContactSearchStruct $searchStruct): array
     {
         $this->xmlService->setService('contact.get');
         $this->xmlService->setFilters($searchStruct->getFilters());
@@ -47,13 +47,13 @@ class ContactsService
 
         $results = [];
         foreach ($xml->RESPONSE->CONTACTS->ELEMENT as $contactEntity) {
-            $results[] = new ContactsEntity($contactEntity);
+            $results[] = new ContactEntity($contactEntity);
         }
 
         return $results;
     }
 
-    public function createContact(ContactsEntity $entity): ContactsEntity
+    public function createContact(ContactEntity $entity): ContactEntity
     {
         $this->checkErrors($this->validator->validateRequiredCreationProperties($entity));
 
@@ -69,7 +69,7 @@ class ContactsService
         return $entity;
     }
 
-    public function updateContact(ContactsEntity $entity): ContactsEntity
+    public function updateContact(ContactEntity $entity): ContactEntity
     {
         $this->checkErrors($this->validator->validateRequiredUpdateProperties($entity));
 
@@ -81,7 +81,7 @@ class ContactsService
         return $entity;
     }
 
-    public function deleteContact(ContactsEntity $entity): ContactsEntity
+    public function deleteContact(ContactEntity $entity): ContactEntity
     {
         $this->checkErrors($this->validator->validateRequiredDeleteProperties($entity));
 
