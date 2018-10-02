@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FBAPI>
+    <REQUEST>
+        <SERVICE>time.get</SERVICE>
+        <FILTER/>
+    </REQUEST>
+    <RESPONSE>
+        <TIMES>
+            <TIME>
+                <TIME_ID>123123123</TIME_ID>
+                <CUSTOMER_ID>1222</CUSTOMER_ID>
+                <PROJECT_ID>3333</PROJECT_ID>
+                <DATE>2018-09-21 20:50:38</DATE>
+                <START_TIME>0000-00-00 00:00:00</START_TIME>
+                <END_TIME>0000-00-00 00:00:00</END_TIME>
+                <MINUTES>30</MINUTES>
+                <BILLABLE_MINUTES>30</BILLABLE_MINUTES>
+                <COMMENT>FastBill SDK</COMMENT>
+            </TIME>
+        </TIMES>
+    </RESPONSE>
+</FBAPI>

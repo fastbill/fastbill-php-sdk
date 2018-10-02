@@ -2,14 +2,14 @@
 
 namespace FastBillSdk\Estimate;
 
-use FastBillSdk\Api\ApiClient;
+use FastBillSdk\Api\ApiClientInterface;
 use FastBillSdk\Common\MissingPropertyException;
 use FastBillSdk\Common\XmlService;
 
 class EstimateService
 {
     /**
-     * @var ApiClient
+     * @var ApiClientInterface
      */
     private $apiClient;
 
@@ -23,7 +23,7 @@ class EstimateService
      */
     private $validator;
 
-    public function __construct(ApiClient $apiClient, XmlService $xmlService, EstimateValidator $validator)
+    public function __construct(ApiClientInterface $apiClient, XmlService $xmlService, EstimateValidator $validator)
     {
         $this->apiClient = $apiClient;
         $this->xmlService = $xmlService;

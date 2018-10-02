@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FBAPI>
+    <REQUEST>
+        <SERVICE>time.delete</SERVICE>
+        <FILTER/>
+    </REQUEST>
+    <RESPONSE>
+        <STATUS>200</STATUS>
+    </RESPONSE>
+</FBAPI>

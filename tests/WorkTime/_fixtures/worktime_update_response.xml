@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FBAPI>
+    <REQUEST>
+        <SERVICE>time.update</SERVICE>
+        <FILTER/>
+    </REQUEST>
+    <RESPONSE>
+        <STATUS>200</STATUS>
+        <TIME_ID>333</TIME_ID>
+    </RESPONSE>
+</FBAPI>

@@ -2,7 +2,6 @@
 
 namespace FastBillSdk\Api;
 
-use FastBillSdk\Common\ApiClientInterface;
 use GuzzleHttp\Client;
 
 class ApiClient implements ApiClientInterface
@@ -47,48 +46,12 @@ class ApiClient implements ApiClientInterface
      * @param string $body
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function get(string $body): \Psr\Http\Message\ResponseInterface
-    {
-        $options = $this->getDefaultOptions();
-        $options['body'] = $body;
-
-        return $this->client->get($this->endpoint, $options);
-    }
-
-    /**
-     * @param string $body
-     * @return \Psr\Http\Message\ResponseInterface
-     */
     public function post(string $body): \Psr\Http\Message\ResponseInterface
     {
         $options = $this->getDefaultOptions();
         $options['body'] = $body;
 
         return $this->client->post($this->endpoint, $options);
-    }
-
-    /**
-     * @param string $body
-     * @return \Psr\Http\Message\ResponseInterface
-     */
-    public function put(string $body): \Psr\Http\Message\ResponseInterface
-    {
-        $options = $this->getDefaultOptions();
-        $options['body'] = $body;
-
-        return $this->client->put($this->endpoint, $options);
-    }
-
-    /**
-     * @param string $body
-     * @return \Psr\Http\Message\ResponseInterface
-     */
-    public function delete(string $body): \Psr\Http\Message\ResponseInterface
-    {
-        $options = $this->getDefaultOptions();
-        $options['body'] = $body;
-
-        return $this->client->put($this->endpoint, $options);
     }
 
     /**

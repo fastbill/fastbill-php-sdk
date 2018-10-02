@@ -2,14 +2,14 @@
 
 namespace FastBillSdk\WorkTime;
 
-use FastBillSdk\Api\ApiClient;
+use FastBillSdk\Api\ApiClientInterface;
 use FastBillSdk\Common\MissingPropertyException;
 use FastBillSdk\Common\XmlService;
 
 class WorkTimeService
 {
     /**
-     * @var ApiClient
+     * @var ApiClientInterface
      */
     private $apiClient;
 
@@ -23,7 +23,7 @@ class WorkTimeService
      */
     private $validator;
 
-    public function __construct(ApiClient $apiClient, XmlService $xmlService, WorkTimeValidator $validator)
+    public function __construct(ApiClientInterface $apiClient, XmlService $xmlService, WorkTimeValidator $validator)
     {
         $this->apiClient = $apiClient;
         $this->xmlService = $xmlService;
@@ -97,7 +97,7 @@ class WorkTimeService
     private function checkErrors(array $errorMessages)
     {
         if (!empty($errorMessages)) {
-            throw new MissingPropertyException(implode("\r\n", $errorMessages));
+            throw new MissingPropertyException(implode("\n", $errorMessages));
         }
     }
 }
