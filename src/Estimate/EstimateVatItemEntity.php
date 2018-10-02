@@ -25,7 +25,8 @@ class EstimateVatItemEntity
     public function __construct(\SimpleXMLElement $data = null)
     {
         if ($data) {
-            $this->setData($data);        }
+            $this->setData($data);
+        }
     }
 
     /**

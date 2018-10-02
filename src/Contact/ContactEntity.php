@@ -123,7 +123,6 @@ class ContactEntity
         return $this;
     }
 
-
     /**
      * @return array
      */

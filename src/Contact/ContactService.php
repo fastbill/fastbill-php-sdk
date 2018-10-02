@@ -2,14 +2,14 @@
 
 namespace FastBillSdk\Contact;
 
-use FastBillSdk\Api\ApiClient;
+use FastBillSdk\Api\ApiClientInterface;
 use FastBillSdk\Common\MissingPropertyException;
 use FastBillSdk\Common\XmlService;
 
 class ContactService
 {
     /**
-     * @var ApiClient
+     * @var ApiClientInterface
      */
     private $apiClient;
 
@@ -23,7 +23,7 @@ class ContactService
      */
     private $validator;
 
-    public function __construct(ApiClient $apiClient, XmlService $xmlService, ContactValidator $validator)
+    public function __construct(ApiClientInterface $apiClient, XmlService $xmlService, ContactValidator $validator)
     {
         $this->apiClient = $apiClient;
         $this->xmlService = $xmlService;

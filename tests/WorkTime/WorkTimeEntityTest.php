@@ -58,4 +58,30 @@ class WorkTimeEntityTest extends TestCase
 
         $this->activateDefaultErrorHandler();
     }
+
+    /**
+     * @covers ::getXmlData()
+     */
+    public function testGetXmlData()
+    {
+        $entity = new WorkTimeEntity(
+            new \SimpleXMLElement(
+                file_get_contents(__DIR__ . '/_fixtures/worktimes_entity.xml')
+            )
+        );
+
+        $checkArray = [
+            'CUSTOMER_ID' => '123',
+            'PROJECT_ID' => '456',
+            'INVOICE_ID' => '789',
+            'DATE' => '2018-06-25 22:47:34',
+            'START_TIME' => '2010-01-01 00:00:00',
+            'END_TIME' => '0000-00-00 00:00:00',
+            'MINUTES' => '30',
+            'BILLABLE_MINUTES' => '30',
+            'COMMENT' => 'Make FastBill great again!',
+        ];
+
+        self::assertEquals($entity->getXmlData(), $checkArray);
+    }
 }

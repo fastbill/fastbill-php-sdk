@@ -2,7 +2,7 @@
 
 namespace FastBillSdk\Template;
 
-use FastBillSdk\Api\ApiClient;
+use FastBillSdk\Api\ApiClientInterface;
 use FastBillSdk\Common\XmlService;
 
 class TemplateService
@@ -10,7 +10,7 @@ class TemplateService
     const SERVICE = 'template.get';
 
     /**
-     * @var ApiClient
+     * @var ApiClientInterface
      */
     private $apiClient;
 
@@ -19,7 +19,7 @@ class TemplateService
      */
     private $xmlService;
 
-    public function __construct(ApiClient $apiClient, XmlService $xmlService)
+    public function __construct(ApiClientInterface $apiClient, XmlService $xmlService)
     {
         $this->apiClient = $apiClient;
         $this->xmlService = $xmlService;
