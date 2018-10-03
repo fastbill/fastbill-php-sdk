@@ -12,5 +12,5 @@ The [API documentation](https://www.fastbill.com/api/fastbill/en/fundamentals.ht
 The SDK requires a PHP version of 7.0 or higher and ext-xml. The recommended way to install the SDK is through [Composer](http://getcomposer.org).
 
 ```bash
-composer require fastbill/fastbill-sdk-php
+composer require fastbill/fastbill-php-sdk
 ```
