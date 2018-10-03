@@ -1,4 +1,5 @@
 # <img src="examples/theme/logo.png" height="35" align="center" /> FastBill PHP SDK
+[![Packagist](https://img.shields.io/packagist/dt/fastbill/fastbill-php-sdk.svg)](https://packagist.org/packages/fastbill/fastbill-php-sdk)
 
 The SDK is licensed under the [MIT License](LICENSE). Feel free to contribute!
 
