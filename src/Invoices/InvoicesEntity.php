@@ -6,7 +6,6 @@ class InvoicesEntity
 {
     public $invoiceId;
 
-
     public $customerId;
 
     public $customerNumber;
