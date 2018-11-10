@@ -38,6 +38,7 @@ class WorkTimeEntity
     ];
 
     const XML_FIELD_MAPPING = [
+        'timeId' => 'TIME_ID',
         'customerId' => 'CUSTOMER_ID',
         'projectId' => 'PROJECT_ID',
         'invoiceId' => 'INVOICE_ID',

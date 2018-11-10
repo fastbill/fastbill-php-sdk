@@ -14,9 +14,11 @@ $workTimesService = new FastBillSdk\WorkTime\WorkTimeService(
     new \FastBillSdk\Common\XmlService(),
     new \FastBillSdk\WorkTime\WorkTimeValidator()
 );
-$workTimesSearchStruct = new \FastBillSdk\WorkTime\WorkTimeSearchStruct();
-//$workTimesSearchStruct->setCustomerIdFilter(123123);
-$result = $workTimesService->getTime($workTimesSearchStruct);
+
+$workTimeEntity = new \FastBillSdk\WorkTime\WorkTimeEntity();
+$workTimeEntity->timeId = 991936;
+
+$result = $workTimesService->deleteTime($workTimeEntity);
 
 ini_set('xdebug.var_display_max_depth', '5');
 ini_set('xdebug.var_display_max_children', '256');

@@ -73,7 +73,7 @@ class WorkTimeValidator
 
     private function checkStartTime(WorkTimeEntity $entity)
     {
-        if (!$entity->startTime || $entity->startTime === '0000-00-00 00:00:00') {
+        if (!$entity->startTime) {
             throw new MissingPropertyException('The property startTime is not valid!');
         }
     }
