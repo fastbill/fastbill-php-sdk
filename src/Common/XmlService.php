@@ -27,7 +27,7 @@ class XmlService
     /**
      * @var int
      */
-    private $offset;
+    private $offset = -1;
 
     /**
      * @var array
@@ -90,7 +90,7 @@ class XmlService
         if ($this->data) {
             $data = $this->simpleXml->addChild('DATA');
             foreach ($this->data as $key => $value) {
-                if (is_array($value)) {
+                if (\is_array($value)) {
                     $child = $data->addChild($key);
                     foreach ($value as $children) {
                         switch ($key) {
@@ -98,6 +98,11 @@ class XmlService
                                 $item = $child->addChild('ITEM');
                                 foreach ($children as $childKey => $childValue) {
                                     $item->addChild($childKey, (string) $childValue);
+                                }
+                                break;
+                            case 'RECIPIENT':
+                                foreach ($children as $childKey => $childValue) {
+                                    $child->addChild($childKey, (string) $childValue);
                                 }
                                 break;
                         }

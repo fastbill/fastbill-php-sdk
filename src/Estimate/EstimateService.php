@@ -4,6 +4,7 @@ namespace FastBillSdk\Estimate;
 
 use FastBillSdk\Api\ApiClientInterface;
 use FastBillSdk\Common\MissingPropertyException;
+use FastBillSdk\Common\RecipientEntity;
 use FastBillSdk\Common\XmlService;
 
 class EstimateService
@@ -84,14 +85,15 @@ class EstimateService
 
     public function sendEstimateByEmail(
         int $estimateId,
-        string $recipient,
+        RecipientEntity $recipient,
         string $subject = null,
         string $message = null,
         bool $receiptConfirmation = false
     ): string {
         $this->xmlService->setService('estimate.sendbyemail');
         $data['ESTIMATE_ID'] = $estimateId;
-        $data['RECIPIENT'] = $recipient;
+
+        $recipient->applyEmails($data);
 
         if ($subject) {
             $data['SUBJECT'] = $subject;
