@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace FastBillSdk\RecurringInvoices;
+namespace FastBillSdk\RecurringInvoice;
 
-class RecurringInvoicesEntity
+class RecurringInvoiceEntity
 {
     public $invoiceId;
 
@@ -73,7 +73,7 @@ class RecurringInvoicesEntity
 
     /**
      * @param \SimpleXMLElement $data
-     * @return RecurringInvoicesEntity
+     * @return RecurringInvoiceEntity
      */
     public function setData(\SimpleXMLElement $data): self
     {

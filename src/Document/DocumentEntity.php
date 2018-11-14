@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace FastBillSdk\Documents;
+namespace FastBillSdk\Document;
 
-class DocumentsEntity
+class DocumentEntity
 {
     const FIELD_MAPPING = [];
 
@@ -15,7 +15,7 @@ class DocumentsEntity
 
     /**
      * @param \SimpleXMLElement $data
-     * @return DocumentsEntity
+     * @return DocumentEntity
      */
     public function setData(\SimpleXMLElement $data): self
     {

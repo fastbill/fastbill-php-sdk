@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace FastBillSdk\Revenues;
+namespace FastBillSdk\Revenue;
 
-class RevenuesEntity
+class RevenueEntity
 {
     public $invoiceId;
 
@@ -195,7 +195,7 @@ class RevenuesEntity
 
     /**
      * @param \SimpleXMLElement $data
-     * @return RevenuesEntity
+     * @return RevenueEntity
      */
     public function setData(\SimpleXMLElement $data): self
     {

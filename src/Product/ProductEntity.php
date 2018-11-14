@@ -1,49 +1,49 @@
 <?php declare(strict_types=1);
 
-namespace FastBillSdk\Items;
+namespace FastBillSdk\Product;
 
-class ItemsEntity
+class ProductEntity
 {
-    public $invoiceItemId;
-
-    public $invoiceId;
-
-    public $customerId;
+    public $articleId;
 
     public $articleNumber;
 
+    public $title;
+
     public $description;
 
-    public $quantity;
+    public $unit;
 
     public $unitPrice;
 
-    public $vatPercent;
-
-    public $vatValue;
-
-    public $completeNet;
-
-    public $completeGross;
-
     public $currencyCode;
 
-    public $sortOrder;
+    public $vatPercent;
+
+    public $tags;
 
     const FIELD_MAPPING = [
-        'INVOICE_ITEM_ID' => 'invoiceItemId',
-        'INVOICE_ID' => 'invoiceId',
-        'CUSTOMER_ID' => 'customerId',
+        'ARTICLE_ID' => 'articleId',
         'ARTICLE_NUMBER' => 'articleNumber',
+        'TITLE' => 'title',
         'DESCRIPTION' => 'description',
-        'QUANTITY' => 'quantity',
+        'UNIT' => 'unit',
         'UNIT_PRICE' => 'unitPrice',
-        'VAT_PERCENT' => 'vatPercent',
-        'VAT_VALUE' => 'vatValue',
-        'COMPLETE_NET' => 'completeNet',
-        'COMPLETE_GROSS' => 'completeGross',
         'CURRENCY_CODE' => 'currencyCode',
-        'SORT_ORDER' => 'sortOrder',
+        'VAT_PERCENT' => 'vatPercent',
+        'TAGS' => 'tags',
+    ];
+
+    const XML_FIELD_MAPPING = [
+        'articleId' => 'ARTICLE_ID',
+        'articleNumber' => 'ARTICLE_NUMBER',
+        'title' => 'TITLE',
+        'description' => 'DESCRIPTION',
+        'unit' => 'UNIT',
+        'unitPrice' => 'UNIT_PRICE',
+        'currencyCode' => 'CURRENCY_CODE',
+        'vatPercent' => 'VAT_PERCENT',
+        'tags' => 'TAGS',
     ];
 
     public function __construct(\SimpleXMLElement $data = null)
@@ -55,7 +55,7 @@ class ItemsEntity
 
     /**
      * @param \SimpleXMLElement $data
-     * @return ItemsEntity
+     * @return ProductEntity
      */
     public function setData(\SimpleXMLElement $data): self
     {

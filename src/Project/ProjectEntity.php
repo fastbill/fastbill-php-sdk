@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace FastBillSdk\Projects;
+namespace FastBillSdk\Project;
 
-class ProjectsEntity
+class ProjectEntity
 {
     public $projectId;
 
@@ -59,7 +59,7 @@ class ProjectsEntity
 
     /**
      * @param \SimpleXMLElement $data
-     * @return ProjectsEntity
+     * @return ProjectEntity
      */
     public function setData(\SimpleXMLElement $data): self
     {
