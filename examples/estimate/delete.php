@@ -3,8 +3,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 
-require_once __DIR__ . '/credentials.php';
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../credentials.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 $fastBillClient = new FastBillSdk\Api\ApiClient($username, $apiKey);
 
@@ -15,10 +15,9 @@ $estimateService = new FastBillSdk\Estimate\EstimateService(
         new \FastBillSdk\Estimate\EstimateItemValidator()
     )
 );
-
 $estimateEntity = new \FastBillSdk\Estimate\EstimateEntity();
-$estimateEntity->estimateId = 16343450;
-$result = $estimateService->createInvoiceFromEstimate($estimateEntity);
+$estimateEntity->estimateId = '16343462';
+$result = $estimateService->deleteEstimate($estimateEntity);
 
 ini_set('xdebug.var_display_max_depth', '5');
 ini_set('xdebug.var_display_max_children', '256');

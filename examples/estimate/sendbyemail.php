@@ -3,8 +3,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 
-require_once __DIR__ . '/credentials.php';
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../credentials.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 $fastBillClient = new FastBillSdk\Api\ApiClient($username, $apiKey);
 
@@ -15,15 +15,14 @@ $estimateService = new FastBillSdk\Estimate\EstimateService(
         new \FastBillSdk\Estimate\EstimateItemValidator()
     )
 );
-$estimateEntity = new \FastBillSdk\Estimate\EstimateEntity();
-$estimateEntity->customerId = 123123123;
-$estimateItemEntity = new \FastBillSdk\Estimate\EstimateItemEntity();
-$estimateItemEntity->description = 'FastBill SDK';
-$estimateItemEntity->unitPrice = '1337';
-$estimateItemEntity->vatPercent = '19';
-$estimateEntity->items[] = $estimateItemEntity;
-$estimateEntity->items[] = $estimateItemEntity;
-$result = $estimateService->createEstimate($estimateEntity);
+$estimateId = 16343450;
+$recipient = new \FastBillSdk\Common\RecipientEntity();
+$recipient->setToEmailAddress('test@example.com');
+
+$subject = 'Estimate Subject';
+$message = 'Here your the already discussed estimate';
+
+$result = $estimateService->sendEstimateByEmail($estimateId, $recipient, $subject, $message, false);
 
 ini_set('xdebug.var_display_max_depth', '5');
 ini_set('xdebug.var_display_max_children', '256');

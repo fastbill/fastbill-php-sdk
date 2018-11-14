@@ -3,22 +3,20 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 
-require_once __DIR__ . '/credentials.php';
-require_once __DIR__ . '/../vendor/autoload.php';
-
+require_once __DIR__ . '/../credentials.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 $fastBillClient = new FastBillSdk\Api\ApiClient($username, $apiKey);
 
-$workTimesService = new FastBillSdk\WorkTime\WorkTimeService(
+$estimateService = new FastBillSdk\Estimate\EstimateService(
     $fastBillClient,
     new \FastBillSdk\Common\XmlService(),
-    new \FastBillSdk\WorkTime\WorkTimeValidator()
+    new \FastBillSdk\Estimate\EstimateValidator(
+        new \FastBillSdk\Estimate\EstimateItemValidator()
+    )
 );
-
-$workTimeEntity = new \FastBillSdk\WorkTime\WorkTimeEntity();
-$workTimeEntity->timeId = 991936;
-
-$result = $workTimesService->deleteTime($workTimeEntity);
+$estimateSearchStruct = new \FastBillSdk\Estimate\EstimateSearchStruct();
+$result = $estimateService->getEstimate($estimateSearchStruct);
 
 ini_set('xdebug.var_display_max_depth', '5');
 ini_set('xdebug.var_display_max_children', '256');
