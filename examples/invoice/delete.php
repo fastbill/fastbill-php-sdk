@@ -4,6 +4,7 @@ namespace FastBillSdk\Invoice;
 
 use FastBillSdk\Api\ApiClient;
 use FastBillSdk\Common\XmlService;
+use FastBillSdk\Item\ItemValidator;
 
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
@@ -16,11 +17,13 @@ $fastBillClient = new ApiClient($username, $apiKey);
 $invoiceService = new InvoiceService(
     $fastBillClient,
     new XmlService(),
-    new InvoiceValidator()
+    new InvoiceValidator(new ItemValidator())
 );
-$invoiceSearchStruct = new InvoiceSearchStruct();
-//$workTimesSearchStruct->setCustomerIdFilter(123123);
-$result = $invoiceService->getInvoice($invoiceSearchStruct);
+
+$invoiceEntity = new InvoiceEntity();
+$invoiceEntity->invoiceId = 16461206;
+
+$result = $invoiceService->deleteInvoice($invoiceEntity);
 
 ini_set('xdebug.var_display_max_depth', '5');
 ini_set('xdebug.var_display_max_children', '256');

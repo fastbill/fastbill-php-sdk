@@ -19,10 +19,18 @@ $invoiceService = new InvoiceService(
     new XmlService(),
     new InvoiceValidator(new ItemValidator())
 );
-$invoiceSearchStruct = new InvoiceSearchStruct();
-$invoiceSearchStruct->setInvoiceIdFilter(16461206);
-//$workTimesSearchStruct->setCustomerIdFilter(123123);
-$result = $invoiceService->getInvoice($invoiceSearchStruct);
+
+$invoiceEntity = new InvoiceEntity();
+$invoiceEntity->invoiceId = 16462410;
+
+$recipient = new \FastBillSdk\Common\RecipientEntity();
+$recipient->setToEmailAddress('test@example.com');
+
+$subject = 'Estimate Subject';
+$message = 'Here your the already discussed estimate';
+
+
+$result = $invoiceService->completeInvoice($invoiceEntity);
 
 ini_set('xdebug.var_display_max_depth', '5');
 ini_set('xdebug.var_display_max_children', '256');

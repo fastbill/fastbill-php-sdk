@@ -73,6 +73,8 @@ class InvoiceEntity
 
     public $introText;
 
+    public $note;
+
     public $paidDate;
 
     public $isCanceled;
@@ -198,7 +200,7 @@ class InvoiceEntity
         'invoiceNumber' => 'INVOICE_NUMBER',
         'invoiceTitle' => 'INVOICE_TITLE',
         'introText' => 'INTROTEXT',
-        'note' => 'note',
+        'note' => 'NOTE',
         'paidDate' => 'PAID_DATE',
         'isCanceled' => 'IS_CANCELED',
         'invoiceDate' => 'INVOICE_DATE',
@@ -277,7 +279,11 @@ class InvoiceEntity
     {
         $xmlData = [];
         foreach (self::XML_FIELD_MAPPING as $key => $value) {
-            if ($this->$key) {
+            if ($this->$key && $key === 'items') {
+                foreach ($this->items as $item) {
+                    $xmlData[$value][] = $item->getXmlData();
+                }
+            } elseif ($this->$key) {
                 $xmlData[$value] = $this->$key;
             }
         }

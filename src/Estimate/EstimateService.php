@@ -104,7 +104,7 @@ class EstimateService
         }
 
         if ($receiptConfirmation) {
-            $data['RECEIPT_CONFIRMATION'] = $recipient;
+            $data['RECEIPT_CONFIRMATION'] = $receiptConfirmation;
         }
 
         $this->xmlService->setData($data);

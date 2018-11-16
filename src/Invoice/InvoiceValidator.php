@@ -3,9 +3,21 @@
 namespace FastBillSdk\Invoice;
 
 use FastBillSdk\Common\MissingPropertyException;
+use FastBillSdk\Item\ItemEntity;
+use FastBillSdk\Item\ItemValidator;
 
 class InvoiceValidator
 {
+    /**
+     * @var ItemValidator
+     */
+    private $itemValidator;
+
+    public function __construct(ItemValidator $itemValidator)
+    {
+        $this->itemValidator = $itemValidator;
+    }
+
     public function validateRequiredCreationProperties(InvoiceEntity $entity): array
     {
         $errorMessages = [];
@@ -17,13 +29,7 @@ class InvoiceValidator
         }
 
         try {
-            $this->checkProjectId($entity);
-        } catch (MissingPropertyException $exception) {
-            $errorMessages[] = $exception->getMessage();
-        }
-
-        try {
-            $this->checkStartTime($entity);
+            $this->checkItems($entity);
         } catch (MissingPropertyException $exception) {
             $errorMessages[] = $exception->getMessage();
         }
@@ -36,7 +42,7 @@ class InvoiceValidator
         $errorMessages = $this->validateRequiredCreationProperties($entity);
 
         try {
-            $this->checkTimeId($entity);
+            $this->checkInvoiceId($entity);
         } catch (MissingPropertyException $exception) {
             $errorMessages[] = $exception->getMessage();
         }
@@ -49,7 +55,20 @@ class InvoiceValidator
         $errorMessages = [];
 
         try {
-            $this->checkTimeId($entity);
+            $this->checkInvoiceId($entity);
+        } catch (MissingPropertyException $exception) {
+            $errorMessages[] = $exception->getMessage();
+        }
+
+        return $errorMessages;
+    }
+
+    public function validateRequiredInvoiceId(InvoiceEntity $entity): array
+    {
+        $errorMessages = [];
+
+        try {
+            $this->checkInvoiceId($entity);
         } catch (MissingPropertyException $exception) {
             $errorMessages[] = $exception->getMessage();
         }
@@ -64,24 +83,27 @@ class InvoiceValidator
         }
     }
 
-    private function checkProjectId(InvoiceEntity $entity)
+    private function checkItems(InvoiceEntity $entity)
     {
-        if (!$entity->projectId) {
-            throw new MissingPropertyException('The property projectId is not valid!');
+        if (!$entity->items) {
+            throw new MissingPropertyException('The property items is not valid!');
+        }
+
+        foreach ($entity->items as $item) {
+            if (!$item instanceof ItemEntity) {
+                throw new \InvalidArgumentException('The given item is not a EstimateItemEntity');
+            }
+
+            $this->itemValidator->checkDescription($item);
+            $this->itemValidator->checkUnitPrice($item);
+            $this->itemValidator->checkVatPercent($item);
         }
     }
 
-    private function checkStartTime(InvoiceEntity $entity)
+    private function checkInvoiceId(InvoiceEntity $entity)
     {
-        if (!$entity->startTime) {
-            throw new MissingPropertyException('The property startTime is not valid!');
-        }
-    }
-
-    private function checkTimeId(InvoiceEntity $entity)
-    {
-        if (!$entity->timeId) {
-            throw new MissingPropertyException('The property timeId is not valid!');
+        if (!$entity->invoiceId) {
+            throw new MissingPropertyException('The property invoiceId is not valid!');
         }
     }
 }

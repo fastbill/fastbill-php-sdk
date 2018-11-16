@@ -4,6 +4,8 @@ namespace FastBillSdk\Invoice;
 
 use FastBillSdk\Api\ApiClient;
 use FastBillSdk\Common\XmlService;
+use FastBillSdk\Item\ItemEntity;
+use FastBillSdk\Item\ItemValidator;
 
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
@@ -16,11 +18,20 @@ $fastBillClient = new ApiClient($username, $apiKey);
 $invoiceService = new InvoiceService(
     $fastBillClient,
     new XmlService(),
-    new InvoiceValidator()
+    new InvoiceValidator(new ItemValidator())
 );
-$invoiceSearchStruct = new InvoiceSearchStruct();
-//$workTimesSearchStruct->setCustomerIdFilter(123123);
-$result = $invoiceService->getInvoice($invoiceSearchStruct);
+
+$invoiceEntity = new InvoiceEntity();
+$invoiceEntity->customerId = 123;
+$invoiceEntity->projectId = 456;
+$invoiceItem = new ItemEntity();
+$invoiceItem->description = 'FastBill SDK';
+$invoiceItem->unitPrice = 1337;
+$invoiceItem->vatPercent = 19;
+$invoiceEntity->items[] = $invoiceItem;
+$invoiceEntity->items[] = $invoiceItem;
+
+$result = $invoiceService->createInvoice($invoiceEntity);
 
 ini_set('xdebug.var_display_max_depth', '5');
 ini_set('xdebug.var_display_max_children', '256');

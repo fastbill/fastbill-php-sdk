@@ -72,6 +72,8 @@ class XmlService
 
     public function setService(string $service)
     {
+        // reset xml to the base
+        $this->__construct();
         $this->service = $service;
     }
 
