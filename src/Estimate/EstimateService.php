@@ -88,7 +88,7 @@ class EstimateService
         RecipientEntity $recipient,
         string $subject = null,
         string $message = null,
-        bool $receiptConfirmation = false
+        bool $receiptConfirmation = null
     ): string {
         $this->xmlService->setService('estimate.sendbyemail');
         $data['ESTIMATE_ID'] = $estimateId;
