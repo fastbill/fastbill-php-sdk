@@ -37,6 +37,8 @@ class InvoiceEntity
 
     public $comment;
 
+    public $comments;
+
     public $paymentType;
 
     public $daysForPayment;
@@ -129,6 +131,7 @@ class InvoiceEntity
         'ZIPCODE' => 'zipcode',
         'CITY' => 'city',
         'COMMENT_' => 'comment',
+        'COMMENTS' => 'comments',
         'PAYMENT_TYPE' => 'paymentType',
         'DAYS_FOR_PAYMENT' => 'daysForPayment',
         'BANK_NAME' => 'bankName',
@@ -182,6 +185,7 @@ class InvoiceEntity
         'zipcode' => 'ZIPCODE',
         'city' => 'CITY',
         'comment' => 'COMMENT_',
+        'comments' => 'COMMENTS',
         'paymentType' => 'PAYMENT_TYPE',
         'daysForPayment' => 'DAYS_FOR_PAYMENT',
         'bankName' => 'BANK_NAME',
@@ -239,6 +243,14 @@ class InvoiceEntity
             }
 
             switch ($key) {
+                case 'COMMENTS':
+                    $comments = [];
+                    foreach ($value as $comment) {
+                        $comments[] = new InvoiceCommentEntity($comment);
+                    }
+
+                    $this->{self::FIELD_MAPPING[$key]} = $comments;
+                    break;
                 case 'ITEMS':
                     $items = [];
                     foreach ($value as $item) {
