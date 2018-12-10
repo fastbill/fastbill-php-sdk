@@ -36,12 +36,12 @@ class InvoiceSearchStruct extends AbstractSearchStruct
         $this->filters['YEAR'] = $year;
     }
 
-    public function setStartDueDate(\DateTime $startDueDate)
+    public function setStartDueDate(string $startDueDate)
     {
         $this->filters['START_DUE_DATE'] = $startDueDate;
     }
 
-    public function setEndDueDateFilter(\DateTime $endDueDate)
+    public function setEndDueDateFilter(string $endDueDate)
     {
         $this->filters['END_DUE_DATE'] = $endDueDate;
     }
