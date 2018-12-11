@@ -6,6 +6,8 @@ class ProjectEntity
 {
     public $projectId;
 
+    public $projectNumber;
+
     public $projectName;
 
     public $customerId;
@@ -26,6 +28,7 @@ class ProjectEntity
 
     const FIELD_MAPPING = [
         'PROJECT_ID' => 'projectId',
+        'PROJECT_NUMBER' => 'projectNumber',
         'PROJECT_NAME' => 'projectName',
         'CUSTOMER_ID' => 'customerId',
         'CUSTOMER_COSTCENTER_ID' => 'customerCostcenterId',
@@ -39,6 +42,7 @@ class ProjectEntity
 
     const XML_FIELD_MAPPING = [
         'projectId' => 'PROJECT_ID',
+        'projectNumber' => 'PROJECT_NUMBER',
         'projectName' => 'PROJECT_NAME',
         'customerId' => 'CUSTOMER_ID',
         'customerCostcenterId' => 'CUSTOMER_COSTCENTER_ID',
@@ -74,4 +78,20 @@ class ProjectEntity
 
         return $this;
     }
+
+    /**
+     * @return array
+     */
+    public function getXmlData(): array
+    {
+        $xmlData = [];
+        foreach (self::XML_FIELD_MAPPING as $key => $value) {
+            if ($this->$key) {
+                $xmlData[$value] = $this->$key;
+            }
+        }
+
+        return $xmlData;
+    }
+
 }
