@@ -5,7 +5,7 @@ The SDK is licensed under the [MIT License](LICENSE). Feel free to contribute!
 
 ## Using the SDK
 
-The [API documentation](https://www.fastbill.com/api/fastbill/en/fundamentals.html#intro) provides all information about the available endpoints.
+The [API documentation](https://apidocs.fastbill.com/fastbill/en/fundamentals.html#intro) provides all information about the available endpoints.
 
 ### Install & Integrate the SDK into your Project
 
