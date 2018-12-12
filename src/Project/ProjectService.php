@@ -41,8 +41,6 @@ class ProjectService
         $this->xmlService->setLimit($searchStruct->getLimit());
         $this->xmlService->setOffset($searchStruct->getOffset());
 
-        echo $this->xmlService->getXml();
-
         $response = $this->apiClient->post($this->xmlService->getXml());
 
         $xml = new \SimpleXMLElement((string) $response->getBody());
@@ -76,8 +74,6 @@ class ProjectService
 
         $this->xmlService->setService('project.update');
         $this->xmlService->setData($entity->getXmlData());
-
-        echo $this->xmlService->getXml();
 
         $this->apiClient->post($this->xmlService->getXml());
 
