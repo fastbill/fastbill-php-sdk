@@ -15,4 +15,9 @@ class ProjectSearchStruct extends AbstractSearchStruct
     {
         $this->filters['PROJECT_ID'] =  $projectId;
     }
+
+    public function setProjectNumberFilter(string $projectNumber)
+    {
+        $this->filters['PROJECT_NUMBER'] =  $projectNumber;
+    }
 }

@@ -93,5 +93,4 @@ class ProjectEntity
 
         return $xmlData;
     }
-
 }

@@ -13,7 +13,7 @@ class InvoiceCommentEntity
     const FIELD_MAPPING = [
         'DATE' => 'date',
         'COMMENT' => 'comment',
-        'COMMENT_PUBLIC' => 'commentPublic'
+        'COMMENT_PUBLIC' => 'commentPublic',
     ];
 
     public function __construct(\SimpleXMLElement $data = null)
