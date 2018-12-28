@@ -15,3 +15,6 @@ The SDK requires a PHP version of 7.0 or higher and ext-xml. The recommended way
 ```bash
 composer require fastbill/fastbill-php-sdk
 ```
+
+### Usage 
+You can find for every implemented api action an example file in the examples directory. 
