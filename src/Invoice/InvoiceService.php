@@ -80,7 +80,7 @@ class InvoiceService
         $this->apiClient->post($this->xmlService->getXml());
 
         $searchStruct = new InvoiceSearchStruct();
-        $searchStruct->setInvoiceIdFilter($entity->invoiceId);
+        $searchStruct->setInvoiceIdFilter((int)$entity->invoiceId);
         $entity = $this->getInvoice($searchStruct)[0];
 
         return $entity;
