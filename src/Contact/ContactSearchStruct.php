@@ -24,8 +24,6 @@ class ContactSearchStruct extends AbstractSearchStruct
     /**
      * Search term in one of the given fields:
      * ORGANIZATION, FIRST_NAME, LAST_NAME, ADDRESS, ADDRESS_2, ZIPCODE, EMAIL, TAGS.
-     *
-     * @param string $searchTerm
      */
     public function setSearchTermFilter(string $searchTerm)
     {

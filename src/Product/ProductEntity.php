@@ -54,7 +54,6 @@ class ProductEntity
     }
 
     /**
-     * @param \SimpleXMLElement $data
      * @return ProductEntity
      */
     public function setData(\SimpleXMLElement $data): self

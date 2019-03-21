@@ -32,7 +32,6 @@ class EstimateService
     }
 
     /**
-     * @param EstimateSearchStruct $searchStruct
      * @return EstimateEntity[]
      */
     public function getEstimate(EstimateSearchStruct $searchStruct): array

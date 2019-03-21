@@ -70,7 +70,6 @@ class ItemEntity
     }
 
     /**
-     * @param \SimpleXMLElement $data
      * @return ItemEntity
      */
     public function setData(\SimpleXMLElement $data): self
@@ -87,9 +86,6 @@ class ItemEntity
         return $this;
     }
 
-    /**
-     * @return array
-     */
     public function getXmlData(): array
     {
         $xmlData = [];

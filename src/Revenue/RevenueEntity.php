@@ -194,7 +194,6 @@ class RevenueEntity
     }
 
     /**
-     * @param \SimpleXMLElement $data
      * @return RevenueEntity
      */
     public function setData(\SimpleXMLElement $data): self

@@ -14,7 +14,6 @@ class DocumentEntity
     }
 
     /**
-     * @param \SimpleXMLElement $data
      * @return DocumentEntity
      */
     public function setData(\SimpleXMLElement $data): self

@@ -24,7 +24,6 @@ class InvoiceCommentEntity
     }
 
     /**
-     * @param \SimpleXMLElement $data
      * @return InvoiceCommentEntity
      */
     public function setData(\SimpleXMLElement $data): self

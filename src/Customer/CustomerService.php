@@ -31,7 +31,6 @@ class CustomerService
     }
 
     /**
-     * @param CustomerSearchStruct $searchStruct
      * @return CustomerEntity[]
      */
     public function getCustomer(CustomerSearchStruct $searchStruct): array

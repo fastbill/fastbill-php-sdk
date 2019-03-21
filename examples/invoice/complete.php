@@ -29,7 +29,6 @@ $recipient->setToEmailAddress('test@example.com');
 $subject = 'Estimate Subject';
 $message = 'Here your the already discussed estimate';
 
-
 $result = $invoiceService->completeInvoice($invoiceEntity);
 
 ini_set('xdebug.var_display_max_depth', '5');

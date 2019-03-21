@@ -58,7 +58,6 @@ class WorkTimeEntity
     }
 
     /**
-     * @param \SimpleXMLElement $data
      * @return WorkTimeEntity
      */
     public function setData(\SimpleXMLElement $data): self
@@ -75,9 +74,6 @@ class WorkTimeEntity
         return $this;
     }
 
-    /**
-     * @return array
-     */
     public function getXmlData(): array
     {
         $xmlData = [];

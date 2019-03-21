@@ -30,7 +30,6 @@ class VatItemEntity
     }
 
     /**
-     * @param \SimpleXMLElement $data
      * @return VatItemEntity
      */
     public function setData(\SimpleXMLElement $data): self
@@ -47,9 +46,6 @@ class VatItemEntity
         return $this;
     }
 
-    /**
-     * @return array
-     */
     public function getXmlData(): array
     {
         $xmlData = [];

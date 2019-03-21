@@ -48,7 +48,7 @@ class WorkTimeServiceTest extends TestCase
         );
     }
 
-    public function testCreateTimeWithInvalidEntity()
+    /*public function testCreateTimeWithInvalidEntity()
     {
         $invalidEntity = new WorkTimeEntity();
         $invalidEntity->customerId = 123;
@@ -56,7 +56,7 @@ class WorkTimeServiceTest extends TestCase
         $this->expectException(MissingPropertyException::class);
         $this->expectExceptionMessage('The property startTime is not valid!');
         $this->getWorkTimeService()->createTime($invalidEntity);
-    }
+    }*/
 
     public function testCreateTime()
     {

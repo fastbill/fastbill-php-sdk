@@ -31,7 +31,6 @@ class WorkTimeService
     }
 
     /**
-     * @param WorkTimeSearchStruct $searchStruct
      * @return WorkTimeEntity[]
      */
     public function getTime(WorkTimeSearchStruct $searchStruct): array

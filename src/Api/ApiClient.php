@@ -26,11 +26,6 @@ class ApiClient implements ApiClientInterface
      */
     private $endpoint;
 
-    /**
-     * @param string $username
-     * @param string $apiKey
-     * @param string $endpoint
-     */
     public function __construct(
         string $username,
         string $apiKey,
@@ -42,10 +37,6 @@ class ApiClient implements ApiClientInterface
         $this->apiKey = $apiKey;
     }
 
-    /**
-     * @param string $body
-     * @return \Psr\Http\Message\ResponseInterface
-     */
     public function post(string $body): \Psr\Http\Message\ResponseInterface
     {
         $options = $this->getDefaultOptions();
@@ -54,9 +45,6 @@ class ApiClient implements ApiClientInterface
         return $this->client->post($this->endpoint, $options);
     }
 
-    /**
-     * @return array
-     */
     private function getDefaultOptions(): array
     {
         return [

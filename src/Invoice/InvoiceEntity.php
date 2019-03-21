@@ -231,7 +231,6 @@ class InvoiceEntity
     }
 
     /**
-     * @param \SimpleXMLElement $data
      * @return InvoiceEntity
      */
     public function setData(\SimpleXMLElement $data): self
@@ -284,9 +283,6 @@ class InvoiceEntity
         return $this;
     }
 
-    /**
-     * @return array
-     */
     public function getXmlData(): array
     {
         $xmlData = [];

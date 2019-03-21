@@ -78,7 +78,6 @@ class EstimateValidator
     }
 
     /**
-     * @param EstimateEntity $entity
      * @throws \InvalidArgumentException
      * @throws MissingPropertyException
      */

@@ -8,7 +8,7 @@ class CustomerSearchStruct extends AbstractSearchStruct
 {
     public function setCustomerIdFilter(int $customerId)
     {
-        $this->filters['CUSTOMER_ID'] =  $customerId;
+        $this->filters['CUSTOMER_ID'] = $customerId;
     }
 
     public function setCustomerNumberFilter(string $customerNumber)
@@ -29,7 +29,6 @@ class CustomerSearchStruct extends AbstractSearchStruct
     /**
      * Search term in one of the given fields:
      * ORGANIZATION, FIRST_NAME, LAST_NAME, ADDRESS, ADDRESS_2, ZIPCODE, EMAIL, TAGS.
-     * @param string $searchTerm
      */
     public function setSearchTermFilter(string $searchTerm)
     {

@@ -14,8 +14,8 @@ class WorkTimeEntityTest extends TestCase
     use EntityTestTrait;
 
     /**
-     * @covers ::setData()
      * @covers ::__construct()
+     * @covers ::setData()
      */
     public function testSetData()
     {
@@ -38,8 +38,8 @@ class WorkTimeEntityTest extends TestCase
     }
 
     /**
-     * @covers ::setData()
      * @covers ::__construct()
+     * @covers ::setData()
      */
     public function testSetDataWithInvalidXml()
     {
@@ -71,6 +71,7 @@ class WorkTimeEntityTest extends TestCase
         );
 
         $checkArray = [
+            'TIME_ID' => '112233',
             'CUSTOMER_ID' => '123',
             'PROJECT_ID' => '456',
             'INVOICE_ID' => '789',

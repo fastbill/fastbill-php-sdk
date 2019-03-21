@@ -36,7 +36,6 @@ class InvoicePaymentEntity
     }
 
     /**
-     * @param \SimpleXMLElement $data
      * @return InvoicePaymentEntity
      */
     public function setData(\SimpleXMLElement $data): self

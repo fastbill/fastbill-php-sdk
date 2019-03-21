@@ -178,7 +178,6 @@ class CustomerEntity
     }
 
     /**
-     * @param \SimpleXMLElement $data
      * @return CustomerEntity
      */
     public function setData(\SimpleXMLElement $data): self
@@ -195,9 +194,6 @@ class CustomerEntity
         return $this;
     }
 
-    /**
-     * @return array
-     */
     public function getXmlData(): array
     {
         $xmlData = [];

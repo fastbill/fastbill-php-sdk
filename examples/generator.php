@@ -5,9 +5,9 @@ ini_set('display_errors', 'on');
 
 function lowerCamelCase($string)
 {
-    $string = strtolower($string);
+    $string = mb_strtolower($string);
     $string = ucwords($string, '_');
-    $string[0] = strtolower($string[0]);
+    $string[0] = mb_strtolower($string[0]);
     $string = str_replace('_', '', $string);
 
     return $string;
@@ -30,7 +30,6 @@ VAT_VALUE';
 foreach (explode("\n", $fields) as $value) {
     echo 'public $' . lowerCamelCase($value) . ';' . '<br /><br />';
 }
-
 
 echo ' const FIELD_MAPPING = [<br/>';
 foreach (explode("\n", $fields) as $value) {

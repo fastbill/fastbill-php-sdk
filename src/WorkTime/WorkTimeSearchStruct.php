@@ -8,7 +8,7 @@ class WorkTimeSearchStruct extends AbstractSearchStruct
 {
     public function setCustomerIdFilter(int $customerId)
     {
-        $this->filters['CUSTOMER_ID'] =  $customerId;
+        $this->filters['CUSTOMER_ID'] = $customerId;
     }
 
     public function setProjectIdFilter(int $projectId)

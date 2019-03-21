@@ -182,7 +182,6 @@ class EstimateEntity
     }
 
     /**
-     * @param \SimpleXMLElement $data
      * @return EstimateEntity
      */
     public function setData(\SimpleXMLElement $data): self
@@ -199,9 +198,6 @@ class EstimateEntity
         return $this;
     }
 
-    /**
-     * @return array
-     */
     public function getXmlData(): array
     {
         $xmlData = [];

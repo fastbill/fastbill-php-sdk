@@ -106,7 +106,6 @@ class ContactEntity
     }
 
     /**
-     * @param \SimpleXMLElement $data
      * @return ContactEntity
      */
     public function setData(\SimpleXMLElement $data): self
@@ -123,9 +122,6 @@ class ContactEntity
         return $this;
     }
 
-    /**
-     * @return array
-     */
     public function getXmlData(): array
     {
         $xmlData = [];

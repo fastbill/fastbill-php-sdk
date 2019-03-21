@@ -15,7 +15,6 @@ class ExpenseEntity
     }
 
     /**
-     * @param \SimpleXMLElement $data
      * @return ExpenseEntity
      */
     public function setData(\SimpleXMLElement $data): self

@@ -32,7 +32,6 @@ class InvoiceService
     }
 
     /**
-     * @param InvoiceSearchStruct $searchStruct
      * @return InvoiceEntity[]
      */
     public function getInvoice(InvoiceSearchStruct $searchStruct): array

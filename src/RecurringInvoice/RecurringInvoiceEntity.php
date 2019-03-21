@@ -72,7 +72,6 @@ class RecurringInvoiceEntity
     }
 
     /**
-     * @param \SimpleXMLElement $data
      * @return RecurringInvoiceEntity
      */
     public function setData(\SimpleXMLElement $data): self

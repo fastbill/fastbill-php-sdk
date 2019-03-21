@@ -31,7 +31,6 @@ class ProjectService
     }
 
     /**
-     * @param ProjectSearchStruct $searchStruct
      * @return ProjectEntity[]
      */
     public function getProject(ProjectSearchStruct $searchStruct): array

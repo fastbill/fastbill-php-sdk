@@ -31,7 +31,6 @@ class ContactService
     }
 
     /**
-     * @param ContactSearchStruct $searchStruct
      * @return ContactEntity[]
      */
     public function getContact(ContactSearchStruct $searchStruct): array

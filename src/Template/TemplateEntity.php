@@ -24,7 +24,6 @@ class TemplateEntity
     }
 
     /**
-     * @param \SimpleXMLElement $data
      * @return TemplateEntity
      */
     public function setData(\SimpleXMLElement $data): self

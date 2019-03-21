@@ -19,17 +19,11 @@ class RecipientEntity
      */
     private $bccEmailAddress = '';
 
-    /**
-     * @return string
-     */
     public function getToEmailAddress(): string
     {
         return $this->toEmailAddress;
     }
 
-    /**
-     * @param string $toEmailAddress
-     */
     public function setToEmailAddress(string $toEmailAddress)
     {
         $this->validateEmail($toEmailAddress);
@@ -37,17 +31,11 @@ class RecipientEntity
         $this->toEmailAddress = $toEmailAddress;
     }
 
-    /**
-     * @return string
-     */
     public function getCcEmailAddress(): string
     {
         return $this->ccEmailAddress;
     }
 
-    /**
-     * @param string $ccEmailAddress
-     */
     public function setCcEmailAddress(string $ccEmailAddress)
     {
         $this->validateEmail($ccEmailAddress);
@@ -55,17 +43,11 @@ class RecipientEntity
         $this->ccEmailAddress = $ccEmailAddress;
     }
 
-    /**
-     * @return string
-     */
     public function getBccEmailAddress(): string
     {
         return $this->bccEmailAddress;
     }
 
-    /**
-     * @param string $bccEmailAddress
-     */
     public function setBccEmailAddress(string $bccEmailAddress)
     {
         $this->validateEmail($bccEmailAddress);
