@@ -62,7 +62,7 @@ class WorkTimeEntityTest extends TestCase
     /**
      * @covers ::getXmlData()
      */
-    public function testGetXmlData()
+    public function testGetXmlData(): void
     {
         $entity = new WorkTimeEntity(
             new \SimpleXMLElement(

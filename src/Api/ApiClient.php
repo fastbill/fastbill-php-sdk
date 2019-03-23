@@ -45,7 +45,10 @@ class ApiClient implements ApiClientInterface
         return $this->client->post($this->endpoint, $options);
     }
 
-    private function getDefaultOptions(): array
+    /**
+     * @internal
+     */
+    protected function getDefaultOptions(): array
     {
         return [
             'auth' => [
