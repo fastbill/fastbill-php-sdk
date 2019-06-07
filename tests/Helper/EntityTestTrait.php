@@ -9,7 +9,7 @@ trait EntityTestTrait
      */
     protected $noticeMessages;
 
-    public function disableDefaultErrorHandler()
+    public function disableDefaultErrorHandler(): void
     {
         set_error_handler(
             function ($errno, $errstr, $errfile, $errline) {
@@ -18,7 +18,7 @@ trait EntityTestTrait
         );
     }
 
-    public function activateDefaultErrorHandler()
+    public function activateDefaultErrorHandler(): void
     {
         $this->noticeMessages = [];
         restore_error_handler();

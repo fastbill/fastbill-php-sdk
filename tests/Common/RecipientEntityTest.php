@@ -93,7 +93,6 @@ class RecipientEntityTest extends TestCase
         $expectedArray['RECIPIENT'][] = ['CC' => 'cc@example.com'];
         $expectedArray['RECIPIENT'][] = ['BCC' => 'bcc@example.com'];
 
-
         self::assertEquals(
             $expectedArray,
             $array

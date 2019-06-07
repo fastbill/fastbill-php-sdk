@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace FastBillSdkTest\Api;
+namespace FastBillSdkTest\Helper;
 
 use FastBillSdk\Api\ApiClientInterface;
 

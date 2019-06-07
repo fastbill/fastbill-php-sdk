@@ -22,7 +22,7 @@ class ProductEntity
 
     public $tags;
 
-    const FIELD_MAPPING = [
+    public const FIELD_MAPPING = [
         'ARTICLE_ID' => 'articleId',
         'ARTICLE_NUMBER' => 'articleNumber',
         'TITLE' => 'title',
@@ -34,7 +34,7 @@ class ProductEntity
         'TAGS' => 'tags',
     ];
 
-    const XML_FIELD_MAPPING = [
+    public const XML_FIELD_MAPPING = [
         'articleId' => 'ARTICLE_ID',
         'articleNumber' => 'ARTICLE_NUMBER',
         'title' => 'TITLE',

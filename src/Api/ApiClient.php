@@ -3,6 +3,7 @@
 namespace FastBillSdk\Api;
 
 use GuzzleHttp\Client;
+use Psr\Http\Message\ResponseInterface;
 
 class ApiClient implements ApiClientInterface
 {
@@ -37,7 +38,7 @@ class ApiClient implements ApiClientInterface
         $this->apiKey = $apiKey;
     }
 
-    public function post(string $body): \Psr\Http\Message\ResponseInterface
+    public function post(string $body): ResponseInterface
     {
         $options = $this->getDefaultOptions();
         $options['body'] = $body;

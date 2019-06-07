@@ -8,7 +8,7 @@ use FastBillSdk\WorkTime\WorkTimeEntity;
 use FastBillSdk\WorkTime\WorkTimeSearchStruct;
 use FastBillSdk\WorkTime\WorkTimeService;
 use FastBillSdk\WorkTime\WorkTimeValidator;
-use FastBillSdkTest\Api\ApiDummyClient;
+use FastBillSdkTest\Helper\ApiDummyClient;
 use PHPUnit\Framework\TestCase;
 
 class WorkTimeServiceTest extends TestCase

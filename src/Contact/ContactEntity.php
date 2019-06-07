@@ -22,7 +22,7 @@ class ContactEntity
 
     public $address2;
 
-    public $zipcode;
+    public $zipCode;
 
     public $city;
 
@@ -58,7 +58,7 @@ class ContactEntity
         'LAST_NAME' => 'lastName',
         'ADDRESS' => 'address',
         'ADDRESS_2' => 'address2',
-        'ZIPCODE' => 'zipcode',
+        'ZIPCODE' => 'zipCode',
         'CITY' => 'city',
         'COUNTRY_CODE' => 'countryCode',
         'SECONDARY_ADDRESS' => 'secondaryAddress',
@@ -83,7 +83,7 @@ class ContactEntity
         'lastName' => 'LAST_NAME',
         'address' => 'ADDRESS',
         'address2' => 'ADDRESS_2',
-        'zipcode' => 'ZIPCODE',
+        'zipCode' => 'ZIPCODE',
         'city' => 'CITY',
         'countryCode' => 'COUNTRY_CODE',
         'secondaryAddress' => 'SECONDARY_ADDRESS',
