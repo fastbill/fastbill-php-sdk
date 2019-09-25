@@ -5,19 +5,8 @@ namespace FastBillSdkTest\WorkTime;
 use FastBillSdk\WorkTime\WorkTimeSearchStruct;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @coversDefaultClass \FastBillSdk\WorkTime\WorkTimeSearchStruct
- */
 class WorkTimeSearchStructTest extends TestCase
 {
-    /**
-     * @covers::setCustomerIdFilter()
-     * @covers::setProjectIdFilter()
-     * @covers::setTaskIdFilter()
-     * @covers::setTimeIdFilter()
-     * @covers::setEndDateFilter()
-     * @covers::setDateFilter()
-     */
     public function testCompleteSearchStruct()
     {
         $searchStruct = new WorkTimeSearchStruct();

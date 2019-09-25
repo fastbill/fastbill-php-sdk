@@ -7,15 +7,10 @@ use GuzzleHttp\Exception\ClientException;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @coversDefaultClass \FastBillSdk\Api\ApiClient
  * @TODO add test with valid credentials
  */
 class ApiClientTest extends TestCase
 {
-    /**
-     * @covers::post
-     * @covers::getDefaultOptions
-     */
     public function testPost(): void
     {
         $client = new ApiClient(

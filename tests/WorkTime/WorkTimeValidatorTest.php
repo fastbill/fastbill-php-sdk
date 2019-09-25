@@ -6,14 +6,8 @@ use FastBillSdk\WorkTime\WorkTimeEntity;
 use FastBillSdk\WorkTime\WorkTimeValidator;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @coversDefaultClass \FastBillSdk\WorkTime\WorkTimeValidator
- */
 class WorkTimeValidatorTest extends TestCase
 {
-    /**
-     * @var WorkTimeValidator
-     */
     private $validator;
 
     private function getValidator(): WorkTimeValidator
@@ -25,12 +19,6 @@ class WorkTimeValidatorTest extends TestCase
         return $this->validator;
     }
 
-    /**
-     * @covers::validateRequiredCreationProperties
-     * @covers::checkCustomerId
-     * @covers::checkProjectId
-     * @covers::checkStartTime
-     */
     public function testValidateRequiredCreationProperties()
     {
         $entity = new WorkTimeEntity();
@@ -45,14 +33,6 @@ class WorkTimeValidatorTest extends TestCase
         self::assertCount(3, $errorMessages);
     }
 
-    /**
-     * @covers::validateRequiredCreationProperties
-     * @covers::validateRequiredUpdateProperties
-     * @covers::checkCustomerId
-     * @covers::checkProjectId
-     * @covers::checkStartTime
-     * @covers::checkTimeId
-     */
     public function testValidateRequiredUpdateProperties()
     {
         $entity = new WorkTimeEntity();
@@ -75,10 +55,6 @@ class WorkTimeValidatorTest extends TestCase
         $this->getValidator()->validateRequiredUpdateProperties($entity);
     }
 
-    /**
-     * @covers::validateRequiredDeleteProperties
-     * @covers::checkTimeId
-     */
     public function testValidateRequiredDeleteProperties()
     {
         $entity = new WorkTimeEntity();

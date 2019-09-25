@@ -6,17 +6,10 @@ use FastBillSdk\WorkTime\WorkTimeEntity;
 use FastBillSdkTest\Helper\EntityTestTrait;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @coversDefaultClass \FastBillSdk\WorkTime\WorkTimeEntity
- */
 class WorkTimeEntityTest extends TestCase
 {
     use EntityTestTrait;
 
-    /**
-     * @covers ::__construct()
-     * @covers ::setData()
-     */
     public function testSetData()
     {
         $entity = new WorkTimeEntity(
@@ -37,10 +30,6 @@ class WorkTimeEntityTest extends TestCase
         self::assertEquals('Make FastBill great again!', $entity->comment);
     }
 
-    /**
-     * @covers ::__construct()
-     * @covers ::setData()
-     */
     public function testSetDataWithInvalidXml()
     {
         $this->disableDefaultErrorHandler();
@@ -59,9 +48,6 @@ class WorkTimeEntityTest extends TestCase
         $this->activateDefaultErrorHandler();
     }
 
-    /**
-     * @covers ::getXmlData()
-     */
     public function testGetXmlData(): void
     {
         $entity = new WorkTimeEntity(

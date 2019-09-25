@@ -5,14 +5,8 @@ namespace FastBillSdkTest\Common;
 use FastBillSdk\Common\RecipientEntity;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @coversDefaultClass \FastBillSdk\Common\RecipientEntity
- */
 class RecipientEntityTest extends TestCase
 {
-    /**
-     * @covers::getToEmailAddress
-     */
     public function testToEmailAddress(): void
     {
         $entity = new RecipientEntity();
@@ -21,9 +15,6 @@ class RecipientEntityTest extends TestCase
         self::assertEquals('test@example.com', $entity->getToEmailAddress());
     }
 
-    /**
-     * @covers::getCcEmailAddress
-     */
     public function testCcEmailAddress(): void
     {
         $entity = new RecipientEntity();
@@ -32,9 +23,6 @@ class RecipientEntityTest extends TestCase
         self::assertEquals('test@example.com', $entity->getCcEmailAddress());
     }
 
-    /**
-     * @covers::getBccEmailAddress
-     */
     public function testBccEmailAddress(): void
     {
         $entity = new RecipientEntity();
@@ -43,10 +31,6 @@ class RecipientEntityTest extends TestCase
         self::assertEquals('test@example.com', $entity->getBccEmailAddress());
     }
 
-    /**
-     * @covers::getToEmailAddress
-     * @covers::validateEmail
-     */
     public function testToEmailAddressWithInvalidEmailAddress(): void
     {
         $this->expectException(\InvalidArgumentException::class);
@@ -55,10 +39,6 @@ class RecipientEntityTest extends TestCase
         $entity->setToEmailAddress('invalid-email@');
     }
 
-    /**
-     * @covers::getCcEmailAddress
-     * @covers::validateEmail
-     */
     public function testCcEmailAddressWithInvalidEmailAddress(): void
     {
         $this->expectException(\InvalidArgumentException::class);
@@ -67,10 +47,6 @@ class RecipientEntityTest extends TestCase
         $entity->setCcEmailAddress('invalid-email@');
     }
 
-    /**
-     * @covers::getBccEmailAddress
-     * @covers::validateEmail
-     */
     public function testBccEmailAddressWithInvalidEmailAddress(): void
     {
         $this->expectException(\InvalidArgumentException::class);

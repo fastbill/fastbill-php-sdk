@@ -4,9 +4,6 @@ namespace FastBillSdkTest\Common;
 
 use PHPUnit\Framework\TestCase;
 
-/**
- * @coversDefaultClass \FastBillSdk\Common\AbstractSearchStruct
- */
 class AbstractSearchStructTest extends TestCase
 {
     public function testLimit(): void
