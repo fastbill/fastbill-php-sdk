@@ -1,56 +1,19 @@
-FROM php:7.1-apache
+FROM webdevops/php-apache-dev:7.2
 
-RUN apt-get update -qq && apt-get install -y -qq apt-utils && mkdir -p /usr/share/man/man1 \
-    && apt-get update -qq && apt-get install -y -qq openjdk-8-jre-headless \
-    && apt-get update -qq && apt-get install -y -qq  openjdk-8-jdk && dpkg --configure -a
+ENV COMPOSER_HOME=/.composer
+ENV WEB_DOCUMENT_ROOT=/var/www/fastbill-sdk
 
-RUN apt-get update -qq && apt-get install -y -qq \
-        libicu-dev \
-        libfreetype6-dev \
-        libjpeg62-turbo-dev \
-        libmcrypt-dev \
-        libpng-dev \
-        libcurl4-openssl-dev \
-        software-properties-common  \
-        libcurl3 curl \
-        git \
-        zip \
-        unzip \
-        git \
-        nano \
-        sudo \
-        vim
+COPY wait-for-it.sh /usr/local/bin/
+COPY php-config.ini /usr/local/etc/php/conf.d/
+COPY xdebug.ini /usr/local/etc/php/conf.d/
+COPY createuser.sh /addExternalUser
 
-RUN docker-php-ext-install iconv mcrypt mbstring opcache \
-    && docker-php-ext-install curl \
-    && docker-php-ext-install intl
+# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=863199
+RUN mkdir -p /usr/share/man/man1
 
-RUN pecl install apcu
-RUN echo "extension=apcu.so" > /usr/local/etc/php/conf.d/apcu.ini
+RUN apt-get update && apt-get install -y ant mysql-client
 
-RUN pecl install xdebug \
-    && docker-php-ext-enable xdebug
-
-ADD server-apache2-vhosts.conf /etc/apache2/sites-enabled/000-default.conf
-ADD server-apache2-run-as.conf /etc/apache2/conf-available
-RUN ln -s /etc/apache2/conf-available/server-apache2-run-as.conf /etc/apache2/conf-enabled
-
-ADD php-config.ini /usr/local/etc/php/conf.d/php-config.ini
-ADD timezone-berlin.ini /usr/local/etc/php/conf.d/timezone.ini
-ADD xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
-
-COPY createuser.sh /tmp/createuser.sh
-RUN chmod +rwx /tmp/createuser.sh
-RUN /tmp/createuser.sh
-
-RUN echo "alias ll='ls -ahl'" >> /etc/bash.bashrc
+RUN chmod +x /usr/local/bin/wait-for-it.sh \
+&& ln -s /app/psh.phar /bin/psh
 
 WORKDIR /var/www/fastbill-sdk
-
-COPY id_rsa /home/app-shell/.ssh
-COPY id_rsa.pub /home/app-shell/.ssh
-
-COPY run-container.sh /run-container.sh
-RUN chmod +x /run-container.sh
-
-CMD /run-container.sh
