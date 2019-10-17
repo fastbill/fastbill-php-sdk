@@ -68,6 +68,19 @@ class ProductService
         return $entity;
     }
 
+    public function updateProduct(ProductEntity $entity): ProductEntity
+    {
+        $this->checkErrors($this->validator->validateRequiredUpdateProperties($entity));
+
+        $this->xmlService->setService('article.update');
+        $this->xmlService->setData($entity->getXmlData());
+
+        $this->apiClient->post($this->xmlService->getXml());
+
+        return $entity;
+    }
+
+
     private function checkErrors(array $errorMessages)
     {
         if (!empty($errorMessages)) {
