@@ -80,6 +80,19 @@ class ProductService
         return $entity;
     }
 
+    public function deleteProduct(ProductEntity $entity): ProductEntity
+    {
+        $this->checkErrors($this->validator->validateRequiredDeleteProperties($entity));
+
+        $this->xmlService->setService('article.delete');
+        $this->xmlService->setData($entity->getXmlData());
+
+        $this->apiClient->post($this->xmlService->getXml());
+
+        $entity->articleId = null;
+
+        return $entity;
+    }
 
     private function checkErrors(array $errorMessages)
     {
