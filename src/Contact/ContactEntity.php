@@ -12,6 +12,8 @@ class ContactEntity
 
     public $position;
 
+    public $academicDegree;
+
     public $salutation;
 
     public $firstName;
@@ -40,19 +42,26 @@ class ContactEntity
 
     public $email;
 
+    public $website;
+
     public $vatId;
 
     public $currencyCode;
 
     public $created;
 
+    public $lastUpdate;
+
     public $tags;
+
+    public $comment;
 
     const FIELD_MAPPING = [
         'CONTACT_ID' => 'contactId',
         'CUSTOMER_ID' => 'customerId',
         'ORGANIZATION' => 'organization',
         'POSITION' => 'position',
+        'ACADEMIC_DEGREE' => 'academicDegree',
         'SALUTATION' => 'salutation',
         'FIRST_NAME' => 'firstName',
         'LAST_NAME' => 'lastName',
@@ -67,10 +76,13 @@ class ContactEntity
         'FAX' => 'fax',
         'MOBILE' => 'mobile',
         'EMAIL' => 'email',
+        'WEBSITE' => 'website',
         'VAT_ID' => 'vatId',
         'CURRENCY_CODE' => 'currencyCode',
         'CREATED' => 'created',
+        'LASTUPDATE' => 'lastUpdate',
         'TAGS' => 'tags',
+        'COMMENT' => 'comment',
     ];
 
     const XML_FIELD_MAPPING = [
@@ -78,6 +90,7 @@ class ContactEntity
         'customerId' => 'CUSTOMER_ID',
         'organization' => 'ORGANIZATION',
         'position' => 'POSITION',
+        'academicDegree' => 'ACADEMIC_DEGREE',
         'salutation' => 'SALUTATION',
         'firstName' => 'FIRST_NAME',
         'lastName' => 'LAST_NAME',
@@ -92,10 +105,13 @@ class ContactEntity
         'fax' => 'FAX',
         'mobile' => 'MOBILE',
         'email' => 'EMAIL',
+        'website' => 'WEBSITE',
         'vatId' => 'VAT_ID',
         'currencyCode' => 'CURRENCY_CODE',
         'created' => 'CREATED',
+        'lastUpdate' => 'LASTUPDATE',
         'tags' => 'TAGS',
+        'comment' => 'COMMENT',
     ];
 
     public function __construct(\SimpleXMLElement $data = null)
