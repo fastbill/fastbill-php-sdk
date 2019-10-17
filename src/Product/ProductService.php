@@ -63,7 +63,7 @@ class ProductService
 
         $xml = new \SimpleXMLElement((string) $response->getBody());
 
-        $entity->customerId = (int) $xml->RESPONSE->CUSTOMER_ID;
+        $entity->articleId = (int) $xml->RESPONSE->ARTICLE_ID;
 
         return $entity;
     }
