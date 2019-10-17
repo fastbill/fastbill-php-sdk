@@ -3,6 +3,7 @@
 namespace FastBillSdk\Product;
 
 use FastBillSdk\Api\ApiClientInterface;
+use FastBillSdk\Common\MissingPropertyException;
 use FastBillSdk\Common\XmlService;
 
 class ProductService
@@ -49,5 +50,28 @@ class ProductService
         }
 
         return $results;
+    }
+
+    public function createProduct(ProductEntity $entity): ProductEntity
+    {
+        $this->checkErrors($this->validator->validateRequiredCreationProperties($entity));
+
+        $this->xmlService->setService('article.create');
+        $this->xmlService->setData($entity->getXmlData());
+
+        $response = $this->apiClient->post($this->xmlService->getXml());
+
+        $xml = new \SimpleXMLElement((string) $response->getBody());
+
+        $entity->customerId = (int) $xml->RESPONSE->CUSTOMER_ID;
+
+        return $entity;
+    }
+
+    private function checkErrors(array $errorMessages)
+    {
+        if (!empty($errorMessages)) {
+            throw new MissingPropertyException(implode("\r\n", $errorMessages));
+        }
     }
 }
