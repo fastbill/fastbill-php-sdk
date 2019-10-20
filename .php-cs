@@ -1,6 +1,7 @@
 <?php
 
 $blacklistedFiles = [
+    'credentials.php',
 ];
 
     $finder = PhpCsFixer\Finder::create()
