@@ -16,7 +16,7 @@ class ContactSearchStruct extends AbstractSearchStruct
         $this->filters['CUSTOMER_NUMBER'] = $customerNumber;
     }
 
-    public function setContactId(string $contactId)
+    public function setContactId(int $contactId)
     {
         $this->filters['CONTACT_ID'] = $contactId;
     }
