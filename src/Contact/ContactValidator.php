@@ -24,12 +24,6 @@ class ContactValidator
         $errorMessages = $this->validateRequiredCreationProperties($entity);
 
         try {
-            $this->checkCustomerId($entity);
-        } catch (MissingPropertyException $exception) {
-            $errorMessages[] = $exception->getMessage();
-        }
-
-        try {
             $this->checkContactId($entity);
         } catch (MissingPropertyException $exception) {
             $errorMessages[] = $exception->getMessage();
@@ -67,7 +61,7 @@ class ContactValidator
     private function checkContactId(ContactEntity $entity)
     {
         if (!$entity->contactId) {
-            throw new MissingPropertyException('The property customerId is not valid!');
+            throw new MissingPropertyException('The property contactId is not valid!');
         }
     }
 }

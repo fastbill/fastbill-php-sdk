@@ -14,6 +14,6 @@ class ApiDummyClient implements ApiClientInterface
     {
         $this->body = $body;
 
-        return new ApiDummyResponse($this->responseXml);
+        return new ApiDummyResponse((string) $this->responseXml);
     }
 }

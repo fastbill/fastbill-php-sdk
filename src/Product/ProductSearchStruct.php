@@ -6,8 +6,8 @@ use FastBillSdk\Common\AbstractSearchStruct;
 
 class ProductSearchStruct extends AbstractSearchStruct
 {
-    public function setArticleNumberIdFilter(int $invoiceId): void
+    public function setArticleNumberFilter(string $articleNumber): void
     {
-        $this->filters['ARTICLE_NUMBER'] = $invoiceId;
+        $this->filters['ARTICLE_NUMBER'] = $articleNumber;
     }
 }

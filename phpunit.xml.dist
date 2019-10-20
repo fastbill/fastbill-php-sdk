@@ -19,4 +19,8 @@
             <directory>src</directory>
         </whitelist>
     </filter>
+    <php>
+        <env name="USERNAME" value=""/>
+        <env name="APIKEY" value=""/>
+    </php>
 </phpunit>

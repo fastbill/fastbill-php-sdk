@@ -34,21 +34,21 @@ class EstimateItemValidator
     public function checkDescription(EstimateItemEntity $entity)
     {
         if (!$entity->description) {
-            throw new MissingPropertyException('The property description is not valid!');
+            throw new MissingPropertyException($entity->articleNumber . ': The property description is not valid!');
         }
     }
 
     public function checkUnitPrice(EstimateItemEntity $entity)
     {
         if (!$entity->unitPrice) {
-            throw new MissingPropertyException('The property unitPrice is not valid!');
+            throw new MissingPropertyException($entity->articleNumber . ': The property unitPrice is not valid!');
         }
     }
 
     public function checkVatPercent(EstimateItemEntity $entity)
     {
         if (!$entity->vatPercent) {
-            throw new MissingPropertyException('The property vatPercent is not valid!');
+            throw new MissingPropertyException($entity->articleNumber . ': The property vatPercent is not valid!');
         }
     }
 }

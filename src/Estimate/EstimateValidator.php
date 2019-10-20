@@ -83,14 +83,17 @@ class EstimateValidator
      */
     private function checkItems(EstimateEntity $entity)
     {
+        $errorMessages = [];
         foreach ($entity->items as $item) {
             if (!$item instanceof EstimateItemEntity) {
                 throw new \InvalidArgumentException('The given item is not a EstimateItemEntity');
             }
 
-            $this->estimateItemValidator->checkDescription($item);
-            $this->estimateItemValidator->checkUnitPrice($item);
-            $this->estimateItemValidator->checkVatPercent($item);
+            $errorMessages[$item->articleNumber] = $this->estimateItemValidator->validateEstimateItem($item);
+        }
+
+        if (count($errorMessages)) {
+            throw new MissingPropertyException(implode("\r\n", $errorMessages));
         }
     }
 }
