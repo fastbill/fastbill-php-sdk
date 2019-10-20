@@ -11,9 +11,9 @@ install:
     - composer install
 
 script:
-    - ./tools/psh code-style
-    - ./tools/psh quality
-    - ./tools/psh unit
+    - ./tools/psh travis:code-style
+    - ./tools/psh travis:quality
+    - ./tools/psh travis:unit
 
 matrix:
     allow_failures:

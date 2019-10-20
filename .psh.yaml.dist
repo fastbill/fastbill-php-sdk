@@ -9,3 +9,6 @@ environments:
   docker:
     paths:
       - "dev-ops/docker/actions"
+  travis:
+    paths:
+      - "dev-ops/travis/actions"
