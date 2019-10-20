@@ -2,10 +2,6 @@
 
 namespace FastBillSdkTest\Template;
 
-use FastBillSdk\Project\ProjectEntity;
-use FastBillSdk\Project\ProjectSearchStruct;
-use FastBillSdk\Project\ProjectService;
-use FastBillSdk\Project\ProjectValidator;
 use FastBillSdk\Template\TemplateEntity;
 use FastBillSdk\Template\TemplateService;
 use FastBillSdkTest\Common\BaseTestTrait;

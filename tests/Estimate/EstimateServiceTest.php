@@ -10,7 +10,6 @@ use FastBillSdk\Estimate\EstimateSearchStruct;
 use FastBillSdk\Estimate\EstimateService;
 use FastBillSdk\Estimate\EstimateValidator;
 use FastBillSdkTest\Common\BaseTestTrait;
-use phpDocumentor\Reflection\Types\Object_;
 use PHPUnit\Framework\TestCase;
 
 class EstimateServiceTest extends TestCase
@@ -73,7 +72,7 @@ class EstimateServiceTest extends TestCase
     public function testCreateEstimateWithEmptyEntity()
     {
         $estimate = new EstimateEntity();
-        $estimate->items =[new \stdClass()];
+        $estimate->items = [new \stdClass()];
 
         $this->expectException(MissingPropertyException::class);
         $this->getEstimateServiceWithApiDummy()->createEstimate($estimate);
@@ -82,7 +81,7 @@ class EstimateServiceTest extends TestCase
     public function testCreateEstimateWithEmptyItemEntity()
     {
         $estimate = new EstimateEntity();
-        $estimate->items =[new EstimateItemEntity()];
+        $estimate->items = [new EstimateItemEntity()];
 
         $this->expectException(MissingPropertyException::class);
         $this->getEstimateServiceWithApiDummy()->createEstimate($estimate);
@@ -91,7 +90,7 @@ class EstimateServiceTest extends TestCase
     public function testDeleteEstimateWithEmptyEntity()
     {
         $estimate = new EstimateEntity();
-        $estimate->items =[new \stdClass()];
+        $estimate->items = [new \stdClass()];
 
         $this->expectException(MissingPropertyException::class);
         $this->getEstimateServiceWithApiDummy()->deleteEstimate($estimate);

@@ -57,28 +57,28 @@ class ProductValidator
         return $errorMessages;
     }
 
-    private function checkArticleId(ProductEntity $entity): void
+    private function checkArticleId(ProductEntity $entity)
     {
         if (!$entity->articleId) {
             throw new MissingPropertyException('The property articleId is not valid!');
         }
     }
 
-    private function checkArticleNumber(ProductEntity $entity): void
+    private function checkArticleNumber(ProductEntity $entity)
     {
         if (!$entity->articleNumber) {
             throw new MissingPropertyException('The property articleNumber is not valid!');
         }
     }
 
-    private function checkTitle(ProductEntity $entity): void
+    private function checkTitle(ProductEntity $entity)
     {
         if (!$entity->title) {
             throw new MissingPropertyException('The property title is not valid!');
         }
     }
 
-    private function checkUnitPrice(ProductEntity $entity): void
+    private function checkUnitPrice(ProductEntity $entity)
     {
         if (!$entity->unitPrice) {
             throw new MissingPropertyException('The property unitPrice is not valid!');

@@ -89,7 +89,7 @@ class EstimateValidator
                 throw new \InvalidArgumentException('The given item is not a EstimateItemEntity');
             }
 
-            $errorMessages[$item->articleNumber] = $this->estimateItemValidator->validateEstimateItem($item);
+            $errorMessages[] = $this->estimateItemValidator->validateEstimateItem($item);
         }
 
         if (count($errorMessages)) {

@@ -6,7 +6,7 @@ use FastBillSdk\Common\AbstractSearchStruct;
 
 class ProductSearchStruct extends AbstractSearchStruct
 {
-    public function setArticleNumberFilter(string $articleNumber): void
+    public function setArticleNumberFilter(string $articleNumber)
     {
         $this->filters['ARTICLE_NUMBER'] = $articleNumber;
     }
