@@ -1,4 +1,4 @@
-[![Latest Stable Version](https://poser.pugx.org/fastbill/fastbill-php-sdk/v/stable)](https://packagist.org/packages/fastbill/fastbill-php-sdk) [![Packagist](https://img.shields.io/packagist/dt/fastbill/fastbill-php-sdk.svg)](https://packagist.org/packages/fastbill/fastbill-php-sdk) [![Codeclimate](https://api.codeclimate.com/v1/badges/08c48ce7b97c0b53a44a/maintainability)](https://codeclimate.com/github/fastbill/fastbill-php-sdk/maintainability)
+[![Latest Stable Version](https://poser.pugx.org/fastbill/fastbill-php-sdk/v/stable)](https://packagist.org/packages/fastbill/fastbill-php-sdk) [![Packagist](https://img.shields.io/packagist/dt/fastbill/fastbill-php-sdk.svg)](https://packagist.org/packages/fastbill/fastbill-php-sdk) [![Codeclimate](https://api.codeclimate.com/v1/badges/08c48ce7b97c0b53a44a/maintainability)](https://codeclimate.com/github/fastbill/fastbill-php-sdk/maintainability)[![Build Status](https://travis-ci.org/fastbill/fastbill-php-sdk.svg?branch=master)](https://travis-ci.org/fastbill/fastbill-php-sdk)
 
 # <img src="examples/theme/logo.png" height="35" align="center" /> FastBill PHP SDK
 
