@@ -92,7 +92,7 @@ class EstimateValidator
             $errorMessages[] = $this->estimateItemValidator->validateEstimateItem($item);
         }
 
-        if (count($errorMessages)) {
+        if (count($errorMessages) > 1) {
             throw new MissingPropertyException(implode("\r\n", $errorMessages));
         }
     }

@@ -1,0 +1,18 @@
+language: php
+php:
+    - 7.1
+    - 7.2
+    - 7.3
+    - 7.4
+sudo: required
+dist: xenial
+
+install:
+    - composer install
+
+script:
+    - ./tools/psh travis:unit
+
+matrix:
+    allow_failures:
+        - php: 7.4
