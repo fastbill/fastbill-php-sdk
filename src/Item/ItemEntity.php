@@ -10,6 +10,8 @@ class ItemEntity
 
     public $customerId;
 
+    public $category;
+
     public $articleNumber;
 
     public $description;
@@ -34,6 +36,7 @@ class ItemEntity
         'INVOICE_ITEM_ID' => 'invoiceItemId',
         'INVOICE_ID' => 'invoiceId',
         'CUSTOMER_ID' => 'customerId',
+        'CATEGORY' => 'category',
         'ARTICLE_NUMBER' => 'articleNumber',
         'DESCRIPTION' => 'description',
         'QUANTITY' => 'quantity',
@@ -50,6 +53,7 @@ class ItemEntity
         'invoiceItemId' => 'INVOICE_ITEM_ID',
         'invoiceId' => 'INVOICE_ID',
         'customerId' => 'CUSTOMER_ID',
+        'category' => 'CATEGORY',
         'articleNumber' => 'ARTICLE_NUMBER',
         'description' => 'DESCRIPTION',
         'quantity' => 'QUANTITY',
