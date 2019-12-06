@@ -4,7 +4,31 @@ namespace FastBillSdk\Document;
 
 class DocumentEntity
 {
-    const FIELD_MAPPING = [];
+    public $documentId;
+
+    public $type;
+
+    public $title;
+
+    public $date;
+
+    public $note;
+
+    const FIELD_MAPPING = [
+        'DOCUMENT_ID' => 'documentId',
+        'TYPE' => 'type',
+        'TITLE' => 'title',
+        'DATE' => 'date',
+        'NOTE' => 'note',
+    ];
+
+    const XML_FIELD_MAPPING = [
+        'documentId' => 'DOCUMENT_ID',
+        'type' => 'TYPE',
+        'title' => 'TITLE',
+        'date' => 'DATE',
+        'note' => 'NOTE',
+    ];
 
     public function __construct(\SimpleXMLElement $data = null)
     {
@@ -30,3 +54,4 @@ class DocumentEntity
         return $this;
     }
 }
+
