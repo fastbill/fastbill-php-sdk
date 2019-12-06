@@ -54,4 +54,3 @@ class DocumentEntity
         return $this;
     }
 }
-
