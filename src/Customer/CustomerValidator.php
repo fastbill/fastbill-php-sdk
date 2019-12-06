@@ -73,9 +73,7 @@ class CustomerValidator
     private function checkCustomerType(CustomerEntity $entity)
     {
         if (!$entity->customerType || !\in_array($entity->customerType, ['business', 'consumer'], true)) {
-            throw new MissingPropertyException(
-                'The property customerType is not valid! Only business or consumer as value is allowed!'
-            );
+            throw new MissingPropertyException('The property customerType is not valid! Only business or consumer as value is allowed!');
         }
     }
 
