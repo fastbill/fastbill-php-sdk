@@ -20,6 +20,8 @@ class ProductEntity
 
     public $vatPercent;
 
+    public $isGross;
+
     public $tags;
 
     public const FIELD_MAPPING = [
@@ -31,6 +33,7 @@ class ProductEntity
         'UNIT_PRICE' => 'unitPrice',
         'CURRENCY_CODE' => 'currencyCode',
         'VAT_PERCENT' => 'vatPercent',
+        'IS_GROSS' => 'isGross',
         'TAGS' => 'tags',
     ];
 
@@ -43,6 +46,7 @@ class ProductEntity
         'unitPrice' => 'UNIT_PRICE',
         'currencyCode' => 'CURRENCY_CODE',
         'vatPercent' => 'VAT_PERCENT',
+        'isGross' => 'IS_GROSS',
         'tags' => 'TAGS',
     ];
 

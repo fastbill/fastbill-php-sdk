@@ -17,7 +17,9 @@ $productService = new FastBillSdk\Product\ProductService(
 $entity = new \FastBillSdk\Product\ProductEntity();
 $entity->title = 'FastBill SDK';
 $entity->unitPrice = 1337;
-$entity->articleNumber = 42;
+$entity->articleNumber = 222;
+$entity->vatPercent = 19;
+$entity->isGross = 1;
 
 $result = $productService->createProduct($entity);
 
