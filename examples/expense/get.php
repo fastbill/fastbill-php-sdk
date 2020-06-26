@@ -7,6 +7,7 @@ use FastBillSdk\Common\XmlService;
 use FastBillSdk\Expense\ExpenseSearchStruct;
 use FastBillSdk\Expense\ExpenseService;
 use FastBillSdk\Expense\ExpenseValidator;
+use FastBillSdk\ExpenseItem\ExpenseItemValidator;
 
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
@@ -19,7 +20,7 @@ $fastBillClient = new ApiClient($username, $apiKey);
 $expenseService = new ExpenseService(
     $fastBillClient,
     new XmlService(),
-    new ExpenseValidator()
+    new ExpenseValidator(new ExpenseItemValidator())
 );
 $expenseSearchStruct = new ExpenseSearchStruct();
 $expenseSearchStruct->setInvoiceIdFilter(1);
