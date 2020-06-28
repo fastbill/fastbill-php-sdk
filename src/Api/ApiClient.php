@@ -30,7 +30,7 @@ class ApiClient implements ApiClientInterface
     public function __construct(
         string $username,
         string $apiKey,
-        string $endpoint = 'http://localhost:8081/api/1.0/api.php'
+        string $endpoint = 'https://my.fastbill.com/api/1.0/api.php'
     ) {
         $this->client = new Client();
         $this->endpoint = $endpoint;
