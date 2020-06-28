@@ -5,7 +5,6 @@ namespace FastBillSdk\Invoice;
 use FastBillSdk\Api\ApiClient;
 use FastBillSdk\Common\XmlService;
 use FastBillSdk\Expense\ExpenseEntity;
-use FastBillSdk\Expense\ExpenseSearchStruct;
 use FastBillSdk\Expense\ExpenseService;
 use FastBillSdk\Expense\ExpenseValidator;
 use FastBillSdk\ExpenseItem\ExpenseItemEntity;

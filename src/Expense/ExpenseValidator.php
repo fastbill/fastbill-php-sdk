@@ -17,6 +17,7 @@ class ExpenseValidator
     {
         $this->expenseItemValidator = $expenseItemValidator;
     }
+
     public function validateRequiredCreationProperties(ExpenseEntity $entity): array
     {
         $errorMessages = [];

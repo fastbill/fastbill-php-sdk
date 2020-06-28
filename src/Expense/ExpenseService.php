@@ -4,7 +4,6 @@ namespace FastBillSdk\Expense;
 
 use FastBillSdk\Api\ApiClientInterface;
 use FastBillSdk\Common\MissingPropertyException;
-use FastBillSdk\Common\RecipientEntity;
 use FastBillSdk\Common\XmlService;
 
 class ExpenseService
@@ -43,8 +42,6 @@ class ExpenseService
 
         $response = $this->apiClient->post($this->xmlService->getXml());
 
-        file_put_contents(__DIR__.'/../../debug.xml', $response->getBody());
-
         $xml = new \SimpleXMLElement((string) $response->getBody());
         $results = [];
         foreach ($xml->RESPONSE->EXPENSES->EXPENSE as $expenseEntry) {
@@ -62,8 +59,6 @@ class ExpenseService
         $this->xmlService->setData($entity->getXmlData());
 
         $response = $this->apiClient->post($this->xmlService->getXml());
-
-        file_put_contents(__DIR__.'/../../debug_create.xml', $response->getBody());
 
         $xml = new \SimpleXMLElement((string) $response->getBody());
 
