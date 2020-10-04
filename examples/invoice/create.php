@@ -24,9 +24,6 @@ $invoiceService = new InvoiceService(
 $invoiceEntity = new InvoiceEntity();
 $invoiceEntity->customerId = 123;
 $invoiceEntity->projectId = 456;
-$invoiceEntity->servicePeriodStart = '2020-01-01';
-$invoiceEntity->servicePeriodEnd = '2020-12-31';
-
 $invoiceItem = new ItemEntity();
 $invoiceItem->description = 'FastBill SDK';
 $invoiceItem->unitPrice = 1337;

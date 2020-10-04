@@ -85,10 +85,6 @@ class InvoiceEntity
 
     public $dueDate;
 
-    public $servicePeriodStart;
-
-    public $servicePeriodEnd;
-
     public $deliveryDate;
 
     public $lastUpdate;
@@ -159,8 +155,6 @@ class InvoiceEntity
         'IS_CANCELED' => 'isCanceled',
         'INVOICE_DATE' => 'invoiceDate',
         'DUE_DATE' => 'dueDate',
-        'SERVICE_PERIOD_START' => 'servicePeriodStart',
-        'SERVICE_PERIOD_END' => 'servicePeriodEnd',
         'DELIVERY_DATE' => 'deliveryDate',
         'LASTUPDATE' => 'lastUpdate',
         'CASH_DISCOUNT_PERCENT' => 'cashDiscountPercent',
@@ -215,8 +209,6 @@ class InvoiceEntity
         'isCanceled' => 'IS_CANCELED',
         'invoiceDate' => 'INVOICE_DATE',
         'dueDate' => 'DUE_DATE',
-        'servicePeriodStart' => 'SERVICE_PERIOD_START',
-        'servicePeriodEnd' => 'SERVICE_PERIOD_END',
         'deliveryDate' => 'DELIVERY_DATE',
         'lastUpdate' => 'LASTUPDATE',
         'cashDiscountPercent' => 'CASH_DISCOUNT_PERCENT',

@@ -20,7 +20,7 @@ $invoiceService = new InvoiceService(
     new InvoiceValidator(new ItemValidator())
 );
 $invoiceSearchStruct = new InvoiceSearchStruct();
-$invoiceSearchStruct->setInvoiceIdFilter(8);
+$invoiceSearchStruct->setInvoiceIdFilter(16461206);
 //$workTimesSearchStruct->setCustomerIdFilter(123123);
 $result = $invoiceService->getInvoice($invoiceSearchStruct);
 
@@ -28,7 +28,6 @@ ini_set('xdebug.var_display_max_depth', '5');
 ini_set('xdebug.var_display_max_children', '256');
 ini_set('xdebug.var_display_max_data', '1024');
 echo '<pre>';
-var_dump($result[0]->servicePeriodStart);
-var_dump($result[0]->servicePeriodEnd);
+var_dump($result);
 echo '</pre>';
 die();
