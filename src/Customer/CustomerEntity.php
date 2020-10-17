@@ -36,6 +36,8 @@ class CustomerEntity
 
     public $accountReceivable;
 
+    public $customerAccount;
+
     public $customerType;
 
     public $top;
@@ -101,6 +103,7 @@ class CustomerEntity
         'BANK_ACCOUNT_MANDATE_REFERENCE' => 'bankAccountMandateReference',
         'SHOW_PAYMENT_NOTICE' => 'showPaymentNotice',
         'ACCOUNT_RECEIVABLE' => 'accountReceivable',
+        'CUSTOMER_ACCOUNT' => 'customerAccount',
         'CUSTOMER_TYPE' => 'customerType',
         'TOP' => 'top',
         'NEWSLETTER_OPTIN' => 'newsletterOptin', // deprecated
@@ -143,6 +146,7 @@ class CustomerEntity
         'bankAccountMandateReference' => 'BANK_ACCOUNT_MANDATE_REFERENCE',
         'showPaymentNotice' => 'SHOW_PAYMENT_NOTICE',
         'accountReceivable' => 'ACCOUNT_RECEIVABLE',
+        'customerAccount' => 'CUSTOMER_ACCOUNT',
         'customerType' => 'CUSTOMER_TYPE',
         'top' => 'TOP',
         'newsletterOptin' => 'NEWSLETTER_OPTIN',
