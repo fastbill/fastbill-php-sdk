@@ -61,6 +61,8 @@ class InvoiceEntity
 
     public $vatId;
 
+    public $vatCase;
+
     public $currencyCode;
 
     public $templateId;
@@ -147,6 +149,7 @@ class InvoiceEntity
         'AFFILIATE' => 'affiliate',
         'COUNTRY_CODE' => 'countryCode',
         'VAT_ID' => 'vatId',
+        'VAT_CASE' => 'vatCase',
         'CURRENCY_CODE' => 'currencyCode',
         'TEMPLATE_ID' => 'templateId',
         'CONTACT_ID' => 'contactId',
@@ -203,6 +206,7 @@ class InvoiceEntity
         'affiliate' => 'AFFILIATE',
         'countryCode' => 'COUNTRY_CODE',
         'vatId' => 'VAT_ID',
+        'vatCase' => 'VAT_CASE',
         'currencyCode' => 'CURRENCY_CODE',
         'templateId' => 'TEMPLATE_ID',
         'contactId' => 'CONTACT_ID',
