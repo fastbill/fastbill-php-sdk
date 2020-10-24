@@ -47,7 +47,7 @@ class ItemValidator
 
     public function checkVatPercent(ItemEntity $entity)
     {
-        if (!$entity->vatPercent) {
+        if (!$entity->vatPercent && $entity->vatPercent !== 0) {
             throw new MissingPropertyException('The property vatPercent is not valid!');
         }
     }
