@@ -3,7 +3,7 @@
     "description": "FastBill SDK for PHP",
     "type": "library",
     "require": {
-        "guzzlehttp/guzzle": "^5.0|^6.0",
+        "guzzlehttp/guzzle": "^5.0|^6.0|^7.0",
         "php": ">=7.1.0",
         "ext-simplexml": "*"
     },
