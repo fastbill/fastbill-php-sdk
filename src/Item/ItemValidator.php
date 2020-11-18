@@ -40,7 +40,7 @@ class ItemValidator
 
     public function checkUnitPrice(ItemEntity $entity)
     {
-        if (!$entity->unitPrice) {
+        if (!$entity->unitPrice && $entity->unitPrice !== 0) {
             throw new MissingPropertyException('The property unitPrice is not valid!');
         }
     }

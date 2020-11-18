@@ -29,4 +29,20 @@ class ItemValidatorTest extends TestCase
 
         self::assertTrue($result);
     }
+
+    public function testUnitPriceValueZeroIsAllowed()
+    {
+        $item = new ItemEntity();
+        $item->unitPrice = 0;
+
+        $result = true;
+
+        try {
+            $this->getItemValidator()->checkUnitPrice($item);
+        } catch (MissingPropertyException $e) {
+            $result = false;
+        }
+
+        self::assertTrue($result);
+    }
 }
