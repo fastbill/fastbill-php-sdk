@@ -94,7 +94,7 @@ class ItemEntity
     {
         $xmlData = [];
         foreach (self::XML_FIELD_MAPPING as $key => $value) {
-            if ($this->$key) {
+            if ($this->$key || ($key ==='unitPrice' && $this->$key === 0)) {
                 $xmlData[$value] = $this->$key;
             }
         }
