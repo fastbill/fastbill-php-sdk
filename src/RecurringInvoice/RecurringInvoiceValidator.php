@@ -89,6 +89,7 @@ class RecurringInvoiceValidator
             throw new MissingPropertyException('The property customerId is not valid!');
         }
     }
+
     private function checkInvoiceId(RecurringInvoiceEntity $entity): void
     {
         if (!$entity->invoiceId) {

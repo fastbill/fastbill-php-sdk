@@ -1,4 +1,5 @@
-<?php declare(strict_types=1);
+<?php
+declare(strict_types=1);
 
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
@@ -28,4 +29,4 @@ ini_set('xdebug.var_display_max_data', '1024');
 echo '<pre>';
 var_dump($result);
 echo '</pre>';
-die();
+exit();

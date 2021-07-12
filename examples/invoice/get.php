@@ -1,4 +1,5 @@
-<?php declare(strict_types=1);
+<?php
+declare(strict_types=1);
 
 namespace FastBillSdk\Invoice;
 
@@ -31,4 +32,4 @@ echo '<pre>';
 var_dump($result[0]->servicePeriodStart);
 var_dump($result[0]->servicePeriodEnd);
 echo '</pre>';
-die();
+exit();

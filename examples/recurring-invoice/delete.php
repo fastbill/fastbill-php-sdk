@@ -7,7 +7,6 @@ use FastBillSdk\Api\ApiClient;
 use FastBillSdk\Common\XmlService;
 use FastBillSdk\Item\ItemValidator;
 use FastBillSdk\RecurringInvoice\RecurringInvoiceEntity;
-use FastBillSdk\RecurringInvoice\RecurringInvoiceSearchStruct;
 use FastBillSdk\RecurringInvoice\RecurringInvoiceService;
 use FastBillSdk\RecurringInvoice\RecurringInvoiceValidator;
 
@@ -36,4 +35,4 @@ ini_set('xdebug.var_display_max_data', '1024');
 echo '<pre>';
 var_dump($result);
 echo '</pre>';
-die();
+exit();
