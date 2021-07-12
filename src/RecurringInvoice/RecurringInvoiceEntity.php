@@ -18,6 +18,16 @@ class RecurringInvoiceEntity
 
     public $introtext;
 
+    public $startDate;
+
+    public $frequency;
+
+    public $occurences;
+
+    public $outputType;
+
+    public $emailNotify;
+
     public $invoiceNumber;
 
     public $paidDate;
@@ -42,6 +52,14 @@ class RecurringInvoiceEntity
 
     public $vatItems;
 
+    public $vatCase;
+
+    public $templateHash;
+
+    public $items;
+
+    public $deleteExistingItems = 1;
+
     const FIELD_MAPPING = [
         'INVOICE_ID' => 'invoiceId',
         'TYPE' => 'type',
@@ -62,6 +80,27 @@ class RecurringInvoiceEntity
         'VAT_TOTAL' => 'vatTotal',
         'TOTAL' => 'total',
         'VAT_ITEMS' => 'vatItems',
+        'ITEMS' => 'items',
+    ];
+
+    const XML_FIELD_MAPPING = [
+        'customerId' => 'CUSTOMER_ID',
+        'customerCostcenterId' => 'CUSTOMER_COSTCENTER_ID',
+        'currencyCode' => 'CURRENCY_CODE',
+        'templateId' => 'TEMPLATE_ID',
+        'introtext' => 'INTROTEXT',
+        'startDate' => 'START_DATE',
+        'frequency' => 'FREQUENCY',
+        'occurences' => 'OCCURENCES',
+        'outputType' => 'OUTPUT_TYPE',
+        'emailNotify' => 'EMAIL_NOTIFY',
+        'deliveryDate' => 'DELIVERY_DATE',
+        'cashDiscountPercent' => 'CASH_DISCOUNT_PERCENT',
+        'cashDiscountDays' => 'CASH_DISCOUNT_DAYS',
+        'vatCase' => 'VAT_CASE',
+        'templateHash' => 'TEMPLATE_HASH',
+        'items' => 'ITEMS',
+        'deleteExistingItems' => 'DELETE_EXISTING_ITEMS',
     ];
 
     public function __construct(\SimpleXMLElement $data = null)
@@ -86,5 +125,21 @@ class RecurringInvoiceEntity
         }
 
         return $this;
+    }
+
+    public function getXmlData(): array
+    {
+        $xmlData = [];
+        foreach (self::XML_FIELD_MAPPING as $key => $value) {
+            if ($this->$key && $key === 'items') {
+                foreach ($this->items as $item) {
+                    $xmlData[$value][] = $item->getXmlData();
+                }
+            } elseif ($this->$key) {
+                $xmlData[$value] = $this->$key;
+            }
+        }
+
+        return $xmlData;
     }
 }
