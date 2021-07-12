@@ -1,4 +1,5 @@
-<?php declare(strict_types=1);
+<?php
+declare(strict_types=1);
 
 namespace FastBillSdk\Invoice;
 
@@ -44,7 +45,7 @@ $result = $expenseService->createExpense($entity);
 ini_set('xdebug.var_display_max_depth', '5');
 ini_set('xdebug.var_display_max_children', '256');
 ini_set('xdebug.var_display_max_data', '1024');
-echo'<pre>';
+echo '<pre>';
 var_dump($result);
-echo'</pre>';
-die();
+echo '</pre>';
+exit();

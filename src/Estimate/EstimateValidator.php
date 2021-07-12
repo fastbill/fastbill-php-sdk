@@ -1,4 +1,5 @@
-<?php declare(strict_types=1);
+<?php
+declare(strict_types=1);
 
 namespace FastBillSdk\Estimate;
 
@@ -28,9 +29,7 @@ class EstimateValidator
 
         try {
             $this->checkItems($entity);
-        } catch (\InvalidArgumentException $exception) {
-            $errorMessages[] = $exception->getMessage();
-        } catch (MissingPropertyException $exception) {
+        } catch (\InvalidArgumentException | MissingPropertyException $exception) {
             $errorMessages[] = $exception->getMessage();
         }
 

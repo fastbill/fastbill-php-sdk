@@ -1,4 +1,5 @@
-<?php declare(strict_types=1);
+<?php
+declare(strict_types=1);
 
 namespace FastBillSdk\WorkTime;
 
@@ -57,28 +58,28 @@ class WorkTimeValidator
         return $errorMessages;
     }
 
-    private function checkCustomerId(WorkTimeEntity $entity)
+    private function checkCustomerId(WorkTimeEntity $entity): void
     {
         if (!$entity->customerId) {
             throw new MissingPropertyException('The property customerId is not valid!');
         }
     }
 
-    private function checkProjectId(WorkTimeEntity $entity)
+    private function checkProjectId(WorkTimeEntity $entity): void
     {
         if (!$entity->projectId) {
             throw new MissingPropertyException('The property projectId is not valid!');
         }
     }
 
-    private function checkStartTime(WorkTimeEntity $entity)
+    private function checkStartTime(WorkTimeEntity $entity): void
     {
         if (!$entity->startTime) {
             throw new MissingPropertyException('The property startTime is not valid!');
         }
     }
 
-    private function checkTimeId(WorkTimeEntity $entity)
+    private function checkTimeId(WorkTimeEntity $entity): void
     {
         if (!$entity->timeId) {
             throw new MissingPropertyException('The property timeId is not valid!');
