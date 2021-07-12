@@ -51,21 +51,21 @@ class ProjectValidator
         return $errorMessages;
     }
 
-    private function checkCustomerId(ProjectEntity $entity)
+    private function checkCustomerId(ProjectEntity $entity): void
     {
         if (!$entity->customerId) {
             throw new MissingPropertyException('The property customerId is not valid!');
         }
     }
 
-    private function checkProjectId(ProjectEntity $entity)
+    private function checkProjectId(ProjectEntity $entity): void
     {
         if (!$entity->projectId) {
             throw new MissingPropertyException('The property projectId is not valid!');
         }
     }
 
-    private function checkProjectName(ProjectEntity $entity)
+    private function checkProjectName(ProjectEntity $entity): void
     {
         if (!$entity->projectName) {
             throw new MissingPropertyException('The property projectName is not valid!');

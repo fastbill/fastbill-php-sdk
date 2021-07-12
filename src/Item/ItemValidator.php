@@ -31,21 +31,21 @@ class ItemValidator
         return $errorMessages;
     }
 
-    public function checkDescription(ItemEntity $entity)
+    public function checkDescription(ItemEntity $entity): void
     {
         if (!$entity->description) {
             throw new MissingPropertyException('The property description is not valid!');
         }
     }
 
-    public function checkUnitPrice(ItemEntity $entity)
+    public function checkUnitPrice(ItemEntity $entity): void
     {
         if (!$entity->unitPrice && $entity->unitPrice !== 0) {
             throw new MissingPropertyException('The property unitPrice is not valid!');
         }
     }
 
-    public function checkVatPercent(ItemEntity $entity)
+    public function checkVatPercent(ItemEntity $entity): void
     {
         if (!$entity->vatPercent && $entity->vatPercent !== 0) {
             throw new MissingPropertyException('The property vatPercent is not valid!');

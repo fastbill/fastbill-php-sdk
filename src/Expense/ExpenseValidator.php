@@ -75,35 +75,35 @@ class ExpenseValidator
         return $errorMessages;
     }
 
-    private function checkInvoiceId(ExpenseEntity $entity)
+    private function checkInvoiceId(ExpenseEntity $entity): void
     {
         if (!$entity->invoiceId) {
             throw new MissingPropertyException('The property invoiceId is not valid!');
         }
     }
 
-    private function checkInvoiceDate(ExpenseEntity $entity)
+    private function checkInvoiceDate(ExpenseEntity $entity): void
     {
         if (!$entity->invoiceDate) {
             throw new MissingPropertyException('The property invoiceDate is not valid!');
         }
     }
 
-    private function checkOrganization(ExpenseEntity $entity)
+    private function checkOrganization(ExpenseEntity $entity): void
     {
         if (!$entity->organization) {
             throw new MissingPropertyException('The property organization is not valid!');
         }
     }
 
-    private function checkSubTotal(ExpenseEntity $entity)
+    private function checkSubTotal(ExpenseEntity $entity): void
     {
         if (!$entity->subTotal) {
             throw new MissingPropertyException('The property subTotal is not valid!');
         }
     }
 
-    private function checkItems(ExpenseEntity $entity)
+    private function checkItems(ExpenseEntity $entity): void
     {
         if (!$entity->items) {
             throw new MissingPropertyException('The property items is not valid!');

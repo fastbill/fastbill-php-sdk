@@ -76,14 +76,14 @@ class InvoiceValidator
         return $errorMessages;
     }
 
-    private function checkCustomerId(InvoiceEntity $entity)
+    private function checkCustomerId(InvoiceEntity $entity): void
     {
         if (!$entity->customerId) {
             throw new MissingPropertyException('The property customerId is not valid!');
         }
     }
 
-    private function checkItems(InvoiceEntity $entity)
+    private function checkItems(InvoiceEntity $entity): void
     {
         if (!$entity->items) {
             throw new MissingPropertyException('The property items is not valid!');
