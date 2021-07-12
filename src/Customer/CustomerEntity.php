@@ -88,6 +88,8 @@ class CustomerEntity
 
     public $tags;
 
+    public $documentHistoryUrl;
+
     const FIELD_MAPPING = [
         'CUSTOMER_ID' => 'customerId',
         'CUSTOMER_NUMBER' => 'customerNumber',
@@ -129,6 +131,7 @@ class CustomerEntity
         'CURRENCY_CODE' => 'currencyCode',
         'LASTUPDATE' => 'lastupdate',
         'TAGS' => 'tags',
+        'DOCUMENT_HISTORY_URL' => 'documentHistoryUrl',
     ];
 
     const XML_FIELD_MAPPING = [
@@ -172,6 +175,7 @@ class CustomerEntity
         'currencyCode' => 'CURRENCY_CODE',
         'lastupdate' => 'LASTUPDATE',
         'tags' => 'TAGS',
+        'documentHistoryUrl' => 'DOCUMENT_HISTORY_URL',
     ];
 
     public function __construct(\SimpleXMLElement $data = null)
