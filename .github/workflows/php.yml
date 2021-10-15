@@ -21,18 +21,21 @@ jobs:
                 php-version: ${{ matrix.php }}
                 tools: composer
                 coverage: none
-              env: # Or as an environment variable
-                  USERNAME: ${{ secrets.USERNAME }}
-                  APIKEY: ${{ secrets.APIKEY }}
 
             - name: Install dependencies
               run: composer install --prefer-dist --no-progress
+
             - name: run code php-cs-fixer
               run: ./tools/php-cs-fixer fix --config=.php-cs --dry-run
+
             - name: run phpstan
               run: ./tools/phpstan analyse -l 5 ./src
+
             - name: run tests
-              run: USERNAME=$USERNAME APIKEY=$APIKEY ./vendor/bin/phpunit --stop-on-failure --stop-on-error
+              run: ./vendor/bin/phpunit --stop-on-failure --stop-on-error
+              env:
+                  USERNAME: ${{ secrets.USERNAME }}
+                  APIKEY: ${{ secrets.APIKEY }}
 
         # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
         # Docs: https://getcomposer.org/doc/articles/scripts.md
