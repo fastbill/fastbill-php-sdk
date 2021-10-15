@@ -38,6 +38,9 @@ class InvoiceEntity
 
     public $comment;
 
+    /**
+     * @var InvoiceCommentEntity[]|string
+     */
     public $comments;
 
     public $paymentType;
@@ -105,17 +108,20 @@ class InvoiceEntity
     public $vatTotal;
 
     /**
-     * @var VatItemEntity[]
+     * @var VatItemEntity[]|string
      */
     public $vatItems;
 
     /**
-     * @var ItemEntity[]
+     * @var ItemEntity[]|string
      */
     public $items;
 
     public $total;
 
+    /**
+     * @var InvoicePaymentEntity[]|string
+     */
     public $payments;
 
     public $paymentInfo;
@@ -261,7 +267,7 @@ class InvoiceEntity
                         $comments[] = new InvoiceCommentEntity($comment);
                     }
 
-                    $this->{self::FIELD_MAPPING[$key]} = $comments;
+                    $this->comments = $comments;
                     break;
                 case 'ITEMS':
                     $items = [];
@@ -269,7 +275,7 @@ class InvoiceEntity
                         $items[] = new ItemEntity($item);
                     }
 
-                    $this->{self::FIELD_MAPPING[$key]} = $items;
+                    $this->items = $items;
                     break;
                 case 'VAT_ITEMS':
                     $vatItems = [];
@@ -277,7 +283,7 @@ class InvoiceEntity
                         $vatItems[] = new VatItemEntity($vatItem);
                     }
 
-                    $this->{self::FIELD_MAPPING[$key]} = $vatItems;
+                    $this->vatItems = $vatItems;
                     break;
                 case 'PAYMENTS':
                     $payments = [];
@@ -285,7 +291,7 @@ class InvoiceEntity
                         $payments[] = new InvoicePaymentEntity($payment);
                     }
 
-                    $this->{self::FIELD_MAPPING[$key]} = $payments;
+                    $this->payments = $payments;
                     break;
                 default:
                     $this->{self::FIELD_MAPPING[$key]} = (string) $value;

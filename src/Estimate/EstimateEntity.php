@@ -70,12 +70,12 @@ class EstimateEntity
     public $vatTotal;
 
     /**
-     * @var EstimateVatItemEntity[]
+     * @var EstimateVatItemEntity[]|string
      */
     public $vatItems;
 
     /**
-     * @var EstimateItemEntity[]
+     * @var EstimateItemEntity[]|string
      */
     public $items;
 
