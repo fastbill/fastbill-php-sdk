@@ -107,7 +107,11 @@ class InvoiceService
         $this->xmlService->setService('invoice.complete');
         $this->xmlService->setData($entity->getXmlData());
 
-        $this->apiClient->post($this->xmlService->getXml());
+        $response = $this->apiClient->post($this->xmlService->getXml());
+
+        $xml = new \SimpleXMLElement((string) $response->getBody());
+
+        $entity->invoiceNumber = $xml->RESPONSE->INVOICE_NUMBER;
 
         return $entity;
     }
