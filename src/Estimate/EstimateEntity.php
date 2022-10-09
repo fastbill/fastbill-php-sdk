@@ -83,7 +83,7 @@ class EstimateEntity
 
     public $documentUrl;
 
-    const FIELD_MAPPING = [
+    public const FIELD_MAPPING = [
         'ESTIMATE_ID' => 'estimateId',
         'STATE' => 'state',
         'CUSTOMER_ID' => 'customerId',
@@ -122,7 +122,7 @@ class EstimateEntity
         'DOCUMENT_URL' => 'documentUrl',
     ];
 
-    const XML_FIELD_MAPPING = [
+    public const XML_FIELD_MAPPING = [
         'estimateId' => 'ESTIMATE_ID',
         'state' => 'STATE',
         'customerId' => 'CUSTOMER_ID',
@@ -182,9 +182,6 @@ class EstimateEntity
         }
     }
 
-    /**
-     * @return EstimateEntity
-     */
     public function setData(\SimpleXMLElement $data): self
     {
         foreach ($data as $key => $value) {

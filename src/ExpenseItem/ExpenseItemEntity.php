@@ -37,7 +37,7 @@ class ExpenseItemEntity
 
     public $sortOrder;
 
-    const FIELD_MAPPING = [
+    public const FIELD_MAPPING = [
         'INVOICE_ITEM_ID' => 'invoiceItemId',
         'INVOICE_ID' => 'invoiceId',
         'CUSTOMER_ID' => 'customerId',
@@ -55,7 +55,7 @@ class ExpenseItemEntity
         'SORT_ORDER' => 'sortOrder',
     ];
 
-    const XML_FIELD_MAPPING = [
+    public const XML_FIELD_MAPPING = [
         'invoiceItemId' => 'INVOICE_ITEM_ID',
         'invoiceId' => 'INVOICE_ID',
         'customerId' => 'CUSTOMER_ID',
@@ -80,9 +80,6 @@ class ExpenseItemEntity
         }
     }
 
-    /**
-     * @return ExpenseItemEntity
-     */
     public function setData(\SimpleXMLElement $data): self
     {
         foreach ($data as $key => $value) {

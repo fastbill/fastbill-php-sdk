@@ -63,7 +63,7 @@ class RecipientEntity
         }
     }
 
-    public function applyEmails(array & $data)
+    public function applyEmails(array &$data)
     {
         if ($this->getToEmailAddress()) {
             $data['RECIPIENT'][] = ['TO' => $this->getToEmailAddress()];

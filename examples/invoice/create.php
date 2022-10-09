@@ -43,4 +43,4 @@ ini_set('xdebug.var_display_max_data', '1024');
 echo '<pre>';
 var_dump($result);
 echo '</pre>';
-exit();
+exit;

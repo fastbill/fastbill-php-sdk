@@ -58,9 +58,6 @@ class ProductEntity
         }
     }
 
-    /**
-     * @return ProductEntity
-     */
     public function setData(\SimpleXMLElement $data): self
     {
         foreach ($data as $key => $value) {

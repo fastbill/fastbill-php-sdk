@@ -11,7 +11,7 @@ class InvoiceCommentEntity
 
     public $commentPublic;
 
-    const FIELD_MAPPING = [
+    public const FIELD_MAPPING = [
         'DATE' => 'date',
         'COMMENT' => 'comment',
         'COMMENT_PUBLIC' => 'commentPublic',
@@ -24,9 +24,6 @@ class InvoiceCommentEntity
         }
     }
 
-    /**
-     * @return InvoiceCommentEntity
-     */
     public function setData(\SimpleXMLElement $data): self
     {
         foreach ($data as $key => $value) {

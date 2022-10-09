@@ -8,7 +8,7 @@ use FastBillSdk\Common\XmlService;
 
 class TemplateService
 {
-    const SERVICE = 'template.get';
+    public const SERVICE = 'template.get';
 
     /**
      * @var ApiClientInterface

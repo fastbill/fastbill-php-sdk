@@ -57,7 +57,7 @@ class ContactEntity
 
     public $comment;
 
-    const FIELD_MAPPING = [
+    public const FIELD_MAPPING = [
         'CONTACT_ID' => 'contactId',
         'CUSTOMER_ID' => 'customerId',
         'ORGANIZATION' => 'organization',
@@ -86,7 +86,7 @@ class ContactEntity
         'COMMENT' => 'comment',
     ];
 
-    const XML_FIELD_MAPPING = [
+    public const XML_FIELD_MAPPING = [
         'contactId' => 'CONTACT_ID',
         'customerId' => 'CUSTOMER_ID',
         'organization' => 'ORGANIZATION',
@@ -122,9 +122,6 @@ class ContactEntity
         }
     }
 
-    /**
-     * @return ContactEntity
-     */
     public function setData(\SimpleXMLElement $data): self
     {
         foreach ($data as $key => $value) {

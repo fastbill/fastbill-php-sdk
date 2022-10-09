@@ -29,7 +29,7 @@ class EstimateValidator
 
         try {
             $this->checkItems($entity);
-        } catch (\InvalidArgumentException | MissingPropertyException $exception) {
+        } catch (\InvalidArgumentException|MissingPropertyException $exception) {
             $errorMessages[] = $exception->getMessage();
         }
 

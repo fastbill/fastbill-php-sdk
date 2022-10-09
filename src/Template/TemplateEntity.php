@@ -11,7 +11,7 @@ class TemplateEntity
 
     public $templateHash;
 
-    const FIELD_MAPPING = [
+    public const FIELD_MAPPING = [
         'TEMPLATE_ID' => 'templateId',
         'TEMPLATE_NAME' => 'templateName',
         'TEMPLATE_HASH' => 'templateHash',
@@ -24,9 +24,6 @@ class TemplateEntity
         }
     }
 
-    /**
-     * @return TemplateEntity
-     */
     public function setData(\SimpleXMLElement $data): self
     {
         foreach ($data as $key => $value) {

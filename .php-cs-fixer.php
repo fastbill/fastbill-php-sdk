@@ -1,10 +1,10 @@
 <?php
+use PhpCsFixer\Config;
 
 $blacklistedFiles = [
     'credentials.php',
 ];
-
-    $finder = PhpCsFixer\Finder::create()
+$finder = PhpCsFixer\Finder::create()
         ->in(__DIR__ . '/examples')
         ->in(__DIR__ . '/src')
         ->in(__DIR__ . '/tests')
@@ -14,9 +14,9 @@ $blacklistedFiles = [
     ;
 
 
-return PhpCsFixer\Config::create()
+return (new Config())
     ->setRules([
-        '@PSR2' => true,
+        '@PSR12' => true,
         '@Symfony' => true,
 
         // Fix declare style
@@ -51,7 +51,7 @@ return PhpCsFixer\Config::create()
         'mb_str_functions' => true,
         'ordered_class_elements' => false,
         'ordered_imports' => true,
-        'php_unit_ordered_covers' => true,
+        'phpdoc_order_by_value' => true,
         'php_unit_namespaced' => true,
         'php_unit_construct' => true,
         'phpdoc_add_missing_param_annotation' => [
