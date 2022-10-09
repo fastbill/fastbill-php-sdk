@@ -12,7 +12,7 @@ class ItemEntity
     public $customerId;
 
     public $category;
-    
+
     public $categoryId;
 
     public $articleNumber;
