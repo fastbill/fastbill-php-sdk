@@ -87,11 +87,13 @@ class EstimateValidator
             if (!$item instanceof EstimateItemEntity) {
                 throw new \InvalidArgumentException('The given item is not a EstimateItemEntity');
             }
-
-            $errorMessages[] = $this->estimateItemValidator->validateEstimateItem($item);
+            $errorItemMessages = $this->estimateItemValidator->validateEstimateItem($item);
+            if (count($errorItemMessages) > 0) {
+                $errorMessages[] = implode("\r\n", $errorItemMessages);
+            }
         }
 
-        if (count($errorMessages) > 1) {
+        if (count($errorMessages) > 0) {
             throw new MissingPropertyException(implode("\r\n", $errorMessages));
         }
     }
