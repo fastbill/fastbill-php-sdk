@@ -25,7 +25,7 @@ class WorkTimeEntity
 
     public $comment;
 
-    const FIELD_MAPPING = [
+    public const FIELD_MAPPING = [
         'TIME_ID' => 'timeId',
         'CUSTOMER_ID' => 'customerId',
         'PROJECT_ID' => 'projectId',
@@ -38,7 +38,7 @@ class WorkTimeEntity
         'COMMENT' => 'comment',
     ];
 
-    const XML_FIELD_MAPPING = [
+    public const XML_FIELD_MAPPING = [
         'timeId' => 'TIME_ID',
         'customerId' => 'CUSTOMER_ID',
         'projectId' => 'PROJECT_ID',
@@ -58,9 +58,6 @@ class WorkTimeEntity
         }
     }
 
-    /**
-     * @return WorkTimeEntity
-     */
     public function setData(\SimpleXMLElement $data): self
     {
         foreach ($data as $key => $value) {

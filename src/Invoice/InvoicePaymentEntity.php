@@ -19,7 +19,7 @@ class InvoicePaymentEntity
 
     public $note;
 
-    const FIELD_MAPPING = [
+    public const FIELD_MAPPING = [
         'PAYMENT_ID' => 'paymentId',
         'DATE' => 'date',
         'AMOUNT' => 'amount',
@@ -36,9 +36,6 @@ class InvoicePaymentEntity
         }
     }
 
-    /**
-     * @return InvoicePaymentEntity
-     */
     public function setData(\SimpleXMLElement $data): self
     {
         foreach ($data as $key => $value) {

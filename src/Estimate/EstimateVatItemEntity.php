@@ -11,13 +11,13 @@ class EstimateVatItemEntity
 
     public $vatValue;
 
-    const FIELD_MAPPING = [
+    public const FIELD_MAPPING = [
         'VAT_PERCENT' => 'vatPercent',
         'COMPLETE_NET' => 'completeNet',
         'VAT_VALUE' => 'vatValue',
     ];
 
-    const XML_FIELD_MAPPING = [
+    public const XML_FIELD_MAPPING = [
         'vatPercent' => 'VAT_PERCENT',
         'completeNet' => 'COMPLETE_NET',
         'vatValue' => 'VAT_VALUE',
@@ -30,9 +30,6 @@ class EstimateVatItemEntity
         }
     }
 
-    /**
-     * @return EstimateVatItemEntity
-     */
     public function setData(\SimpleXMLElement $data): self
     {
         foreach ($data as $key => $value) {

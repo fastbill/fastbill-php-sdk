@@ -27,7 +27,7 @@ class ProjectEntity
 
     public $tasks;
 
-    const FIELD_MAPPING = [
+    public const FIELD_MAPPING = [
         'PROJECT_ID' => 'projectId',
         'PROJECT_NUMBER' => 'projectNumber',
         'PROJECT_NAME' => 'projectName',
@@ -41,7 +41,7 @@ class ProjectEntity
         'TASKS' => 'tasks',
     ];
 
-    const XML_FIELD_MAPPING = [
+    public const XML_FIELD_MAPPING = [
         'projectId' => 'PROJECT_ID',
         'projectNumber' => 'PROJECT_NUMBER',
         'projectName' => 'PROJECT_NAME',
@@ -62,9 +62,6 @@ class ProjectEntity
         }
     }
 
-    /**
-     * @return ProjectEntity
-     */
     public function setData(\SimpleXMLElement $data): self
     {
         foreach ($data as $key => $value) {

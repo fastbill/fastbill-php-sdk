@@ -15,7 +15,7 @@ class DocumentEntity
 
     public $note;
 
-    const FIELD_MAPPING = [
+    public const FIELD_MAPPING = [
         'DOCUMENT_ID' => 'documentId',
         'TYPE' => 'type',
         'TITLE' => 'title',
@@ -23,7 +23,7 @@ class DocumentEntity
         'NOTE' => 'note',
     ];
 
-    const XML_FIELD_MAPPING = [
+    public const XML_FIELD_MAPPING = [
         'documentId' => 'DOCUMENT_ID',
         'type' => 'TYPE',
         'title' => 'TITLE',
@@ -38,9 +38,6 @@ class DocumentEntity
         }
     }
 
-    /**
-     * @return DocumentEntity
-     */
     public function setData(\SimpleXMLElement $data): self
     {
         foreach ($data as $key => $value) {

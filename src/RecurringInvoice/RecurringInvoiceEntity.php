@@ -61,7 +61,7 @@ class RecurringInvoiceEntity
 
     public $deleteExistingItems = 1;
 
-    const FIELD_MAPPING = [
+    public const FIELD_MAPPING = [
         'INVOICE_ID' => 'invoiceId',
         'TYPE' => 'type',
         'CUSTOMER_ID' => 'customerId',
@@ -84,7 +84,7 @@ class RecurringInvoiceEntity
         'ITEMS' => 'items',
     ];
 
-    const XML_FIELD_MAPPING = [
+    public const XML_FIELD_MAPPING = [
         'customerId' => 'CUSTOMER_ID',
         'customerCostcenterId' => 'CUSTOMER_COSTCENTER_ID',
         'currencyCode' => 'CURRENCY_CODE',
@@ -111,9 +111,6 @@ class RecurringInvoiceEntity
         }
     }
 
-    /**
-     * @return RecurringInvoiceEntity
-     */
     public function setData(\SimpleXMLElement $data): self
     {
         foreach ($data as $key => $value) {

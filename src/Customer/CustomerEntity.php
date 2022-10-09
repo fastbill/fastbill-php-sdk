@@ -5,9 +5,9 @@ namespace FastBillSdk\Customer;
 
 class CustomerEntity
 {
-    const CUSTOMER_TYPE_CONSUMER = 'consumer';
+    public const CUSTOMER_TYPE_CONSUMER = 'consumer';
 
-    const CUSTOMER_TYPE_BUSINESS = 'business';
+    public const CUSTOMER_TYPE_BUSINESS = 'business';
 
     public $customerId;
 
@@ -91,7 +91,7 @@ class CustomerEntity
 
     public $documentHistoryUrl;
 
-    const FIELD_MAPPING = [
+    public const FIELD_MAPPING = [
         'CUSTOMER_ID' => 'customerId',
         'CUSTOMER_NUMBER' => 'customerNumber',
         'DAYS_FOR_PAYMENT' => 'daysForPayment',
@@ -135,7 +135,7 @@ class CustomerEntity
         'DOCUMENT_HISTORY_URL' => 'documentHistoryUrl',
     ];
 
-    const XML_FIELD_MAPPING = [
+    public const XML_FIELD_MAPPING = [
         'customerId' => 'CUSTOMER_ID',
         'customerNumber' => 'CUSTOMER_NUMBER',
         'daysForPayment' => 'DAYS_FOR_PAYMENT',
@@ -186,9 +186,6 @@ class CustomerEntity
         }
     }
 
-    /**
-     * @return CustomerEntity
-     */
     public function setData(\SimpleXMLElement $data): self
     {
         foreach ($data as $key => $value) {

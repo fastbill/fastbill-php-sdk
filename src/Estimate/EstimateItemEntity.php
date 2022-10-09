@@ -27,7 +27,7 @@ class EstimateItemEntity
 
     public $sortOrder;
 
-    const FIELD_MAPPING = [
+    public const FIELD_MAPPING = [
         'ESTIMATE_ITEM_ID' => 'estimateItemId',
         'ARTICLE_NUMBER' => 'articleNumber',
         'DESCRIPTION' => 'description',
@@ -41,7 +41,7 @@ class EstimateItemEntity
         'SORT_ORDER' => 'sortOrder',
     ];
 
-    const XML_FIELD_MAPPING = [
+    public const XML_FIELD_MAPPING = [
         'estimateItemId' => 'ESTIMATE_ITEM_ID',
         'articleNumber' => 'ARTICLE_NUMBER',
         'description' => 'DESCRIPTION',
@@ -62,9 +62,6 @@ class EstimateItemEntity
         }
     }
 
-    /**
-     * @return EstimateItemEntity
-     */
     public function setData(\SimpleXMLElement $data): self
     {
         foreach ($data as $key => $value) {

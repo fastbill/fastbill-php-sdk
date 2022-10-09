@@ -93,7 +93,7 @@ class RevenueEntity
 
     public $documentUrl;
 
-    const FIELD_MAPPING = [
+    public const FIELD_MAPPING = [
         'INVOICE_ID' => 'invoiceId',
         'TYPE' => 'type',
         'CUSTOMER_ID' => 'customerId',
@@ -140,7 +140,7 @@ class RevenueEntity
         'DOCUMENT_URL' => 'documentUrl',
     ];
 
-    const XML_FIELD_MAPPING = [
+    public const XML_FIELD_MAPPING = [
         'invoiceId' => 'INVOICE_ID',
         'type' => 'TYPE',
         'customerId' => 'CUSTOMER_ID',
@@ -194,9 +194,6 @@ class RevenueEntity
         }
     }
 
-    /**
-     * @return RevenueEntity
-     */
     public function setData(\SimpleXMLElement $data): self
     {
         foreach ($data as $key => $value) {

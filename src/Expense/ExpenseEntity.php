@@ -47,7 +47,7 @@ class ExpenseEntity
 
     public $servicePeriodEnd;
 
-    const FIELD_MAPPING = [
+    public const FIELD_MAPPING = [
         'INVOICE_ID' => 'invoiceId',
         'ORGANIZATION' => 'organization',
         'INVOICE_NUMBER' => 'invoiceNumber',
@@ -71,7 +71,7 @@ class ExpenseEntity
         'SERVICE_PERIOD_END' => 'servicePeriodEnd',
     ];
 
-    const XML_FIELD_MAPPING = [
+    public const XML_FIELD_MAPPING = [
         'invoiceId' => 'INVOICE_ID',
         'organization' => 'ORGANIZATION',
         'invoiceNumber' => 'INVOICE_NUMBER',
@@ -102,9 +102,6 @@ class ExpenseEntity
         }
     }
 
-    /**
-     * @return ExpenseEntity
-     */
     public function setData(\SimpleXMLElement $data): self
     {
         foreach ($data as $key => $value) {

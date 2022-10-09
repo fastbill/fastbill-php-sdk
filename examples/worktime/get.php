@@ -15,7 +15,7 @@ $workTimesService = new FastBillSdk\WorkTime\WorkTimeService(
     new \FastBillSdk\WorkTime\WorkTimeValidator()
 );
 $workTimesSearchStruct = new \FastBillSdk\WorkTime\WorkTimeSearchStruct();
-//$workTimesSearchStruct->setCustomerIdFilter(123123);
+// $workTimesSearchStruct->setCustomerIdFilter(123123);
 $result = $workTimesService->getTime($workTimesSearchStruct);
 
 ini_set('xdebug.var_display_max_depth', '5');
@@ -24,4 +24,4 @@ ini_set('xdebug.var_display_max_data', '1024');
 echo '<pre>';
 var_dump($result);
 echo '</pre>';
-exit();
+exit;

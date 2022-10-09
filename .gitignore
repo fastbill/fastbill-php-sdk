@@ -1,7 +1,7 @@
 /vendor/
 /.idea
 /dev-ops/docker/containers/php7/createuser.sh
-/.php_cs.cache
+/.php-cs-fixer.cache
 tools/
 /build/artifacts/*
 /examples/credentials.php
