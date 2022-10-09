@@ -1,14 +1,32 @@
-version: '2'
+version: '3'
 
 services:
-  app_server:
-    build: dev-ops/docker/containers/php7
-    volumes:
-      - ~/.composer/cache:/var/www/composer-cache-dir
-      - .:/project
-      - .:/var/www/fastbill-sdk
-    environment:
-      TERM: xterm
-      COMPOSER_CACHE_DIR: /var/www/composer-cache-dir
-    ports:
-      - "8083:80"
+    sdk:
+        container_name: fastbill_sdk
+        image: dockware/flex:latest
+        ports:
+            - "22:22"     # ssh
+            - "80:80"     # apache2
+        volumes:
+            - "sdk_volume:/var/www/html"
+        networks:
+            - sdk-web
+        environment:
+            - XDEBUG_ENABLED=1
+            - FILEBEAT_ENABLED=0
+            - PHP_VERSION=8.0
+
+
+## ***********************************************************************
+##  PERSISTENT DOCKER VOLUMES
+## ***********************************************************************
+volumes:
+    sdk_volume:
+        driver: local
+
+## ***********************************************************************
+##  NETWORKS
+## ***********************************************************************
+networks:
+    sdk-web:
+        external: false
