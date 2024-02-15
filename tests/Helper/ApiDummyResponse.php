@@ -1,8 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 namespace FastBillSdkTest\Helper;
 
+use Psr\Http\Message\MessageInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
 
@@ -18,60 +20,73 @@ class ApiDummyResponse implements ResponseInterface
         $this->responseXml = $responseXml;
     }
 
-    public function getStatusCode()
+    public function getProtocolVersion(): string
     {
+        // TODO: Implement getProtocolVersion() method.
     }
 
-    public function withStatus($code, $reasonPhrase = '')
+    public function withProtocolVersion(string $version): MessageInterface
     {
+        // TODO: Implement withProtocolVersion() method.
     }
 
-    public function getReasonPhrase()
+    public function getHeaders(): array
     {
+        // TODO: Implement getHeaders() method.
     }
 
-    public function getProtocolVersion()
+    public function hasHeader(string $name): bool
     {
+        // TODO: Implement hasHeader() method.
     }
 
-    public function withProtocolVersion($version)
+    public function getHeader(string $name): array
     {
+        // TODO: Implement getHeader() method.
     }
 
-    public function getHeaders()
+    public function getHeaderLine(string $name): string
     {
+        // TODO: Implement getHeaderLine() method.
     }
 
-    public function hasHeader($name)
+    public function withHeader(string $name, $value): MessageInterface
     {
+        // TODO: Implement withHeader() method.
     }
 
-    public function getHeader($name)
+    public function withAddedHeader(string $name, $value): MessageInterface
     {
+        // TODO: Implement withAddedHeader() method.
     }
 
-    public function getHeaderLine($name)
+    public function withoutHeader(string $name): MessageInterface
     {
+        // TODO: Implement withoutHeader() method.
     }
 
-    public function withHeader($name, $value)
+    public function getBody(): StreamInterface
     {
+        // TODO: Implement getBody() method.
     }
 
-    public function withAddedHeader($name, $value)
+    public function withBody(StreamInterface $body): MessageInterface
     {
+        // TODO: Implement withBody() method.
     }
 
-    public function withoutHeader($name)
+    public function getStatusCode(): int
     {
+        // TODO: Implement getStatusCode() method.
     }
 
-    public function getBody()
+    public function withStatus(int $code, string $reasonPhrase = ''): ResponseInterface
     {
-        return $this->responseXml;
+        // TODO: Implement withStatus() method.
     }
 
-    public function withBody(StreamInterface $body)
+    public function getReasonPhrase(): string
     {
+        return '';
     }
 }
