@@ -5,8 +5,8 @@ services:
         container_name: fastbill_sdk
         image: dockware/flex:latest
         ports:
-            - "22:22"     # ssh
-            - "80:80"     # apache2
+            - "2222:22"     # ssh
+            - "8088:80"     # apache2
         volumes:
             - "sdk_volume:/var/www/html"
         networks:
@@ -14,7 +14,7 @@ services:
         environment:
             - XDEBUG_ENABLED=1
             - FILEBEAT_ENABLED=0
-            - PHP_VERSION=8.0
+            - PHP_VERSION=8.2
 
 
 ## ***********************************************************************
