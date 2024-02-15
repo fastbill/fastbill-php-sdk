@@ -27,11 +27,17 @@ class InvoiceSearchStruct extends AbstractSearchStruct
         $this->filters['CUSTOMER_ID'] = $customerId;
     }
 
-    public function setProjectIdFilter(string $month)
+    /**
+     * @Deprecated
+     */
+    public function setMonthFilter(string $month)
     {
         $this->filters['MONTH'] = $month;
     }
 
+    /**
+     * @Deprecated
+     */
     public function setYearFilter(string $year)
     {
         $this->filters['YEAR'] = $year;
@@ -45,6 +51,26 @@ class InvoiceSearchStruct extends AbstractSearchStruct
     public function setEndDueDateFilter(string $endDueDate)
     {
         $this->filters['END_DUE_DATE'] = $endDueDate;
+    }
+
+    public function setStartPaidDateFilter(string $startPaidDate)
+    {
+        $this->filters['START_PAID_DATE'] = $startPaidDate;
+    }
+
+    public function setEndPaidDateFilter(string $endPaidDate)
+    {
+        $this->filters['END_PAID_DATE'] = $endPaidDate;
+    }
+
+    public function setStartDate(string $startDate)
+    {
+        $this->filters['START_DATE'] = $startDate;
+    }
+
+    public function setEndDateFilter(string $endDate)
+    {
+        $this->filters['END_DATE'] = $endDate;
     }
 
     public function setTypeFilter(string $type)

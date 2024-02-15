@@ -128,6 +128,10 @@ class InvoiceEntity
 
     public $documentUrl;
 
+    public $startDate;
+
+    public $endDate;
+
     public const FIELD_MAPPING = [
         'INVOICE_ID' => 'invoiceId',
         'TYPE' => 'type',
@@ -183,6 +187,8 @@ class InvoiceEntity
         'PAYMENTS' => 'payments',
         'PAYMENT_INFO' => 'paymentInfo',
         'DOCUMENT_URL' => 'documentUrl',
+        'START_DATE' => 'startDate',
+        'END_DATE' => 'endDate',
     ];
 
     public const XML_FIELD_MAPPING = [
@@ -240,9 +246,11 @@ class InvoiceEntity
         'payments' => 'PAYMENTS',
         'paymentInfo' => 'PAYMENT_INFO',
         'documentUrl' => 'DOCUMENT_URL',
+        'startDate' => 'START_DATE',
+        'endDate' => 'END_DATE',
     ];
 
-    public function __construct(\SimpleXMLElement $data = null)
+    public function __construct(?\SimpleXMLElement $data = null)
     {
         if ($data) {
             $this->setData($data);
