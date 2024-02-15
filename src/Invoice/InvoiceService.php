@@ -131,8 +131,8 @@ class InvoiceService
     public function sendByEmailInvoice(
         InvoiceEntity $entity,
         RecipientEntity $recipient,
-        string $subject = null,
-        string $message = null,
+        ?string $subject = null,
+        ?string $message = null,
         bool $receiptConfirmation = false
     ): string {
         $this->xmlService->setService('invoice.sendbyemail');

@@ -11,11 +11,11 @@ $fastBillClient = new FastBillSdk\Api\ApiClient($username, $apiKey);
 
 $productService = new FastBillSdk\Product\ProductService(
     $fastBillClient,
-    new \FastBillSdk\Common\XmlService(),
-    new \FastBillSdk\Product\ProductValidator()
+    new FastBillSdk\Common\XmlService(),
+    new FastBillSdk\Product\ProductValidator()
 );
 
-$entity = new \FastBillSdk\Product\ProductEntity();
+$entity = new FastBillSdk\Product\ProductEntity();
 $entity->articleId = 3493981;
 
 $result = $productService->deleteProduct($entity);

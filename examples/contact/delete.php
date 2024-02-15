@@ -11,10 +11,10 @@ $fastBillClient = new FastBillSdk\Api\ApiClient($username, $apiKey);
 
 $customersService = new FastBillSdk\Contact\ContactService(
     $fastBillClient,
-    new \FastBillSdk\Common\XmlService(),
-    new \FastBillSdk\Contact\ContactValidator()
+    new FastBillSdk\Common\XmlService(),
+    new FastBillSdk\Contact\ContactValidator()
 );
-$contactEntity = new \FastBillSdk\Contact\ContactEntity();
+$contactEntity = new FastBillSdk\Contact\ContactEntity();
 $contactEntity->contactId = 112233;
 $result = $customersService->deleteContact($contactEntity);
 

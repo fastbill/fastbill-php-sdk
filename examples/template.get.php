@@ -11,7 +11,7 @@ $fastBillClient = new FastBillSdk\Api\ApiClient($username, $apiKey);
 
 $templatesService = new FastBillSdk\Template\TemplateService(
     $fastBillClient,
-    new \FastBillSdk\Common\XmlService()
+    new FastBillSdk\Common\XmlService()
 );
 $result = $templatesService->getTemplate();
 

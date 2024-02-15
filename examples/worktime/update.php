@@ -11,11 +11,11 @@ $fastBillClient = new FastBillSdk\Api\ApiClient($username, $apiKey);
 
 $workTimesService = new FastBillSdk\WorkTime\WorkTimeService(
     $fastBillClient,
-    new \FastBillSdk\Common\XmlService(),
-    new \FastBillSdk\WorkTime\WorkTimeValidator()
+    new FastBillSdk\Common\XmlService(),
+    new FastBillSdk\WorkTime\WorkTimeValidator()
 );
 
-$workTimeEntity = new \FastBillSdk\WorkTime\WorkTimeEntity();
+$workTimeEntity = new FastBillSdk\WorkTime\WorkTimeEntity();
 $workTimeEntity->timeId = 991936;
 $workTimeEntity->customerId = 123;
 $workTimeEntity->projectId = 456;

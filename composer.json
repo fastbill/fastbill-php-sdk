@@ -4,7 +4,7 @@
     "type": "library",
     "require": {
         "guzzlehttp/guzzle": "^6.0|^7.0",
-        "php": "^8.0",
+        "php": "^8.1",
         "ext-simplexml": "*"
     },
     "require-dev": {

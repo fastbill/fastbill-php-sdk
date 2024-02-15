@@ -11,12 +11,12 @@ $fastBillClient = new FastBillSdk\Api\ApiClient($username, $apiKey);
 
 $customersService = new FastBillSdk\Customer\CustomerService(
     $fastBillClient,
-    new \FastBillSdk\Common\XmlService(),
-    new \FastBillSdk\Customer\CustomerValidator()
+    new FastBillSdk\Common\XmlService(),
+    new FastBillSdk\Customer\CustomerValidator()
 );
 
-$customersEntity = new \FastBillSdk\Customer\CustomerEntity();
-$customersEntity->customerType = \FastBillSdk\Customer\CustomerEntity::CUSTOMER_TYPE_CONSUMER;
+$customersEntity = new FastBillSdk\Customer\CustomerEntity();
+$customersEntity->customerType = FastBillSdk\Customer\CustomerEntity::CUSTOMER_TYPE_CONSUMER;
 $customersEntity->customerId = 1111;
 $customersEntity->firstName = 'FirstName v2';
 $customersEntity->lastName = 'LastName v2';

@@ -161,7 +161,7 @@ class EstimateEntity
         'documentUrl' => 'DOCUMENT_URL',
     ];
 
-    public function __construct(\SimpleXMLElement $data = null)
+    public function __construct(?\SimpleXMLElement $data = null)
     {
         if ($data) {
             $items = [];

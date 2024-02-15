@@ -11,14 +11,14 @@ $fastBillClient = new FastBillSdk\Api\ApiClient($username, $apiKey);
 
 $estimateService = new FastBillSdk\Estimate\EstimateService(
     $fastBillClient,
-    new \FastBillSdk\Common\XmlService(),
-    new \FastBillSdk\Estimate\EstimateValidator(
-        new \FastBillSdk\Estimate\EstimateItemValidator()
+    new FastBillSdk\Common\XmlService(),
+    new FastBillSdk\Estimate\EstimateValidator(
+        new FastBillSdk\Estimate\EstimateItemValidator()
     )
 );
-$estimateEntity = new \FastBillSdk\Estimate\EstimateEntity();
+$estimateEntity = new FastBillSdk\Estimate\EstimateEntity();
 $estimateEntity->customerId = 123123123;
-$estimateItemEntity = new \FastBillSdk\Estimate\EstimateItemEntity();
+$estimateItemEntity = new FastBillSdk\Estimate\EstimateItemEntity();
 $estimateItemEntity->description = 'FastBill SDK';
 $estimateItemEntity->unitPrice = '1337';
 $estimateItemEntity->vatPercent = '19';
