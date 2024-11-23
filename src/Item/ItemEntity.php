@@ -21,6 +21,8 @@ class ItemEntity
 
     public $quantity;
 
+    public $unit;
+
     public $unitPrice;
 
     public $vatPercent;
@@ -44,6 +46,7 @@ class ItemEntity
         'ARTICLE_NUMBER' => 'articleNumber',
         'DESCRIPTION' => 'description',
         'QUANTITY' => 'quantity',
+        'UNIT' => 'unit',
         'UNIT_PRICE' => 'unitPrice',
         'VAT_PERCENT' => 'vatPercent',
         'VAT_VALUE' => 'vatValue',
@@ -62,6 +65,7 @@ class ItemEntity
         'articleNumber' => 'ARTICLE_NUMBER',
         'description' => 'DESCRIPTION',
         'quantity' => 'QUANTITY',
+        'unit' => 'UNIT',
         'unitPrice' => 'UNIT_PRICE',
         'vatPercent' => 'VAT_PERCENT',
         'vatValue' => 'VAT_VALUE',
