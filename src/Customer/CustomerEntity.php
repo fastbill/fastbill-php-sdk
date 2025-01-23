@@ -91,6 +91,8 @@ class CustomerEntity
 
     public $documentHistoryUrl;
 
+    public $DeletedDate;
+
     public const FIELD_MAPPING = [
         'CUSTOMER_ID' => 'customerId',
         'CUSTOMER_NUMBER' => 'customerNumber',
@@ -133,6 +135,7 @@ class CustomerEntity
         'LASTUPDATE' => 'lastupdate',
         'TAGS' => 'tags',
         'DOCUMENT_HISTORY_URL' => 'documentHistoryUrl',
+        'DELETED_DATE' => 'DeletedDate',
     ];
 
     public const XML_FIELD_MAPPING = [
@@ -177,6 +180,7 @@ class CustomerEntity
         'lastupdate' => 'LASTUPDATE',
         'tags' => 'TAGS',
         'documentHistoryUrl' => 'DOCUMENT_HISTORY_URL',
+        'DeletedDate' => 'DELETED_DATE',
     ];
 
     public function __construct(\SimpleXMLElement $data = null)
