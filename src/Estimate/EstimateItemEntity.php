@@ -13,6 +13,8 @@ class EstimateItemEntity
 
     public $quantity;
 
+    public $unit;
+
     public $unitPrice;
 
     public $vatPercent;
@@ -32,6 +34,7 @@ class EstimateItemEntity
         'ARTICLE_NUMBER' => 'articleNumber',
         'DESCRIPTION' => 'description',
         'QUANTITY' => 'quantity',
+        'UNIT' => 'unit',
         'UNIT_PRICE' => 'unitPrice',
         'VAT_PERCENT' => 'vatPercent',
         'VAT_VALUE' => 'vatValue',
@@ -46,6 +49,7 @@ class EstimateItemEntity
         'articleNumber' => 'ARTICLE_NUMBER',
         'description' => 'DESCRIPTION',
         'quantity' => 'QUANTITY',
+        'unit' => 'UNIT',
         'unitPrice' => 'UNIT_PRICE',
         'vatPercent' => 'VAT_PERCENT',
         'vatValue' => 'VAT_VALUE',
