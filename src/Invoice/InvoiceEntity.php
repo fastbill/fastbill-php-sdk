@@ -79,6 +79,8 @@ class InvoiceEntity
 
     public $invoiceTitle;
 
+    public $referenceInvoiceId;
+
     public $introText;
 
     public $note;
@@ -167,6 +169,7 @@ class InvoiceEntity
         'SUBSCRIPTION_ID' => 'subscriptionId',
         'INVOICE_NUMBER' => 'invoiceNumber',
         'INVOICE_TITLE' => 'invoiceTitle',
+        'REFERENCED_INVOICE_ID' => 'referenceInvoiceId',
         'INTROTEXT' => 'introText',
         'NOTE' => 'note',
         'PAID_DATE' => 'paidDate',
@@ -226,6 +229,7 @@ class InvoiceEntity
         'subscriptionId' => 'SUBSCRIPTION_ID',
         'invoiceNumber' => 'INVOICE_NUMBER',
         'invoiceTitle' => 'INVOICE_TITLE',
+        'referenceInvoiceId' => 'REFERENCE_INVOICE_ID',
         'introText' => 'INTROTEXT',
         'note' => 'NOTE',
         'paidDate' => 'PAID_DATE',
