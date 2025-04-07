@@ -48,7 +48,7 @@ class EstimateItemValidator
 
     public function checkVatPercent(EstimateItemEntity $entity)
     {
-        if (!$entity->vatPercent) {
+        if (!is_numeric($entity->vatPercent)) {
             throw new MissingPropertyException($entity->articleNumber . ': The property vatPercent is not valid!');
         }
     }
