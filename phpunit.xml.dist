@@ -11,7 +11,7 @@
     </testsuite>
   </testsuites>
   <php>
-    <env name="USERNAME" value="fastbill@eiling.org"/>
-    <env name="APIKEY" value="29cb8840f313d87ef2b6f4793e9ef88bp2myWnhqeIekYSgbeBeC1RWZpD3ad6Pj"/>
+    <env name="USERNAME" value=""/>
+    <env name="APIKEY" value=""/>
   </php>
 </phpunit>
