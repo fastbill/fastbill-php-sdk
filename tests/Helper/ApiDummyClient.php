@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace FastBillSdkTest\Helper;
 
 use FastBillSdk\Api\ApiClientInterface;
+use Psr\Http\Message\ResponseInterface;
 
 class ApiDummyClient implements ApiClientInterface
 {
@@ -11,7 +12,7 @@ class ApiDummyClient implements ApiClientInterface
 
     public $responseXml;
 
-    public function post(string $body): \Psr\Http\Message\ResponseInterface
+    public function post(string $body): ResponseInterface
     {
         $this->body = $body;
 

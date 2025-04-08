@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 
 namespace FastBillSdkTest\Helper;
 
@@ -18,60 +17,73 @@ class ApiDummyResponse implements ResponseInterface
         $this->responseXml = $responseXml;
     }
 
-    public function getStatusCode()
+    public function getStatusCode(): int
     {
+        return 0;
     }
 
-    public function withStatus($code, $reasonPhrase = '')
+    public function withStatus($code, $reasonPhrase = ''): ResponseInterface
     {
+        return $this;
     }
 
-    public function getReasonPhrase()
+    public function getReasonPhrase(): string
     {
+        return '';
     }
 
-    public function getProtocolVersion()
+    public function getProtocolVersion(): string
     {
+        return '';
     }
 
-    public function withProtocolVersion($version)
+    public function withProtocolVersion($version): \Psr\Http\Message\MessageInterface
     {
+        return $this;
     }
 
-    public function getHeaders()
+    public function getHeaders(): array
     {
+        return [];
     }
 
-    public function hasHeader($name)
+    public function hasHeader($name): bool
     {
+        return false;
     }
 
-    public function getHeader($name)
+    public function getHeader($name): array
     {
+        return [];
     }
 
-    public function getHeaderLine($name)
+    public function getHeaderLine($name): string
     {
+        return '';
     }
 
-    public function withHeader($name, $value)
+    public function withHeader($name, $value): \Psr\Http\Message\MessageInterface
     {
+        return $this;
     }
 
-    public function withAddedHeader($name, $value)
+    public function withAddedHeader($name, $value): \Psr\Http\Message\MessageInterface
     {
+        return $this;
     }
 
-    public function withoutHeader($name)
+    public function withoutHeader($name): \Psr\Http\Message\MessageInterface
     {
+        return $this;
     }
 
-    public function getBody()
+    public function getBody(): StreamInterface
     {
         return $this->responseXml;
     }
 
-    public function withBody(StreamInterface $body)
+    public function withBody(StreamInterface $body): \Psr\Http\Message\MessageInterface
     {
+        return $this;
     }
 }
