@@ -25,6 +25,8 @@ class ProductEntity
 
     public $tags;
 
+    public $type;
+
     public const FIELD_MAPPING = [
         'ARTICLE_ID' => 'articleId',
         'ARTICLE_NUMBER' => 'articleNumber',
@@ -36,6 +38,7 @@ class ProductEntity
         'VAT_PERCENT' => 'vatPercent',
         'IS_GROSS' => 'isGross',
         'TAGS' => 'tags',
+        'TYPE' => 'type',
     ];
 
     public const XML_FIELD_MAPPING = [
@@ -49,6 +52,7 @@ class ProductEntity
         'vatPercent' => 'VAT_PERCENT',
         'isGross' => 'IS_GROSS',
         'tags' => 'TAGS',
+        'type' => 'TYPE',
     ];
 
     public function __construct(\SimpleXMLElement $data = null)
