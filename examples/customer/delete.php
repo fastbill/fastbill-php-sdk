@@ -11,11 +11,11 @@ $fastBillClient = new FastBillSdk\Api\ApiClient($username, $apiKey);
 
 $customersService = new FastBillSdk\Customer\CustomerService(
     $fastBillClient,
-    new \FastBillSdk\Common\XmlService(),
-    new \FastBillSdk\Customer\CustomerValidator()
+    new FastBillSdk\Common\XmlService(),
+    new FastBillSdk\Customer\CustomerValidator()
 );
 
-$customersEntity = new \FastBillSdk\Customer\CustomerEntity();
+$customersEntity = new FastBillSdk\Customer\CustomerEntity();
 $customersEntity->customerId = 1111;
 $result = $customersService->deleteCustomer($customersEntity);
 

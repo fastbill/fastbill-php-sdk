@@ -29,7 +29,7 @@ COMPLETE_NET
 VAT_VALUE';
 
 foreach (explode("\n", $fields) as $value) {
-    echo 'public $' . lowerCamelCase($value) . ';' . '<br /><br />';
+    echo 'public $' . lowerCamelCase($value) . ';<br /><br />';
 }
 
 echo ' const FIELD_MAPPING = [<br/>';
@@ -39,7 +39,7 @@ foreach (explode("\n", $fields) as $value) {
 echo '];<br /><br />';
 
 echo ' const XML_FIELD_MAPPING = [<br/>';
-foreach (\FastBillSdk\Invoice\InvoiceEntity::FIELD_MAPPING as $key => $value) {
+foreach (FastBillSdk\Invoice\InvoiceEntity::FIELD_MAPPING as $key => $value) {
     echo '\'' . $value . '\' => \'' . $key . '\',<br />';
 }
 echo '];<br /><br />';

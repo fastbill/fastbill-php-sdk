@@ -95,7 +95,7 @@ class ExpenseEntity
         'servicePeriodEnd' => 'SERVICE_PERIOD_END',
     ];
 
-    public function __construct(\SimpleXMLElement $data = null)
+    public function __construct(?\SimpleXMLElement $data = null)
     {
         if ($data) {
             $this->setData($data);

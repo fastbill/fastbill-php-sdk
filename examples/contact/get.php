@@ -11,10 +11,10 @@ $fastBillClient = new FastBillSdk\Api\ApiClient($username, $apiKey);
 
 $customersService = new FastBillSdk\Contact\ContactService(
     $fastBillClient,
-    new \FastBillSdk\Common\XmlService(),
-    new \FastBillSdk\Contact\ContactValidator()
+    new FastBillSdk\Common\XmlService(),
+    new FastBillSdk\Contact\ContactValidator()
 );
-$customersSearchStruct = new \FastBillSdk\Contact\ContactSearchStruct();
+$customersSearchStruct = new FastBillSdk\Contact\ContactSearchStruct();
 $customersSearchStruct->setCustomerIdFilter(123123123);
 $result = $customersService->getContact($customersSearchStruct);
 

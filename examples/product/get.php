@@ -11,11 +11,11 @@ $fastBillClient = new FastBillSdk\Api\ApiClient($username, $apiKey);
 
 $productService = new FastBillSdk\Product\ProductService(
     $fastBillClient,
-    new \FastBillSdk\Common\XmlService(),
-    new \FastBillSdk\Product\ProductValidator()
+    new FastBillSdk\Common\XmlService(),
+    new FastBillSdk\Product\ProductValidator()
 );
 
-$result = $productService->getProducts(new \FastBillSdk\Product\ProductSearchStruct());
+$result = $productService->getProducts(new FastBillSdk\Product\ProductSearchStruct());
 
 ini_set('xdebug.var_display_max_depth', '5');
 ini_set('xdebug.var_display_max_children', '256');

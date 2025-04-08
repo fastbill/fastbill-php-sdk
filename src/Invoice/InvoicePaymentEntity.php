@@ -29,7 +29,7 @@ class InvoicePaymentEntity
         'NOTE' => 'note',
     ];
 
-    public function __construct(\SimpleXMLElement $data = null)
+    public function __construct(?\SimpleXMLElement $data = null)
     {
         if ($data) {
             $this->setData($data);

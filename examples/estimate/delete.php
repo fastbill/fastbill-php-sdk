@@ -11,12 +11,12 @@ $fastBillClient = new FastBillSdk\Api\ApiClient($username, $apiKey);
 
 $estimateService = new FastBillSdk\Estimate\EstimateService(
     $fastBillClient,
-    new \FastBillSdk\Common\XmlService(),
-    new \FastBillSdk\Estimate\EstimateValidator(
-        new \FastBillSdk\Estimate\EstimateItemValidator()
+    new FastBillSdk\Common\XmlService(),
+    new FastBillSdk\Estimate\EstimateValidator(
+        new FastBillSdk\Estimate\EstimateItemValidator()
     )
 );
-$estimateEntity = new \FastBillSdk\Estimate\EstimateEntity();
+$estimateEntity = new FastBillSdk\Estimate\EstimateEntity();
 $estimateEntity->estimateId = '16343462';
 $result = $estimateService->deleteEstimate($estimateEntity);
 

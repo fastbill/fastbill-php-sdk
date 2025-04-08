@@ -11,12 +11,12 @@ $fastBillClient = new FastBillSdk\Api\ApiClient($username, $apiKey);
 
 $estimateService = new FastBillSdk\Estimate\EstimateService(
     $fastBillClient,
-    new \FastBillSdk\Common\XmlService(),
-    new \FastBillSdk\Estimate\EstimateValidator(
-        new \FastBillSdk\Estimate\EstimateItemValidator()
+    new FastBillSdk\Common\XmlService(),
+    new FastBillSdk\Estimate\EstimateValidator(
+        new FastBillSdk\Estimate\EstimateItemValidator()
     )
 );
-$estimateSearchStruct = new \FastBillSdk\Estimate\EstimateSearchStruct();
+$estimateSearchStruct = new FastBillSdk\Estimate\EstimateSearchStruct();
 $result = $estimateService->getEstimate($estimateSearchStruct);
 
 ini_set('xdebug.var_display_max_depth', '5');

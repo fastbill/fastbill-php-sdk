@@ -11,13 +11,13 @@ $fastBillClient = new FastBillSdk\Api\ApiClient($username, $apiKey);
 
 $estimateService = new FastBillSdk\Estimate\EstimateService(
     $fastBillClient,
-    new \FastBillSdk\Common\XmlService(),
-    new \FastBillSdk\Estimate\EstimateValidator(
-        new \FastBillSdk\Estimate\EstimateItemValidator()
+    new FastBillSdk\Common\XmlService(),
+    new FastBillSdk\Estimate\EstimateValidator(
+        new FastBillSdk\Estimate\EstimateItemValidator()
     )
 );
 $estimateId = 16343450;
-$recipient = new \FastBillSdk\Common\RecipientEntity();
+$recipient = new FastBillSdk\Common\RecipientEntity();
 $recipient->setToEmailAddress('test@example.com');
 
 $subject = 'Estimate Subject';
