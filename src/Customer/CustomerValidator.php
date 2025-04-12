@@ -4,6 +4,8 @@ declare(strict_types=1);
 namespace FastBillSdk\Customer;
 
 use FastBillSdk\Common\MissingPropertyException;
+use Iban\Validation\Iban;
+use Iban\Validation\Validator;
 
 class CustomerValidator
 {
@@ -31,6 +33,12 @@ class CustomerValidator
 
         try {
             $this->checkLastName($entity);
+        } catch (MissingPropertyException $exception) {
+            $errorMessages[] = $exception->getMessage();
+        }
+
+        try {
+            $this->checkIban($entity);
         } catch (MissingPropertyException $exception) {
             $errorMessages[] = $exception->getMessage();
         }
@@ -107,5 +115,16 @@ class CustomerValidator
     private function isBusiness(CustomerEntity $entity): bool
     {
         return $entity->customerType === CustomerEntity::CUSTOMER_TYPE_BUSINESS;
+    }
+
+    private function checkIban(CustomerEntity $entity)
+    {
+        if ($entity->bankIban) {
+            $iban = new Iban($entity->bankIban);
+            $validator = new Validator();
+            if (!$validator->validate($iban)) {
+                throw new MissingPropertyException('The property bankIban is not valid!');
+            }
+        }
     }
 }
