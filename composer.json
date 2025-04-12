@@ -5,7 +5,8 @@
     "require": {
         "guzzlehttp/guzzle": "^7.0",
         "php": "^8.0",
-        "ext-simplexml": "*"
+        "ext-simplexml": "*",
+        "jschaedl/iban-validation": "^2.5"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5.25"
