@@ -25,6 +25,8 @@ class WorkTimeEntity
 
     public $comment;
 
+    public $billed;
+
     public const FIELD_MAPPING = [
         'TIME_ID' => 'timeId',
         'CUSTOMER_ID' => 'customerId',
@@ -36,6 +38,7 @@ class WorkTimeEntity
         'MINUTES' => 'minutes',
         'BILLABLE_MINUTES' => 'billableMinutes',
         'COMMENT' => 'comment',
+        'BILLED' => 'billed',
     ];
 
     public const XML_FIELD_MAPPING = [
@@ -49,6 +52,7 @@ class WorkTimeEntity
         'minutes' => 'MINUTES',
         'billableMinutes' => 'BILLABLE_MINUTES',
         'comment' => 'COMMENT',
+        'billed' => 'BILLED',
     ];
 
     public function __construct(?\SimpleXMLElement $data = null)
