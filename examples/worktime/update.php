@@ -16,11 +16,12 @@ $workTimesService = new FastBillSdk\WorkTime\WorkTimeService(
 );
 
 $workTimeEntity = new FastBillSdk\WorkTime\WorkTimeEntity();
-$workTimeEntity->timeId = 991936;
+$workTimeEntity->timeId = 1914070;
 $workTimeEntity->customerId = 123;
 $workTimeEntity->projectId = 456;
 $workTimeEntity->comment = 'sdk test test';
 $workTimeEntity->minutes = 60;
+$workTimeEntity->billed = true;
 
 $result = $workTimesService->updateTime($workTimeEntity);
 
