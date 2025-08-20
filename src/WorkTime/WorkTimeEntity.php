@@ -25,6 +25,7 @@ class WorkTimeEntity
 
     public $comment;
 
+    // not documented property https://github.com/fastbill/fastbill-php-sdk/issues/61
     public $billed;
 
     public const FIELD_MAPPING = [
