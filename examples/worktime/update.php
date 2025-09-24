@@ -21,7 +21,7 @@ $workTimeEntity->customerId = 123;
 $workTimeEntity->projectId = 456;
 $workTimeEntity->comment = 'sdk test test';
 $workTimeEntity->minutes = 60;
-$workTimeEntity->billed = true;
+$workTimeEntity->isCalculated = true;
 
 $result = $workTimesService->updateTime($workTimeEntity);
 
