@@ -25,8 +25,8 @@ class WorkTimeEntity
 
     public $comment;
 
-    // not documented property https://github.com/fastbill/fastbill-php-sdk/issues/61
-    public $billed;
+    // not documented property IS_CALCULATED (1 == billed)
+    public $isCalculated;
 
     public const FIELD_MAPPING = [
         'TIME_ID' => 'timeId',
@@ -39,7 +39,7 @@ class WorkTimeEntity
         'MINUTES' => 'minutes',
         'BILLABLE_MINUTES' => 'billableMinutes',
         'COMMENT' => 'comment',
-        'BILLED' => 'billed',
+        'IS_CALCULATED' => 'isCalculated',
     ];
 
     public const XML_FIELD_MAPPING = [
@@ -53,7 +53,7 @@ class WorkTimeEntity
         'minutes' => 'MINUTES',
         'billableMinutes' => 'BILLABLE_MINUTES',
         'comment' => 'COMMENT',
-        'billed' => 'BILLED',
+        'isCalculated' => 'IS_CALCULATED',
     ];
 
     public function __construct(?\SimpleXMLElement $data = null)
