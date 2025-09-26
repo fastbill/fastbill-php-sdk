@@ -89,6 +89,8 @@ class CustomerEntity
 
     public $tags;
 
+    public $buyerReference;
+
     public $documentHistoryUrl;
 
     public $DeletedDate;
@@ -134,6 +136,7 @@ class CustomerEntity
         'CURRENCY_CODE' => 'currencyCode',
         'LASTUPDATE' => 'lastupdate',
         'TAGS' => 'tags',
+        'BUYER_REFERENCE' => 'buyerReference',
         'DOCUMENT_HISTORY_URL' => 'documentHistoryUrl',
         'DELETED_DATE' => 'DeletedDate',
     ];
@@ -179,6 +182,7 @@ class CustomerEntity
         'currencyCode' => 'CURRENCY_CODE',
         'lastupdate' => 'LASTUPDATE',
         'tags' => 'TAGS',
+        'buyerReference' => 'BUYER_REFERENCE',
         'documentHistoryUrl' => 'DOCUMENT_HISTORY_URL',
         'DeletedDate' => 'DELETED_DATE',
     ];
