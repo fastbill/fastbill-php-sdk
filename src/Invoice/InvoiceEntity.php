@@ -136,6 +136,8 @@ class InvoiceEntity
 
     public $detailsUrl;
 
+    public $status;
+
     public const FIELD_MAPPING = [
         'INVOICE_ID' => 'invoiceId',
         'TYPE' => 'type',
@@ -195,6 +197,7 @@ class InvoiceEntity
         'START_DATE' => 'startDate',
         'END_DATE' => 'endDate',
         'DETAILS_URL' => 'detailsUrl',
+        'STATUS' => 'status',
     ];
 
     public const XML_FIELD_MAPPING = [
@@ -256,6 +259,7 @@ class InvoiceEntity
         'startDate' => 'START_DATE',
         'endDate' => 'END_DATE',
         'detailsUrl' => 'DETAILS_URL',
+        'status' => 'STATUS',
     ];
 
     public function __construct(?\SimpleXMLElement $data = null)
