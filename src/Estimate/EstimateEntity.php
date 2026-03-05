@@ -55,6 +55,8 @@ class EstimateEntity
 
     public $templateId;
 
+    public $templateHash;
+
     public $estimateNumber;
 
     public $invoiceTitle;
@@ -109,6 +111,7 @@ class EstimateEntity
         'VAT_ID' => 'vatId',
         'CURRENCY_CODE' => 'currencyCode',
         'TEMPLATE_ID' => 'templateId',
+        'TEMPLATE_HASH' => 'templateHash',
         'ESTIMATE_NUMBER' => 'estimateNumber',
         'INVOICE_TITLE' => 'invoiceTitle',
         'INTROTEXT' => 'introtext',
@@ -148,6 +151,7 @@ class EstimateEntity
         'vatId' => 'VAT_ID',
         'currencyCode' => 'CURRENCY_CODE',
         'templateId' => 'TEMPLATE_ID',
+        'templateHash' => 'TEMPLATE_HASH',
         'estimateNumber' => 'ESTIMATE_NUMBER',
         'invoiceTitle' => 'INVOICE_TITLE',
         'introtext' => 'INTROTEXT',
