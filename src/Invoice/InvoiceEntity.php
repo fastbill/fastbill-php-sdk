@@ -38,6 +38,14 @@ class InvoiceEntity
 
     public $comment;
 
+    public $customerAccountingNote;
+
+    public $contractReference;
+
+    public $customerOrderReference;
+
+    public $orderReference;
+
     /**
      * @var InvoiceCommentEntity[]|string
      */
@@ -198,6 +206,10 @@ class InvoiceEntity
         'END_DATE' => 'endDate',
         'DETAILS_URL' => 'detailsUrl',
         'STATE' => 'state',
+        'CUSTOMER_ACCOUNTING_NOTE' => 'customerAccountingNote',
+        'CUSTOMER_ORDER_REFERENCE' => 'customerOrderReference',
+        'CONTRACT_REFERENCE' => 'contractReference',
+        'ORDER_REFERENCE' => 'orderReference',
     ];
 
     public const XML_FIELD_MAPPING = [
@@ -260,6 +272,10 @@ class InvoiceEntity
         'endDate' => 'END_DATE',
         'detailsUrl' => 'DETAILS_URL',
         'state' => 'STATE',
+        'customerAccountingNote' => 'CUSTOMER_ACCOUNTING_NOTE',
+        'customerOrderReference' => 'CUSTOMER_ORDER_REFERENCE',
+        'contractReference' => 'CONTRACT_REFERENCE',
+        'orderReference' => 'ORDER_REFERENCE',
     ];
 
     public function __construct(?\SimpleXMLElement $data = null)
