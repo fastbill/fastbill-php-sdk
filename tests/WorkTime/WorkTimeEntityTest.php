@@ -4,13 +4,10 @@ declare(strict_types=1);
 namespace FastBillSdkTest\WorkTime;
 
 use FastBillSdk\WorkTime\WorkTimeEntity;
-use FastBillSdkTest\Helper\EntityTestTrait;
 use PHPUnit\Framework\TestCase;
 
 class WorkTimeEntityTest extends TestCase
 {
-    use EntityTestTrait;
-
     public function testSetData()
     {
         $entity = new WorkTimeEntity(
@@ -33,20 +30,14 @@ class WorkTimeEntityTest extends TestCase
 
     public function testSetDataWithInvalidXml()
     {
-        $this->disableDefaultErrorHandler();
-
         $entity = new WorkTimeEntity(
             new \SimpleXMLElement(
                 file_get_contents(__DIR__ . '/_fixtures/worktimes_entity_with_invalid_properties.xml')
             )
         );
 
-        self::assertEquals(
-            'the provided xml key INVALID is not mapped at the moment in FastBillSdk\WorkTime\WorkTimeEntity',
-            array_pop($this->noticeMessages)
-        );
-
-        $this->activateDefaultErrorHandler();
+        self::assertEquals('112233', $entity->timeId);
+        self::assertFalse(property_exists($entity, 'invalid'));
     }
 
     public function testGetXmlData(): void

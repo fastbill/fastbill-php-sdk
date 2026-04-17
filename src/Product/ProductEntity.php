@@ -66,7 +66,6 @@ class ProductEntity
     {
         foreach ($data as $key => $value) {
             if (!isset(self::FIELD_MAPPING[$key])) {
-                trigger_error('the provided xml key ' . $key . ' is not mapped at the moment in ' . self::class);
                 continue;
             }
 
