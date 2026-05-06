@@ -211,7 +211,7 @@ class CustomerEntity
     {
         $xmlData = [];
         foreach (self::XML_FIELD_MAPPING as $key => $value) {
-            if ($this->$key) {
+            if (property_exists($this, $key) && $this->$key !== null) {
                 $xmlData[$value] = $this->$key;
             }
         }
