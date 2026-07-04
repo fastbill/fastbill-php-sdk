@@ -41,6 +41,8 @@ class CustomerEntity
 
     public $customerType;
 
+    public $gln;
+
     public $top;
 
     public $newsletterOptin;
@@ -114,6 +116,7 @@ class CustomerEntity
         'CUSTOMER_TYPE' => 'customerType',
         'TOP' => 'top',
         'NEWSLETTER_OPTIN' => 'newsletterOptin', // deprecated
+        'GLN' => 'gln',
         'ORGANIZATION' => 'organization',
         'POSITION' => 'position',
         'ACADEMIC_DEGREE' => 'academicDegree',
@@ -159,6 +162,7 @@ class CustomerEntity
         'customerAccount' => 'CUSTOMER_ACCOUNT',
         'customerType' => 'CUSTOMER_TYPE',
         'top' => 'TOP',
+        'gln' => 'GLN',
         'newsletterOptin' => 'NEWSLETTER_OPTIN',
         'organization' => 'ORGANIZATION',
         'position' => 'POSITION',
