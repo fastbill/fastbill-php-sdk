@@ -46,6 +46,12 @@ class InvoiceEntity
 
     public $orderReference;
 
+    public $subType;
+
+    public $previousInvoiceId;
+
+    public $nextInvoiceId;
+
     /**
      * @var InvoiceCommentEntity[]|string
      */
@@ -210,6 +216,9 @@ class InvoiceEntity
         'CUSTOMER_ORDER_REFERENCE' => 'customerOrderReference',
         'CONTRACT_REFERENCE' => 'contractReference',
         'ORDER_REFERENCE' => 'orderReference',
+        'SUBTYPE' => 'subType',
+        'PREVIOUS_INVOICE_ID' => 'previousInvoiceId',
+        'NEXT_INVOICE_ID' => 'nextInvoiceId',
     ];
 
     public const XML_FIELD_MAPPING = [
@@ -276,6 +285,9 @@ class InvoiceEntity
         'customerOrderReference' => 'CUSTOMER_ORDER_REFERENCE',
         'contractReference' => 'CONTRACT_REFERENCE',
         'orderReference' => 'ORDER_REFERENCE',
+        'subType' => 'SUBTYPE',
+        'previousInvoiceId' => 'PREVIOUS_INVOICE_ID',
+        'nextInvoiceId' => 'NEXT_INVOICE_ID',
     ];
 
     public function __construct(?\SimpleXMLElement $data = null)
