@@ -85,6 +85,18 @@ class EstimateEntity
 
     public $documentUrl;
 
+    public $discountPercent;
+
+    public $discountAmount;
+
+    public $discountBaseAmount;
+
+    public $discountTotal;
+
+    public $baseCurrencyCode;
+
+    public $exchangeRate;
+
     public const FIELD_MAPPING = [
         'ESTIMATE_ID' => 'estimateId',
         'STATE' => 'state',
@@ -123,6 +135,12 @@ class EstimateEntity
         'ITEMS' => 'items',
         'TOTAL' => 'total',
         'DOCUMENT_URL' => 'documentUrl',
+        'DISCOUNT_PERCENT' => 'discountPercent',
+        'DISCOUNT_AMOUNT' => 'discountAmount',
+        'DISCOUNT_BASE_AMOUNT' => 'discountBaseAmount',
+        'DISCOUNT_TOTAL' => 'discountTotal',
+        'BASE_CURRENCY_CODE' => 'baseCurrencyCode',
+        'EXCHANGE_RATE' => 'exchangeRate',
     ];
 
     public const XML_FIELD_MAPPING = [
@@ -163,6 +181,12 @@ class EstimateEntity
         'items' => 'ITEMS',
         'total' => 'TOTAL',
         'documentUrl' => 'DOCUMENT_URL',
+        'discountPercent' => 'DISCOUNT_PERCENT',
+        'discountAmount' => 'DISCOUNT_AMOUNT',
+        'discountBaseAmount' => 'DISCOUNT_BASE_AMOUNT',
+        'discountTotal' => 'DISCOUNT_TOTAL',
+        'baseCurrencyCode' => 'BASE_CURRENCY_CODE',
+        'exchangeRate' => 'EXCHANGE_RATE',
     ];
 
     public function __construct(?\SimpleXMLElement $data = null)

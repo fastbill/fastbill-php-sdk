@@ -5,3 +5,4 @@
 tools/
 /build/artifacts/*
 /examples/credentials.php
+/.phpunit.result.cache

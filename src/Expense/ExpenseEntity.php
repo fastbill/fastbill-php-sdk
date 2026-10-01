@@ -47,6 +47,10 @@ class ExpenseEntity
 
     public $servicePeriodEnd;
 
+    public $baseCurrencyCode;
+
+    public $exchangeRate;
+
     public const FIELD_MAPPING = [
         'INVOICE_ID' => 'invoiceId',
         'ORGANIZATION' => 'organization',
@@ -69,6 +73,8 @@ class ExpenseEntity
         'DOCUMENT_URL' => 'documentUrl',
         'SERVICE_PERIOD_START' => 'servicePeriodStart',
         'SERVICE_PERIOD_END' => 'servicePeriodEnd',
+        'BASE_CURRENCY_CODE' => 'baseCurrencyCode',
+        'EXCHANGE_RATE' => 'exchangeRate',
     ];
 
     public const XML_FIELD_MAPPING = [
@@ -93,6 +99,8 @@ class ExpenseEntity
         'documentUrl' => 'DOCUMENT_URL',
         'servicePeriodStart' => 'SERVICE_PERIOD_START',
         'servicePeriodEnd' => 'SERVICE_PERIOD_END',
+        'baseCurrencyCode' => 'BASE_CURRENCY_CODE',
+        'exchangeRate' => 'EXCHANGE_RATE',
     ];
 
     public function __construct(?\SimpleXMLElement $data = null)

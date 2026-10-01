@@ -11,4 +11,9 @@ class RecurringInvoiceSearchStruct extends AbstractSearchStruct
     {
         $this->filters['INVOICE_ID'] = $invoiceId;
     }
+
+    public function setIsGrossFilter(bool $isGross)
+    {
+        $this->filters['IS_GROSS'] = $isGross ? 1 : 0;
+    }
 }

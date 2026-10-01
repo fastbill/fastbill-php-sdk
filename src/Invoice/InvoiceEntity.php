@@ -152,6 +152,20 @@ class InvoiceEntity
 
     public $state;
 
+    public $discountPercent;
+
+    public $discountAmount;
+
+    public $discountBaseAmount;
+
+    public $discountTotal;
+
+    public $baseCurrencyCode;
+
+    public $exchangeRate;
+
+    public $isGross;
+
     public const FIELD_MAPPING = [
         'INVOICE_ID' => 'invoiceId',
         'TYPE' => 'type',
@@ -219,6 +233,13 @@ class InvoiceEntity
         'SUBTYPE' => 'subType',
         'PREVIOUS_INVOICE_ID' => 'previousInvoiceId',
         'NEXT_INVOICE_ID' => 'nextInvoiceId',
+        'DISCOUNT_PERCENT' => 'discountPercent',
+        'DISCOUNT_AMOUNT' => 'discountAmount',
+        'DISCOUNT_BASE_AMOUNT' => 'discountBaseAmount',
+        'DISCOUNT_TOTAL' => 'discountTotal',
+        'BASE_CURRENCY_CODE' => 'baseCurrencyCode',
+        'EXCHANGE_RATE' => 'exchangeRate',
+        'IS_GROSS' => 'isGross',
     ];
 
     public const XML_FIELD_MAPPING = [
@@ -288,6 +309,13 @@ class InvoiceEntity
         'subType' => 'SUBTYPE',
         'previousInvoiceId' => 'PREVIOUS_INVOICE_ID',
         'nextInvoiceId' => 'NEXT_INVOICE_ID',
+        'discountPercent' => 'DISCOUNT_PERCENT',
+        'discountAmount' => 'DISCOUNT_AMOUNT',
+        'discountBaseAmount' => 'DISCOUNT_BASE_AMOUNT',
+        'discountTotal' => 'DISCOUNT_TOTAL',
+        'baseCurrencyCode' => 'BASE_CURRENCY_CODE',
+        'exchangeRate' => 'EXCHANGE_RATE',
+        'isGross' => 'IS_GROSS',
     ];
 
     public function __construct(?\SimpleXMLElement $data = null)

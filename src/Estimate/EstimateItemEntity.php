@@ -29,6 +29,12 @@ class EstimateItemEntity
 
     public $sortOrder;
 
+    public $discountBaseAmount;
+
+    public $discountPercent;
+
+    public $discountAmount;
+
     public const FIELD_MAPPING = [
         'ESTIMATE_ITEM_ID' => 'estimateItemId',
         'ARTICLE_NUMBER' => 'articleNumber',
@@ -42,6 +48,9 @@ class EstimateItemEntity
         'COMPLETE_GROSS' => 'completeGross',
         'IS_GROSS' => 'isGross',
         'SORT_ORDER' => 'sortOrder',
+        'DISCOUNT_BASE_AMOUNT' => 'discountBaseAmount',
+        'DISCOUNT_PERCENT' => 'discountPercent',
+        'DISCOUNT_AMOUNT' => 'discountAmount',
     ];
 
     public const XML_FIELD_MAPPING = [
@@ -57,6 +66,9 @@ class EstimateItemEntity
         'completeGross' => 'COMPLETE_GROSS',
         'isGross' => 'IS_GROSS',
         'sortOrder' => 'SORT_ORDER',
+        'discountBaseAmount' => 'DISCOUNT_BASE_AMOUNT',
+        'discountPercent' => 'DISCOUNT_PERCENT',
+        'discountAmount' => 'DISCOUNT_AMOUNT',
     ];
 
     public function __construct(?\SimpleXMLElement $data = null)

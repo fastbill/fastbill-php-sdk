@@ -93,6 +93,10 @@ class RevenueEntity
 
     public $documentUrl;
 
+    public $baseCurrencyCode;
+
+    public $exchangeRate;
+
     public const FIELD_MAPPING = [
         'INVOICE_ID' => 'invoiceId',
         'TYPE' => 'type',
@@ -138,6 +142,8 @@ class RevenueEntity
         'PAYMENT_INFO' => 'paymentInfo',
         'LASTUPDATE' => 'lastupdate',
         'DOCUMENT_URL' => 'documentUrl',
+        'BASE_CURRENCY_CODE' => 'baseCurrencyCode',
+        'EXCHANGE_RATE' => 'exchangeRate',
     ];
 
     public const XML_FIELD_MAPPING = [
@@ -185,6 +191,8 @@ class RevenueEntity
         'paymentInfo' => 'PAYMENT_INFO',
         'lastupdate' => 'LASTUPDATE',
         'documentUrl' => 'DOCUMENT_URL',
+        'baseCurrencyCode' => 'BASE_CURRENCY_CODE',
+        'exchangeRate' => 'EXCHANGE_RATE',
     ];
 
     public function __construct(?\SimpleXMLElement $data = null)

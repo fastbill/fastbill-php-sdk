@@ -77,4 +77,9 @@ class InvoiceSearchStruct extends AbstractSearchStruct
     {
         $this->filters['TYPE'] = $type;
     }
+
+    public function setIsGrossFilter(bool $isGross)
+    {
+        $this->filters['IS_GROSS'] = $isGross ? 1 : 0;
+    }
 }

@@ -37,6 +37,12 @@ class ItemEntity
 
     public $sortOrder;
 
+    public $discountBaseAmount;
+
+    public $discountPercent;
+
+    public $discountAmount;
+
     public const FIELD_MAPPING = [
         'INVOICE_ITEM_ID' => 'invoiceItemId',
         'INVOICE_ID' => 'invoiceId',
@@ -54,6 +60,9 @@ class ItemEntity
         'COMPLETE_GROSS' => 'completeGross',
         'CURRENCY_CODE' => 'currencyCode',
         'SORT_ORDER' => 'sortOrder',
+        'DISCOUNT_BASE_AMOUNT' => 'discountBaseAmount',
+        'DISCOUNT_PERCENT' => 'discountPercent',
+        'DISCOUNT_AMOUNT' => 'discountAmount',
     ];
 
     public const XML_FIELD_MAPPING = [
@@ -73,6 +82,9 @@ class ItemEntity
         'completeGross' => 'COMPLETE_GROSS',
         'currencyCode' => 'CURRENCY_CODE',
         'sortOrder' => 'SORT_ORDER',
+        'discountBaseAmount' => 'DISCOUNT_BASE_AMOUNT',
+        'discountPercent' => 'DISCOUNT_PERCENT',
+        'discountAmount' => 'DISCOUNT_AMOUNT',
     ];
 
     public function __construct(?\SimpleXMLElement $data = null)

@@ -61,6 +61,20 @@ class RecurringInvoiceEntity
 
     public $deleteExistingItems = 1;
 
+    public $discountPercent;
+
+    public $discountAmount;
+
+    public $discountBaseAmount;
+
+    public $discountTotal;
+
+    public $baseCurrencyCode;
+
+    public $exchangeRate;
+
+    public $isGross;
+
     public const FIELD_MAPPING = [
         'INVOICE_ID' => 'invoiceId',
         'TYPE' => 'type',
@@ -82,6 +96,13 @@ class RecurringInvoiceEntity
         'TOTAL' => 'total',
         'VAT_ITEMS' => 'vatItems',
         'ITEMS' => 'items',
+        'DISCOUNT_PERCENT' => 'discountPercent',
+        'DISCOUNT_AMOUNT' => 'discountAmount',
+        'DISCOUNT_BASE_AMOUNT' => 'discountBaseAmount',
+        'DISCOUNT_TOTAL' => 'discountTotal',
+        'BASE_CURRENCY_CODE' => 'baseCurrencyCode',
+        'EXCHANGE_RATE' => 'exchangeRate',
+        'IS_GROSS' => 'isGross',
     ];
 
     public const XML_FIELD_MAPPING = [
@@ -102,6 +123,13 @@ class RecurringInvoiceEntity
         'templateHash' => 'TEMPLATE_HASH',
         'items' => 'ITEMS',
         'deleteExistingItems' => 'DELETE_EXISTING_ITEMS',
+        'discountPercent' => 'DISCOUNT_PERCENT',
+        'discountAmount' => 'DISCOUNT_AMOUNT',
+        'discountBaseAmount' => 'DISCOUNT_BASE_AMOUNT',
+        'discountTotal' => 'DISCOUNT_TOTAL',
+        'baseCurrencyCode' => 'BASE_CURRENCY_CODE',
+        'exchangeRate' => 'EXCHANGE_RATE',
+        'isGross' => 'IS_GROSS',
     ];
 
     public function __construct(?\SimpleXMLElement $data = null)

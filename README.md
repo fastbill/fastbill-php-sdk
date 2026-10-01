@@ -20,3 +20,19 @@ composer require fastbill/fastbill-php-sdk
 
 ### Usage 
 You can find for every implemented api action an example file in the examples directory. 
+
+## Development
+
+The development environment is based on [DDEV](https://ddev.readthedocs.io/). The `Makefile` wraps the most common commands (run `make help` for the full list).
+
+```bash
+make ddev-up         # start the ddev project (ddev start)
+make ddev-install    # install the composer dependencies
+make ddev-unit       # run phpunit
+make ddev-cs         # fix the code style with php-cs-fixer
+make ddev-phpstan    # run phpstan (level 5)
+make ddev-quality    # run cs fixer, phpstan and phpunit
+make ddev-coverage   # run phpunit with html coverage (temporarily enables xdebug)
+make ddev-ssh        # open a shell in the web container
+make ddev-down       # stop the ddev project
+```
