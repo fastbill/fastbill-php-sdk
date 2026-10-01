@@ -3,13 +3,21 @@ declare(strict_types=1);
 
 namespace FastBillSdk\Revenue;
 
+use FastBillSdk\Invoice\InvoicePaymentEntity;
+use FastBillSdk\Item\ItemEntity;
+use FastBillSdk\Item\VatItemEntity;
+
 class RevenueEntity
 {
     public $invoiceId;
 
     public $type;
 
+    public $subType;
+
     public $customerId;
+
+    public $contactId;
 
     public $customerNumber;
 
@@ -18,6 +26,8 @@ class RevenueEntity
     public $projectId;
 
     public $currencyCode;
+
+    public $isGross;
 
     public $deliveryDate;
 
@@ -31,9 +41,20 @@ class RevenueEntity
 
     public $vatTotal;
 
+    /**
+     * @var VatItemEntity[]|string
+     */
     public $vatItems;
 
+    /**
+     * @var ItemEntity[]|string
+     */
     public $items;
+
+    /**
+     * @var InvoicePaymentEntity[]|string
+     */
+    public $payments;
 
     public $total;
 
@@ -69,6 +90,8 @@ class RevenueEntity
 
     public $comments;
 
+    public $comment;
+
     public $countryCode;
 
     public $vatId;
@@ -100,11 +123,14 @@ class RevenueEntity
     public const FIELD_MAPPING = [
         'INVOICE_ID' => 'invoiceId',
         'TYPE' => 'type',
+        'SUBTYPE' => 'subType',
         'CUSTOMER_ID' => 'customerId',
+        'CONTACT_ID' => 'contactId',
         'CUSTOMER_NUMBER' => 'customerNumber',
         'CUSTOMER_COSTCENTER_ID' => 'customerCostcenterId',
         'PROJECT_ID' => 'projectId',
         'CURRENCY_CODE' => 'currencyCode',
+        'IS_GROSS' => 'isGross',
         'DELIVERY_DATE' => 'deliveryDate',
         'INVOICE_TITLE' => 'invoiceTitle',
         'CASH_DISCOUNT_PERCENT' => 'cashDiscountPercent',
@@ -113,6 +139,7 @@ class RevenueEntity
         'VAT_TOTAL' => 'vatTotal',
         'VAT_ITEMS' => 'vatItems',
         'ITEMS' => 'items',
+        'PAYMENTS' => 'payments',
         'TOTAL' => 'total',
         'ORGANIZATION' => 'organization',
         'SALUTATION' => 'salutation',
@@ -130,6 +157,7 @@ class RevenueEntity
         'BANK_IBAN' => 'bankIban',
         'BANK_BIC' => 'bankBic',
         'COMMENTS' => 'comments',
+        'COMMENT' => 'comment',
         'COUNTRY_CODE' => 'countryCode',
         'VAT_ID' => 'vatId',
         'TEMPLATE_ID' => 'templateId',
@@ -149,11 +177,14 @@ class RevenueEntity
     public const XML_FIELD_MAPPING = [
         'invoiceId' => 'INVOICE_ID',
         'type' => 'TYPE',
+        'subType' => 'SUBTYPE',
         'customerId' => 'CUSTOMER_ID',
+        'contactId' => 'CONTACT_ID',
         'customerNumber' => 'CUSTOMER_NUMBER',
         'customerCostcenterId' => 'CUSTOMER_COSTCENTER_ID',
         'projectId' => 'PROJECT_ID',
         'currencyCode' => 'CURRENCY_CODE',
+        'isGross' => 'IS_GROSS',
         'deliveryDate' => 'DELIVERY_DATE',
         'invoiceTitle' => 'INVOICE_TITLE',
         'cashDiscountPercent' => 'CASH_DISCOUNT_PERCENT',
@@ -162,6 +193,7 @@ class RevenueEntity
         'vatTotal' => 'VAT_TOTAL',
         'vatItems' => 'VAT_ITEMS',
         'items' => 'ITEMS',
+        'payments' => 'PAYMENTS',
         'total' => 'TOTAL',
         'organization' => 'ORGANIZATION',
         'salutation' => 'SALUTATION',
@@ -179,6 +211,7 @@ class RevenueEntity
         'bankIban' => 'BANK_IBAN',
         'bankBic' => 'BANK_BIC',
         'comments' => 'COMMENTS',
+        'comment' => 'COMMENT',
         'countryCode' => 'COUNTRY_CODE',
         'vatId' => 'VAT_ID',
         'templateId' => 'TEMPLATE_ID',
@@ -209,9 +242,58 @@ class RevenueEntity
                 continue;
             }
 
-            $this->{self::FIELD_MAPPING[$key]} = (string) $value;
+            switch ($key) {
+                case 'ITEMS':
+                    $items = [];
+                    foreach ($value as $item) {
+                        $items[] = new ItemEntity($item);
+                    }
+
+                    $this->items = $items;
+                    break;
+                case 'VAT_ITEMS':
+                    $vatItems = [];
+                    foreach ($value as $vatItem) {
+                        $vatItems[] = new VatItemEntity($vatItem);
+                    }
+
+                    $this->vatItems = $vatItems;
+                    break;
+                case 'PAYMENTS':
+                    $payments = [];
+                    foreach ($value as $payment) {
+                        $payments[] = new InvoicePaymentEntity($payment);
+                    }
+
+                    $this->payments = $payments;
+                    break;
+                default:
+                    $this->{self::FIELD_MAPPING[$key]} = (string) $value;
+                    break;
+            }
         }
 
         return $this;
+    }
+
+    public function getXmlData(): array
+    {
+        $xmlData = [];
+        foreach (self::XML_FIELD_MAPPING as $key => $value) {
+            if ($key === 'vatItems' || $key === 'payments') {
+                // response only
+                continue;
+            }
+
+            if ($this->$key && $key === 'items') {
+                foreach ($this->items as $item) {
+                    $xmlData[$value][] = $item->getXmlData();
+                }
+            } elseif ($this->$key) {
+                $xmlData[$value] = $this->$key;
+            }
+        }
+
+        return $xmlData;
     }
 }
