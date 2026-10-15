@@ -78,6 +78,21 @@ class InvoiceSearchStruct extends AbstractSearchStruct
         $this->filters['TYPE'] = $type;
     }
 
+    public function setSubTypeFilter(string $subType)
+    {
+        $this->filters['SUBTYPE'] = $subType;
+    }
+
+    public function setStartLastUpdateFilter(string $startLastUpdate)
+    {
+        $this->filters['START_LASTUPDATE'] = $startLastUpdate;
+    }
+
+    public function setEndLastUpdateFilter(string $endLastUpdate)
+    {
+        $this->filters['END_LASTUPDATE'] = $endLastUpdate;
+    }
+
     public function setIsGrossFilter(bool $isGross)
     {
         $this->filters['IS_GROSS'] = $isGross ? 1 : 0;

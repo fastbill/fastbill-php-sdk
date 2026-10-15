@@ -97,6 +97,8 @@ class EstimateEntity
 
     public $exchangeRate;
 
+    public $isGross;
+
     public const FIELD_MAPPING = [
         'ESTIMATE_ID' => 'estimateId',
         'STATE' => 'state',
@@ -141,6 +143,7 @@ class EstimateEntity
         'DISCOUNT_TOTAL' => 'discountTotal',
         'BASE_CURRENCY_CODE' => 'baseCurrencyCode',
         'EXCHANGE_RATE' => 'exchangeRate',
+        'IS_GROSS' => 'isGross',
     ];
 
     public const XML_FIELD_MAPPING = [
@@ -187,6 +190,7 @@ class EstimateEntity
         'discountTotal' => 'DISCOUNT_TOTAL',
         'baseCurrencyCode' => 'BASE_CURRENCY_CODE',
         'exchangeRate' => 'EXCHANGE_RATE',
+        'isGross' => 'IS_GROSS',
     ];
 
     public function __construct(?\SimpleXMLElement $data = null)

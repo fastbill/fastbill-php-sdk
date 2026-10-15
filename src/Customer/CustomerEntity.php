@@ -81,6 +81,10 @@ class CustomerEntity
 
     public $email;
 
+    public $cc;
+
+    public $bcc;
+
     public $website;
 
     public $vatId;
@@ -134,6 +138,8 @@ class CustomerEntity
         'FAX' => 'fax',
         'MOBILE' => 'mobile',
         'EMAIL' => 'email',
+        'CC' => 'cc',
+        'BCC' => 'bcc',
         'WEBSITE' => 'website',
         'VAT_ID' => 'vatId',
         'CURRENCY_CODE' => 'currencyCode',
@@ -181,6 +187,8 @@ class CustomerEntity
         'fax' => 'FAX',
         'mobile' => 'MOBILE',
         'email' => 'EMAIL',
+        'cc' => 'CC',
+        'bcc' => 'BCC',
         'website' => 'WEBSITE',
         'vatId' => 'VAT_ID',
         'currencyCode' => 'CURRENCY_CODE',
