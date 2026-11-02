@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace FastBillSdkTest\Invoice;
 
-use FastBillSdk\Api\ApiClientInterface;
 use FastBillSdk\Common\MissingPropertyException;
 use FastBillSdk\Invoice\InvoiceEntity;
 use FastBillSdk\Invoice\InvoiceSearchStruct;
@@ -12,9 +11,7 @@ use FastBillSdk\Invoice\InvoiceValidator;
 use FastBillSdk\Item\ItemValidator;
 use FastBillSdkTest\Common\BaseTestTrait;
 use FastBillSdkTest\Helper\ApiDummyClient;
-use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
-use Psr\Http\Message\ResponseInterface;
 
 class InvoiceServiceTest extends TestCase
 {
@@ -47,18 +44,7 @@ class InvoiceServiceTest extends TestCase
 
     public function testPartialCancelInvoice()
     {
-        $client = new class implements ApiClientInterface {
-            public $body;
-
-            public $responseXml;
-
-            public function post(string $body): ResponseInterface
-            {
-                $this->body = $body;
-
-                return new Response(200, [], (string) $this->responseXml);
-            }
-        };
+        $client = new ApiDummyClient();
         $client->responseXml = '<?xml version="1.0"?><FBAPI><RESPONSE><STATUS>success</STATUS><INVOICE_ID>99</INVOICE_ID></RESPONSE></FBAPI>';
         $service = new InvoiceService($client, $this->getXmlService(), new InvoiceValidator(new ItemValidator()));
 

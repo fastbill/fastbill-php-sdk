@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace FastBillSdkTest\Helper;
 
+use GuzzleHttp\Psr7\Utils;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
 
@@ -80,7 +81,7 @@ class ApiDummyResponse implements ResponseInterface
 
     public function getBody(): StreamInterface
     {
-        return $this->responseXml;
+        return Utils::streamFor($this->responseXml);
     }
 
     public function withBody(StreamInterface $body): \Psr\Http\Message\MessageInterface
