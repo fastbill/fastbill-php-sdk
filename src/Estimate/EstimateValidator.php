@@ -36,6 +36,27 @@ class EstimateValidator
         return $errorMessages;
     }
 
+    public function validateRequiredUpdateProperties(EstimateEntity $entity): array
+    {
+        $errorMessages = [];
+
+        try {
+            $this->checkEstimateId($entity);
+        } catch (MissingPropertyException $exception) {
+            $errorMessages[] = $exception->getMessage();
+        }
+
+        if (!empty($entity->items)) {
+            try {
+                $this->checkItems($entity);
+            } catch (\InvalidArgumentException|MissingPropertyException $exception) {
+                $errorMessages[] = $exception->getMessage();
+            }
+        }
+
+        return $errorMessages;
+    }
+
     public function validateRequiredCreateInvoiceProperties(EstimateEntity $entity): array
     {
         $errorMessages = [];

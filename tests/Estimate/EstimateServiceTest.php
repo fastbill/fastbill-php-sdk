@@ -96,4 +96,64 @@ class EstimateServiceTest extends TestCase
         $this->expectException(MissingPropertyException::class);
         $this->getEstimateServiceWithApiDummy()->deleteEstimate($estimate);
     }
+
+    public function testUpdateEstimate()
+    {
+        $client = $this->getApiDummyClient();
+        $client->responseXml = '<?xml version="1.0"?><FBAPI><RESPONSE><STATUS>success</STATUS><ESTIMATE_ID>123</ESTIMATE_ID></RESPONSE></FBAPI>';
+        $service = new EstimateService($client, $this->getXmlService(), new EstimateValidator(new EstimateItemValidator()));
+
+        $item = new EstimateItemEntity();
+        $item->estimateItemId = 7;
+        $item->description = 'FastBill SDK';
+        $item->unitPrice = 1337;
+        $item->vatPercent = 19;
+
+        $estimate = new EstimateEntity();
+        $estimate->estimateId = 123;
+        $estimate->state = 'accepted';
+        $estimate->dueDate = '2026-12-31';
+        $estimate->items = [$item];
+
+        $service->updateEstimate($estimate);
+
+        self::assertStringContainsString('<SERVICE>estimate.update</SERVICE>', $client->body);
+        self::assertStringContainsString('<ESTIMATE_ID>123</ESTIMATE_ID>', $client->body);
+        self::assertStringContainsString('<STATE>accepted</STATE>', $client->body);
+        self::assertStringContainsString('<DUE_DATE>2026-12-31</DUE_DATE>', $client->body);
+        self::assertStringContainsString('<ESTIMATE_ITEM_ID>7</ESTIMATE_ITEM_ID>', $client->body);
+        self::assertStringNotContainsString('DELETE_EXISTING_ITEMS', $client->body);
+    }
+
+    public function testUpdateEstimateStateOnlyWithDeleteExistingItems()
+    {
+        $client = $this->getApiDummyClient();
+        $client->responseXml = '<?xml version="1.0"?><FBAPI><RESPONSE><STATUS>success</STATUS><ESTIMATE_ID>123</ESTIMATE_ID></RESPONSE></FBAPI>';
+        $service = new EstimateService($client, $this->getXmlService(), new EstimateValidator(new EstimateItemValidator()));
+
+        $estimate = new EstimateEntity();
+        $estimate->estimateId = 123;
+        $estimate->state = 'sent';
+
+        $service->updateEstimate($estimate, true);
+
+        self::assertStringContainsString('<DELETE_EXISTING_ITEMS>1</DELETE_EXISTING_ITEMS>', $client->body);
+        self::assertStringContainsString('<STATE>sent</STATE>', $client->body);
+    }
+
+    public function testUpdateEstimateWithEmptyEntity()
+    {
+        $this->expectException(MissingPropertyException::class);
+        $this->getEstimateServiceWithApiDummy()->updateEstimate(new EstimateEntity());
+    }
+
+    public function testUpdateEstimateWithInvalidItem()
+    {
+        $estimate = new EstimateEntity();
+        $estimate->estimateId = 123;
+        $estimate->items = [new EstimateItemEntity()];
+
+        $this->expectException(MissingPropertyException::class);
+        $this->getEstimateServiceWithApiDummy()->updateEstimate($estimate);
+    }
 }

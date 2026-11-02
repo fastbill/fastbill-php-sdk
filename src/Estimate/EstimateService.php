@@ -69,6 +69,26 @@ class EstimateService
         return $entity;
     }
 
+    /**
+     * Existing items can be changed via their estimateItemId. If only the state is set,
+     * FastBill only changes the state and does not generate a new PDF.
+     */
+    public function updateEstimate(EstimateEntity $entity, bool $deleteExistingItems = false): EstimateEntity
+    {
+        $this->checkErrors($this->validator->validateRequiredUpdateProperties($entity));
+
+        $this->xmlService->setService('estimate.update');
+        $xml = $entity->getXmlData();
+        if ($deleteExistingItems) {
+            $xml = array_merge(['DELETE_EXISTING_ITEMS' => 1], $xml);
+        }
+        $this->xmlService->setData($xml);
+
+        $this->apiClient->post($this->xmlService->getXml());
+
+        return $entity;
+    }
+
     public function createInvoiceFromEstimate(EstimateEntity $entity): int
     {
         $this->checkErrors($this->validator->validateRequiredCreateInvoiceProperties($entity));

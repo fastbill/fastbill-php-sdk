@@ -128,6 +128,34 @@ class InvoiceService
         return $entity;
     }
 
+    /**
+     * Creates a partial cancellation and returns the ID of the cancellation invoice.
+     * Once an invoice has been partially canceled, only further partial cancellations are possible.
+     */
+    public function partialCancelInvoice(
+        InvoiceEntity $entity,
+        string $itemText,
+        float $netAmount,
+        float $vatPercent,
+    ): int {
+        $this->checkErrors($this->validator->validateRequiredInvoiceId($entity));
+
+        $this->xmlService->setService('invoice.cancel');
+        $this->xmlService->setData([
+            'INVOICE_ID' => $entity->invoiceId,
+            'PARTIAL_CANCELLATION' => 1,
+            'ITEM_TEXT' => $itemText,
+            'NET_AMOUNT' => $netAmount,
+            'VAT_PERCENT' => $vatPercent,
+        ]);
+
+        $response = $this->apiClient->post($this->xmlService->getXml());
+
+        $xml = new \SimpleXMLElement((string) $response->getBody());
+
+        return (int) $xml->RESPONSE->INVOICE_ID;
+    }
+
     public function sendByEmailInvoice(
         InvoiceEntity $entity,
         RecipientEntity $recipient,
